@@ -3,5 +3,5 @@
 
 int main()
 {
-	printf("Coucou Yolène\n");
+	printf("Coucou Yolène !!\n");
 }
