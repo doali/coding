@@ -45,5 +45,5 @@ int main()
     Main varPile;
     varPile.doOtherThing();
 
-    return 1;
+    return 0;
 }
