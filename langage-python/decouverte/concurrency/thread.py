@@ -5,6 +5,7 @@ from threading import Thread, RLock
 
 import cgitb
 
+
 class Counter(Thread):
 
     def __init__(self, world, _lock):
@@ -22,6 +23,7 @@ class Counter(Thread):
             i += 1
         self._lock.release()
         sys.stdout.write("")
+
 
 def main():
     lock = RLock()
