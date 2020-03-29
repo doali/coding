@@ -78,9 +78,10 @@ for value in PROTOCOLE_PORT.values():
     #print type(value)
     print value
 
-for item in PROTOCOLE_PORT.items():
+# Autre parcours
+for key, value in PROTOCOLE_PORT.items():
     #print type(item)
-    print item
+    print key, value
 
 # Commande help(...)
 #help(list)
