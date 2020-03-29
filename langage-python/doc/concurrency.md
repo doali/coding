@@ -1,14 +1,10 @@
 # Thread
-***threading.Thread, lock***
+***threading.Thread, RLock***
 
 _Programmation concurrente_
 - `threading` est le module permettant de créer des processus légers
 
 <- [home](../README.md)
-
-## Sommaire
-- En bref
-- Biblio
 
 ---
 
