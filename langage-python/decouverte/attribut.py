@@ -1,9 +1,12 @@
 #!/usr/bin/python
 
-class MaClasse :
-     essai = "ok"
-     def affiche(self):
-             print self.essai
+
+class MaClasse:
+    essai = "ok"
+
+    def affiche(self):
+        print self.essai
+
 
 objet = MaClasse()
 objet.affiche()
