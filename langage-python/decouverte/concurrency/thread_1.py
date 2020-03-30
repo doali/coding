@@ -16,20 +16,20 @@ class Counter(Thread):
     def run(self):
         i = 0
 
-        self._lock.acquire()
+        self._lock.acquire() # acquisition du _lock
         while (i < len(self._world)):
             sys.stdout.write(self._world[i])
             sys.stdout.flush()
             i += 1
-        self._lock.release()
-        sys.stdout.write("")
+        self._lock.release() # relachement du _lock
+        sys.stdout.write("\n")
 
 
 def main():
-    lock = RLock()
+    lock = RLock() # creation d'une variable locale
 
-    th_a = Counter("PRATIQUE", lock)
-    th_b = Counter("theorie", lock)
+    th_a = Counter("PRATIQUE", lock) # partage du lock
+    th_b = Counter("theorie", lock)  # partage du lock
 
     th_a.start()
     th_b.start()
