@@ -11,7 +11,6 @@ lock_crt_section = RLock()
 
 
 class Counter(Thread):
-
     def __init__(self, world):
         Thread.__init__(self)
         self._world = world
@@ -19,8 +18,8 @@ class Counter(Thread):
     def run(self):
         i = 0
 
-        with lock_crt_section: # acquisition du lock_crt_section
-            while (i < len(self._world)):
+        with lock_crt_section:  # acquisition du lock_crt_section
+            while i < len(self._world):
                 sys.stdout.write(self._world[i])
                 sys.stdout.flush()
                 i += 1

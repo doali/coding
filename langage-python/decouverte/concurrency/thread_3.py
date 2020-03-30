@@ -7,7 +7,7 @@ import cgitb
 
 
 class Counter(Thread):
-    lock_crt_sect = RLock() # variable static
+    lock_crt_sect = RLock()  # variable static
 
     def __init__(self, world):
         Thread.__init__(self)
@@ -16,14 +16,14 @@ class Counter(Thread):
     def run(self):
         i = 0
 
-        Counter.lock_crt_sect.acquire() # acquisition du lock_crt_sect
+        Counter.lock_crt_sect.acquire()  # acquisition du lock_crt_sect
         try:
-            while (i < len(self._world)):
+            while i < len(self._world):
                 sys.stdout.write(self._world[i])
                 sys.stdout.flush()
                 i += 1
         finally:
-            Counter.lock_crt_sect.release() # relachement du lock_crt_sect
+            Counter.lock_crt_sect.release()  # relachement du lock_crt_sect
         sys.stdout.write("\n")
 
 
