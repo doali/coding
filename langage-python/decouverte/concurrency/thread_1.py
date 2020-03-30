@@ -17,11 +17,13 @@ class Counter(Thread):
         i = 0
 
         self._lock.acquire() # acquisition du _lock
-        while (i < len(self._world)):
-            sys.stdout.write(self._world[i])
-            sys.stdout.flush()
-            i += 1
-        self._lock.release() # relachement du _lock
+        try:
+            while (i < len(self._world)):
+                sys.stdout.write(self._world[i])
+                sys.stdout.flush()
+                i += 1
+        finally:
+            self._lock.release() # relachement du _lock
         sys.stdout.write("\n")
 
 
