@@ -37,8 +37,8 @@ class Progress:
 
 def main(timer=3):
     progress = Progress(timer)
-    timer = threading.Timer(timer, progress.progress_stop)
-    timer.start()
+    th_timer = threading.Timer(timer, progress.progress_stop)
+    th_timer.start()
     progress.progress_start()
 
 def usage():
