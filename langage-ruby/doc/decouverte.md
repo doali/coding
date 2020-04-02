@@ -32,7 +32,7 @@ irb(main):052:0> tab.reverse
 irb(main):053:0> 
 ```
 
-- Hash
+- Hash _(Map, tableau associatif, table de hashage...)_
 ```ruby
 irb(main):055:0> hash_ex = {alice: 10, bob: "frere", un: 1}
 => {:alice=>10, :bob=>"frere", :un=>1}
@@ -48,7 +48,7 @@ irb(main):060:0>
 ```
 
 ## Itérations
-- itérer sur une liste
+- itérer sur une liste : `<ma_liste>.each do |elmt_de_liste| ... end`
 ```ruby
 # liste
 list_user = ['u_1', 'u_2', 'u_3', 'u_4', 'u_5']
@@ -112,6 +112,9 @@ Liste : [1, 2, 3, 4, 5, 6]
 => nil
 irb(main):035:0> 
 ```
+
+## Structures de contrôle
+
 
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
