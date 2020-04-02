@@ -26,3 +26,12 @@ end
 5.times do |i|
   puts i
 end
+
+# iterations imbriquees
+5.times do |cpt|
+  puts "Hello #{cpt}"
+  cpt.times do |i|
+    puts "World"
+  end
+end
+
