@@ -5,6 +5,10 @@ class Utilisateur
   attr_accessor :prenom
   attr_accessor :nom
   attr_accessor :oeuvres
+
+  def description
+    puts prenom + " " + nom + ", créateur de : " + oeuvres.to_s
+  end
 end
 
 # Utilisation
@@ -12,8 +16,6 @@ ym = Utilisateur.new
 ym.prenom ='Yukihiro'
 ym.nom ='Matsumoto'
 ym.oeuvres = ['ruby']
-
-puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
 
 lw = Utilisateur.new
 lw.prenom ='Larry'
@@ -28,12 +30,12 @@ dr.oeuvres = ['C'].to_s
 kt = Utilisateur.new
 kt.prenom ='Ken '
 kt.nom ='Thompson'
-kt.oeuvres = ['Unix, C'].to_s
+kt.oeuvres = ['Unix', 'C'].to_s
 
 bk = Utilisateur.new
 bk.prenom ='Brian '
 bk.nom ='Kernighan'
-bk.oeuvres = ['Unix, C'].to_s
+bk.oeuvres = ['Unix', 'C'].to_s
 
 lt = Utilisateur.new
 lt.prenom ='Linus '
@@ -49,3 +51,9 @@ bd = Utilisateur.new
 bd.prenom ='Brendan '
 bd.nom ='Eich'
 bd.oeuvres = ['javascript'].to_s
+
+informaticiens = [ym, lw, dr, kt, bk, lt, dc, bd]
+informaticiens.each do |personne|
+  personne.description
+end
+

@@ -181,6 +181,9 @@ ym.oeuvres = ['ruby']
 puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
 ```
 
+- `def <nom_methode> [...] end` : declaration et définition d'une methode
+- `<nom_instance>.<nom_methode>` : pour l'appel de ladite methode
+
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
 - [*problem gem](https://github.com/rubygems/rubygems/issues/3068)
