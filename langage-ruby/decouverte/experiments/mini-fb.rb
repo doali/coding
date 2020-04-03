@@ -12,9 +12,7 @@ class Utilisateur
 
   def est_ami_avec(ami)
     amis.each do |un_ami|
-      if (un_ami.prenom == ami.prenom)
-        return true
-      end
+      return true if (un_ami.prenom == ami.prenom)
     end
     return false
   end
