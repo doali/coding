@@ -207,7 +207,22 @@ instance_1.ma_methode(instance_1.attr_1)
 # Informations
 puts instance_1.class
 puts instance_1.attr_1.class
+```
+- `def initialize[(arg1, arg2=<valeur_par_defaut>, ...)]` : initialisation des attributs de la classe
+  - appelée dès lors qu'on invoque `<MaClasse>.new[(arg1, arg2, ...)]`
+```ruby
+class MiniFB
+  # === attributs
+  attr_accessor :prenom
+  attr_accessor :amis
 
+  # === initialisation
+  def initialize(prenom, amis=[])
+    self.prenom = prenom
+    @amis = amis
+  end 
+# ...
+end
 ```
 
 ## Biblio

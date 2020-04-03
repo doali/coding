@@ -1,9 +1,15 @@
 #!/usr/bin/env ruby
 
-class Utilisateur
+class MiniFB
   # === attributs
   attr_accessor :prenom
   attr_accessor :amis
+
+  # === initialisation
+  def initialize(prenom, amis=[])
+    self.prenom = prenom
+    @amis = amis
+  end
 
   # === methodes
   def nb_amis
@@ -44,22 +50,13 @@ end
 
 # === declaration d'une fonction principale qui servira de point d'entree
 def main
-  linus = Utilisateur.new
-  linus.prenom = "Linus"
-  linus.amis = []
-  
-  ken = Utilisateur.new
-  ken.prenom = "Ken"
-  ken.amis = []
+  # Creation des personnes
+  linus = MiniFB.new("Linus")
+  ken = MiniFB.new("Ken")
+  brian = MiniFB.new("Brian")
+  bill = MiniFB.new("Bill")
 
-  brian = Utilisateur.new
-  brian.prenom = "Brian"
-  brian.amis = []
-
-  bill = Utilisateur.new
-  bill.prenom = "Bill"
-  bill.amis = []
-
+  # Définition des relations
   linus.amis << ken
   linus.amis << brian
 
@@ -69,6 +66,7 @@ def main
   brian.amis << linus
   brian.amis << ken
 
+  # Creation d'une liste de personnes
   personnes = [linus, ken, brian, bill]
   personnes.each do |pers|
     pers.synthese
@@ -76,7 +74,10 @@ def main
     puts ""
   end
 
-
+  # Initialize
+  larry = MiniFB.new("Larry", [ken, linus, brian])
+  larry.synthese
+  larry.relation_lst(personnes)
 end
 
 # === appel de la main
