@@ -4,6 +4,10 @@ _Langage de programmation où tout est ***objet***._
 *Prérequis*
 - `sudo apt install ruby-full`
 
+_Exécuter également la commande suivante suite à des problèmes rencontrés sur `18.04.4`_
+```bash
+sudo gem update --system 3.0.6
+```
 ---
 
 ## Mode interactif
@@ -130,6 +134,53 @@ else
 end
 ```
 
+## POO _(Programmation Orientée Objet)_
+_En ***Ruby*** ***tout est objet*** même ce qui d'ordinaire est un _type primitif_ par exemple un entier `10` dans d'autres langages._
+- `<objet>.class` : renvoie le type de l'objet
+```ruby
+irb(main):015:0> "une string".class
+=> String
+irb(main):016:0> 10.class
+=> Integer
+irb(main):017:0> 1.0.class
+=> Float
+irb(main):018:0> [1, 0, "coucou", 3.14, 'L'].class
+=> Array
+irb(main):019:0> {clef:'valeur', mois_str:'avril', mois_num:4}.class
+=> Hash
+irb(main):020:0> 
+```
+
+- `class <nom_classe> [...] end` : déclaration et définition d'une classe
+- `mon_instance = <nom_classe>.new` : instanciation de la classe
+```ruby
+irb(main):020:0> class MaClasse
+irb(main):021:1> end
+=> nil
+irb(main):022:0> mon_instance = MaClasse.new
+=> #<MaClasse:0x000055ef3bab8f08>
+irb(main):023:0> mon_instance.class
+=> MaClasse
+irb(main):024:0> 
+```
+- `attr_accessor :<nom_attribut>` : attention `:<nom_attribut>` forme un seul mot !! (pas d'espace entre `:` et `<nom_attribut>)
+```ruby
+# Définition d'une classe
+class Utilisateur
+  attr_accessor :prenom
+  attr_accessor :nom
+  attr_accessor :oeuvres
+end
+
+# Utilisation
+ym = Utilisateur.new
+ym.prenom ='Yukihiro'
+ym.nom ='Matsumoto'
+ym.oeuvres = ['ruby']
+
+puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
+```
 
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
+- [*problem gem](https://github.com/rubygems/rubygems/issues/3068)
