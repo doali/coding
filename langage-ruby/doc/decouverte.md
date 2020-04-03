@@ -181,8 +181,34 @@ ym.oeuvres = ['ruby']
 puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
 ```
 
-- `def <nom_methode> [...] end` : declaration et définition d'une methode
-- `<nom_instance>.<nom_methode>` : pour l'appel de ladite methode
+- `def <nom_methode>[(arg, ...)] [...] end` : declaration et définition d'une methode
+- `<nom_instance>.<nom_methode>[(arg, ...)]` : pour l'appel de ladite methode
+```ruby
+class MaClass
+  attr_accessor :attr_1
+  attr_accessor :attr_2
+
+  def ma_methode(arg)
+    # instructions...
+    puts arg.class
+  end 
+end
+
+# Instanciation
+instance_1 = MaClass.new
+
+# Acces attributs
+instance_1.attr_1 = "premier attribut"
+instance_1.attr_2 = 2 
+
+# Appel methode
+instance_1.ma_methode(instance_1.attr_1)
+
+# Informations
+puts instance_1.class
+puts instance_1.attr_1.class
+
+```
 
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
