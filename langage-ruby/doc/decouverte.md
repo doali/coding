@@ -151,8 +151,8 @@ irb(main):019:0> {clef:'valeur', mois_str:'avril', mois_num:4}.class
 irb(main):020:0> 
 ```
 
-- `class <nom_classe> [...] end` : déclaration et définition d'une classe
-- `mon_instance = <nom_classe>.new` : instanciation de la classe
+- `class <MaClasse> [...] end` : déclaration et définition d'une classe
+- `mon_instance = <MaClasse>.new` : instanciation de la classe
 ```ruby
 irb(main):020:0> class MaClasse
 irb(main):021:1> end
