@@ -223,6 +223,13 @@ class MiniFB
   end 
 # ...
 end
+
+# Creation des personnes
+linus = MiniFB.new("Linus")
+ken = MiniFB.new("Ken")
+brian = MiniFB.new("Brian")
+larry = MiniFB.new("Larry", [ken, linus, brian])
+bill = MiniFB.new("Bill")
 ```
 
 ## Biblio
