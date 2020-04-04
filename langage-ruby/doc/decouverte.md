@@ -285,12 +285,13 @@ B:ClassFils
 # Afficher sans passer à la ligne
 # str : une chaine de caractères
 # * : prend en compte tous les arguments suivant <str> de l'appelant
-def print_and_flush(str = "", *)
-  print str 
+def print_and_flush(*liste_des_arguments)
+  print *liste_des_arguments
   $stdout.flush
 end
 ```
 ```ruby
+# ---------------------------------------------------------------------
 # Exemples
 def saut_de_ligne
   puts " # saut_de_ligne"
@@ -311,8 +312,18 @@ saut_de_ligne
 print_and_flush "mot_1" + " " + "mot_2"
 saut_de_ligne
 
-print_and_flush ("mot_1" + " " + "mot_2")
+print_and_flush("mot_1" + " " + "mot_2")
 saut_de_ligne
+
+print_and_flush("mot_1", "mot_2", "mot_3")
+saut_de_ligne
+
+print_and_flush("mot_1")
+saut_de_ligne
+
+print_and_flush()
+saut_de_ligne
+
 ```
 produit le résultat suivant
 ```bash
@@ -321,6 +332,9 @@ mot_1mot_2 # saut_de_ligne
 mot_1 mot_2 # saut_de_ligne
 mot_1 mot_2 # saut_de_ligne
 mot_1 mot_2 # saut_de_ligne
+mot_1mot_2mot_3 # saut_de_ligne
+mot_1 # saut_de_ligne
+ # saut_de_ligne
 ```
 
 ## Conventions de nommage
