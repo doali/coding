@@ -17,6 +17,7 @@ class MiniFB
   end
 
   def to_s
+    super
     des = (nb_amis  > 1) ? "s" : ""
     return "[" + nb_amis.to_s + "] ami" + des + " compte pour " + prenom
   end

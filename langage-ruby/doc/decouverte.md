@@ -109,7 +109,7 @@ Liste : [1, 2, 3, 4, 5, 6]
 irb(main):032:0> 
 ```
 ### Concatener : `+` _(et récupérer la string d'un objet avec `<...>.to_s`)_
-- `<nom_variable>.to_s` : renvoie la chaine de caractères décrivant <nom_nom_variable>
+- `<nom_variable>.to_s` : renvoie la chaine de caractères décrivant <nom_variable>
 ```ruby
 irb(main):034:0> puts "Liste : " + l.to_s
 Liste : [1, 2, 3, 4, 5, 6]
@@ -163,7 +163,7 @@ irb(main):023:0> mon_instance.class
 => MaClasse
 irb(main):024:0> 
 ```
-- `attr_accessor :<nom_attribut>` : attention `:<nom_attribut>` forme un seul mot !! (pas d'espace entre `:` et `<nom_attribut>)
+- `attr_accessor :<nom_attribut>` : attention `:<nom_attribut>` forme un seul mot !! (pas d'espace entre `:` et `<nom_attribut>`)
 ```ruby
 # Définition d'une classe
 class Utilisateur
@@ -231,7 +231,99 @@ brian = MiniFB.new("Brian")
 larry = MiniFB.new("Larry", [ken, linus, brian])
 bill = MiniFB.new("Bill")
 ```
+- `class <ClassFils> < <ClassPere> [...] end` : définie une relation d'héritage où `<ClassFils>` dérive de `<ClassPere>`
+- redéfinition d'une méthode de sa classe parente en reprenant la signature de celle-ci dans ses classes filles
+- `super` : appel une methode dans la classe parente de meme nom que celle contenant l'appel super
+  ```ruby
+  def methode_ex
+    super
+  end
+  ```
+  > `super` invoquée dans `methode_ex` appellera la methode de même nom `methode_ex` de la classe parente
+  - `super()` : pour appeler la méthode parente sans argument
+  - `super(arg1, arg2, ...)` : pour appeler la méthode parente avec des arguments
+  - on peut récupérer la valeur de retour de `super`
+```ruby
+class ClassParent
+  attr_accessor :nom
+
+  def initialize(nom)
+    @nom = nom
+  end
+
+  def description
+    puts "Je suis le père"
+    return nom + ":" + "#{self.class}"
+  end
+end
+
+class ClassFils < ClassParent
+  def description
+    info = super
+    puts "le fils"
+    return info
+  end
+end
+
+a = ClassParent.new("A")
+puts a.description
+
+b = ClassFils.new("B")
+puts b.description
+```
+```bash
+Je suis le père
+A:ClassParent
+Je suis le père
+le fils
+B:ClassFils
+```
+
+## Astuces
+### Afficher sur une ligne
+```ruby
+# Afficher sans passer à la ligne
+# str : une chaine de caractères
+# * : prend en compte tous les arguments suivant <str> de l'appelant
+def print_and_flush(str = "", *)
+  print str 
+  $stdout.flush
+end
+```
+```ruby
+# Exemples
+def saut_de_ligne
+  puts " # saut_de_ligne"
+end
+
+print_and_flush
+
+print_and_flush "mot_1"
+saut_de_ligne
+
+print_and_flush "mot_1" "mot_2"
+saut_de_ligne
+
+
+print_and_flush "mot_1"  " " "mot_2"
+saut_de_ligne
+
+print_and_flush "mot_1" + " " + "mot_2"
+saut_de_ligne
+
+print_and_flush ("mot_1" + " " + "mot_2")
+saut_de_ligne
+```
+produit le résultat suivant
+```bash
+mot_1 # saut_de_ligne
+mot_1mot_2 # saut_de_ligne
+mot_1 mot_2 # saut_de_ligne
+mot_1 mot_2 # saut_de_ligne
+mot_1 mot_2 # saut_de_ligne
+```
 
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
-- [*problem gem](https://github.com/rubygems/rubygems/issues/3068)
+- [problem gem](https://github.com/rubygems/rubygems/issues/3068)
+- [guide ruby](https://www.rubyguides.com/2018/09/ruby-super-keyword/)

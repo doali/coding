@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+class Animal
+  attr_accessor :nom
+
+  def initialize(nom)
+    @nom = nom
+  end
+
+  def parle
+    print_and_flush nom
+  end
+end
+
+class Chien < Animal
+  def parle
+    super
+    print_and_flush " arf"
+    puts
+  end
+end
+
+class Chat < Animal
+  def parle
+    super
+    print_and_flush " miaou"
+    puts
+  end
+end
+
+def print_and_flush(str, *)
+  print str
+  $stdout.flush
+end
+
+def main
+  # Instanciation
+  chien = Chien.new("idefix")
+  chat = Chat.new("kitty")
+
+  chien.parle()
+  chat.parle()
+end
+
+# === Fonction principale
+main
