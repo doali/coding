@@ -28,8 +28,8 @@ class Chat < Animal
   end
 end
 
-def print_and_flush(str, *)
-  print str
+def print_and_flush(*liste_des_arguments)
+  print *liste_des_arguments
   $stdout.flush
 end
 
