@@ -323,7 +323,17 @@ mot_1 mot_2 # saut_de_ligne
 mot_1 mot_2 # saut_de_ligne
 ```
 
+## Conventions de nommage
+|Local|	Global|	Instance|	Class|	Class|Names|
+|-----|	------|	--------|	-----|	-----|-----|
+|name|	$debug|	@name|	@@total|	PI|
+|fishAndChips|	$CUSTOMER|	@point_1|	@@symtab|	FeetPerMile|
+|x_axis|	$_|	@X|	@@N|	String|
+|thx1138|	$plan9|	@_|	@@x_pos|	MyClass|
+|_26|	$Global|	@plan9|	@@SINGLE|	Jazz_Song|
+
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
 - [problem gem](https://github.com/rubygems/rubygems/issues/3068)
 - [guide ruby](https://www.rubyguides.com/2018/09/ruby-super-keyword/)
+- [ruby doc](https://ruby-doc.com/docs/ProgrammingRuby/html/intro.html)
