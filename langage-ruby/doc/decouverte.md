@@ -136,6 +136,7 @@ end
 
 ## POO _(Programmation Orientée Objet)_
 _En ***Ruby*** ***tout est objet*** même ce qui d'ordinaire est un _type primitif_ par exemple un entier `10` dans d'autres langages._
+### Classes
 - `<objet>.class` : renvoie le type de l'objet
 ```ruby
 irb(main):015:0> "une string".class
@@ -163,6 +164,7 @@ irb(main):023:0> mon_instance.class
 => MaClasse
 irb(main):024:0> 
 ```
+#### Attributs
 - `attr_accessor :<nom_attribut>` : attention `:<nom_attribut>` forme un seul mot !! (pas d'espace entre `:` et `<nom_attribut>`)
 ```ruby
 # Définition d'une classe
@@ -180,7 +182,7 @@ ym.oeuvres = ['ruby']
 
 puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
 ```
-
+#### Méthodes
 - `def <nom_methode>[(arg, ...)] [...] end` : declaration et définition d'une methode
 - `<nom_instance>.<nom_methode>[(arg, ...)]` : pour l'appel de ladite methode
 ```ruby
@@ -208,6 +210,7 @@ instance_1.ma_methode(instance_1.attr_1)
 puts instance_1.class
 puts instance_1.attr_1.class
 ```
+#### Initialisation : _constructeur_
 - `def initialize[(arg1, arg2=<valeur_par_defaut>, ...)]` : initialisation des attributs de la classe
   - appelée dès lors qu'on invoque `<MaClasse>.new[(arg1, arg2, ...)]`
 ```ruby
@@ -231,6 +234,7 @@ brian = MiniFB.new("Brian")
 larry = MiniFB.new("Larry", [ken, linus, brian])
 bill = MiniFB.new("Bill")
 ```
+#### Héritage
 - `class <ClassFils> < <ClassPere> [...] end` : définie une relation d'héritage où `<ClassFils>` dérive de `<ClassPere>`
 - redéfinition d'une méthode de sa classe parente en reprenant la signature de celle-ci dans ses classes filles
 - `super` : appel une methode dans la classe parente de meme nom que celle contenant l'appel super
@@ -278,6 +282,10 @@ Je suis le père
 le fils
 B:ClassFils
 ```
+### Composition
+
+
+
 
 ## Arguments variables
 - `*args` : quantite variable d'arguments transmis à l'appelé (sous forme d'une liste)
