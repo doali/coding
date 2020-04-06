@@ -54,3 +54,18 @@ str <- <type 'str'>
 <__main__.MaClasse instance at 0x7fb70c6d5370> <- <type 'instance'>
 >>> 
 ```
+...ajout concernant les `class`
+```python
+>>> class MaClass:
+...     pass
+... 
+>>> inst_MaClass = MaClass
+>>> inst_2_MaClass = MaClass()
+>>> type(MaClass)
+<class 'type'>
+>>> type(inst_MaClass)
+<class 'type'>
+>>> type(inst_2_MaClass)
+<class '__main__.MaClass'>
+>>> 
+```
