@@ -1,5 +1,5 @@
 # Ruby
-_Langage de programmation où tout est ***objet***._
+_Langage de programmation ***interprété*** où tout est ***objet***._
 
 *Prérequis*
 - `sudo apt install ruby-full`
@@ -49,6 +49,30 @@ irb(main):058:0> hash_ex[:deux] = 2
 irb(main):059:0> hash_ex
 => {:alice=>10, :bob=>"frere", :un=>1, :deux=>2}
 irb(main):060:0> 
+```
+
+### Survol des types
+```ruby
+irb(main):001:0> class MaClass
+irb(main):002:1> end
+=> nil
+irb(main):003:0> inst_MaClass = MaClass.new
+=> #<MaClass:0x0000561d7b081d00>
+irb(main):004:0> l_type = [1, 1.0, 'c', "chaine", [1, 2, 'k'], {clef: 'valeur', :autre_clef => 10}, MaClass, inst_MaClass]
+=> [1, 1.0, "c", "chaine", [1, 2, "k"], {:clef=>"valeur", :autre_clef=>10}, MaClass, #<MaClass:0x0000561d7b081d00>]
+irb(main):005:0> l_type.each do |element|
+irb(main):006:1* puts element.to_s + " <- " + element.class.to_s
+irb(main):007:1> end
+1 <- Integer
+1.0 <- Float
+c <- String
+chaine <- String
+[1, 2, "k"] <- Array
+{:clef=>"valeur", :autre_clef=>10} <- Hash
+MaClass <- Class
+#<MaClass:0x0000561d7b081d00> <- MaClass
+=> [1, 1.0, "c", "chaine", [1, 2, "k"], {:clef=>"valeur", :autre_clef=>10}, MaClass, #<MaClass:0x0000561d7b081d00>]
+irb(main):008:0> 
 ```
 
 ## Itérations
