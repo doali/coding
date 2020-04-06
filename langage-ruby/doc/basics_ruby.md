@@ -168,6 +168,31 @@ irb(main):035:0>
 - `&&, ||, !`
 ### Binaires
 - `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
+### Des referenecs / adresses
+- `<ref_instance1> is <ref_instance2>`
+```python
+>>> class A:
+...     pass
+... 
+>>> class B:
+...     pass
+... 
+>>> a = A() 
+>>> b = B() 
+>>> a is b
+False
+>>> a
+<__main__.A object at 0x7f9c50758860>
+>>> b
+<__main__.B object at 0x7f9c4ce26470>
+>>> b = a 
+>>> b
+<__main__.A object at 0x7f9c50758860>
+>>> a is b
+True
+>>> 
+```
+
 ### Matching operator
 ```ruby
 irb(main):015:0> "3oranges" =~ /[0-9]/
@@ -180,6 +205,7 @@ irb(main):018:0> "oranges" =~ /[0-9]/
 => nil
 irb(main):019:0> 
 ```
+
 ### Not matching operator
 ```ruby
 irb(main):019:0> "oranges" !~ /[0-9]/
@@ -187,29 +213,6 @@ irb(main):019:0> "oranges" !~ /[0-9]/
 irb(main):020:0> "oran4ges" !~ /[0-9]/
 => false
 irb(main):021:0> 
-```
-
-## Structures de contrôle
-- `if [...] elsif [...] else [...] end`
-```ruby
-val = 15
-a = 12
-
-puts "a <- #{a}"
-
-if a == 15
-  puts "a est égal à #{val}"
-elsif a < 15
-  puts "a est inferieur à #{val}"
-else 
-  puts "a est supérieur à #{val}"
-end
-```
-- `<condition> ? <resultat_si_vrai> : <resultat_si_faux>`
-```ruby
-irb(main):016:0> "".size == 0 ? "Chaine vide" : "Chaine non vide"
-=> "Chaine vide"
-irb(main):017:0> 
 ```
 
 ### Redéfinition des opérateurs
@@ -264,6 +267,29 @@ modification de l'attribut nom pour qu'ils aient les mêmes valeurs
 
 nom:objA	#<MaClass:0x000055eb0f0c6fe8>
 identiques ? true
+```
+
+## Structures de contrôle
+- `if [...] elsif [...] else [...] end`
+```ruby
+val = 15
+a = 12
+
+puts "a <- #{a}"
+
+if a == 15
+  puts "a est égal à #{val}"
+elsif a < 15
+  puts "a est inferieur à #{val}"
+else 
+  puts "a est supérieur à #{val}"
+end
+```
+- `<condition> ? <resultat_si_vrai> : <resultat_si_faux>`
+```ruby
+irb(main):016:0> "".size == 0 ? "Chaine vide" : "Chaine non vide"
+=> "Chaine vide"
+irb(main):017:0> 
 ```
 
 ## POO _(Programmation Orientée Objet)_
