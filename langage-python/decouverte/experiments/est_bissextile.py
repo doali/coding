@@ -1,17 +1,16 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 
 
 def est_bissextile(annee):
-    if annee % 4 != 0:
+    if (annee % 4) != 0:
         return False
-    if annee % 100 == 0:
-        if annee % 400 == 0:
-            return True
-        else:
+    if (annee % 100) == 0:
+        if (annee % 400) != 0:
             return False
         return True
+    return True
 
 
 def usage():
@@ -20,7 +19,11 @@ def usage():
 
 def main():
     if len(sys.argv) == 2:
-        print(sys.argv[1], est_bissextile(int(sys.argv[1])) == True)
+        try: 
+            val = int(sys.argv[1])
+            print(sys.argv[1], est_bissextile(val) == True)
+        except:
+            usage()
     else:
         usage()
 
