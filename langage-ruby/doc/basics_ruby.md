@@ -13,6 +13,9 @@ sudo gem update --system 3.0.6
 ## Mode interactif
 Ruby dispose à l'instar de Python, OCaml, ... d'un mode interactif auquel on accède depuis un terminal en tapant `irb` (Interactive Ruby)
 
+## Commentaires
+- `#` : introduit une ligne de commentaires
+
 ## Structures de données
 ### Tableaux, Hash
 - Tableaux
@@ -52,6 +55,23 @@ irb(main):060:0>
 ```
 
 ### Survol des types
+- `nil` : valeur nulle, vide
+- `true, false`
+```ruby
+irb(main):030:0> true
+=> true
+irb(main):031:0> true.class
+=> TrueClass
+irb(main):032:0> false
+=> false
+irb(main):033:0> false.class
+=> FalseClass
+irb(main):034:0> nil
+=> nil
+irb(main):035:0> nil.class
+=> NilClass
+irb(main):036:0>
+```
 ```ruby
 irb(main):001:0> class MaClass
 irb(main):002:1> end
@@ -141,6 +161,34 @@ Liste : [1, 2, 3, 4, 5, 6]
 irb(main):035:0> 
 ```
 
+## Opérateurs
+### Comparaisons
+- `<, >, <=, >=, ==, !=, <=>` : `<=>` : plus grand, égal ou petit
+### Logiques
+- `&&, ||, !`
+### Binaires
+- `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
+### Matching operator
+```ruby
+irb(main):015:0> "3oranges" =~ /[0-9]/
+=> 0
+irb(main):016:0> "3ora4nges" =~ /[0-9]/
+=> 0
+irb(main):017:0> "ora4nges" =~ /[0-9]/
+=> 3
+irb(main):018:0> "oranges" =~ /[0-9]/
+=> nil
+irb(main):019:0> 
+```
+### Not matching operator
+```ruby
+irb(main):019:0> "oranges" !~ /[0-9]/
+=> true
+irb(main):020:0> "oran4ges" !~ /[0-9]/
+=> false
+irb(main):021:0> 
+```
+
 ## Structures de contrôle
 - `if [...] elsif [...] else [...] end`
 ```ruby
@@ -156,6 +204,66 @@ elsif a < 15
 else 
   puts "a est supérieur à #{val}"
 end
+```
+- `<condition> ? <resultat_si_vrai> : <resultat_si_faux>`
+```ruby
+irb(main):016:0> "".size == 0 ? "Chaine vide" : "Chaine non vide"
+=> "Chaine vide"
+irb(main):017:0> 
+```
+
+### Redéfinition des opérateurs
+```ruby
+#!/usr/bin/env ruby
+
+class MaClass
+  attr_accessor :nom
+
+  def initialize(nom)
+    @nom = nom
+  end
+
+  def ==(ref_instance)
+    nom == ref_instance.nom
+  end
+end
+
+# --------------------------------------------------
+obj_a = MaClass.new('objA')
+obj_b = MaClass.new('objB')
+
+puts "nom:" + obj_a.nom + "\t" + obj_a.to_s
+puts "nom:" + obj_b.nom + "\t" + obj_b.to_s
+
+puts
+puts "Redéfinition de l'opérateur =="
+puts "pour que les objets soient considérés comme identiques sur la comparaions de leurs noms"
+
+puts
+puts "identiques ? " + (obj_a == obj_b).to_s
+
+puts
+puts "modification de l'attribut nom pour qu'ils aient les mêmes valeurs"
+obj_b.nom = 'objA'
+
+puts
+puts "nom:" + obj_b.nom + "\t" + obj_b.to_s
+puts "identiques ? " + (obj_a == obj_b).to_s
+```
+qui produit le résultat
+```text
+nom:objA	#<MaClass:0x000055eb0f0c7038>
+nom:objB	#<MaClass:0x000055eb0f0c6fe8>
+
+Redéfinition de l'opérateur ==
+pour que les objets soient considérés comme identiques sur la comparaions de leurs noms
+
+identiques ? false
+
+modification de l'attribut nom pour qu'ils aient les mêmes valeurs
+
+nom:objA	#<MaClass:0x000055eb0f0c6fe8>
+identiques ? true
 ```
 
 ## POO _(Programmation Orientée Objet)_
@@ -370,8 +478,6 @@ Panier :
 - Legume :{tomate:fruit}
 - Legume :{patate:racine}
 ```
-
-
 
 ## Arguments variables
 - `*args` : quantite variable d'arguments transmis à l'appelé (sous forme d'une liste)

@@ -22,8 +22,28 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
+## Commentaires
+- `#` : introduit une ligne de commentaires
+
 ## Structures de données
 ### Les types
+- `None` : valeur vide
+- `True, False`
+```python
+>>> True
+True
+>>> type(True)
+<class 'bool'>
+>>> False
+False
+>>> type(False)
+<class 'bool'>
+>>> None
+>>> type(None)
+<class 'NoneType'>
+>>> 
+```
+- `type(<nom_variable|nom_type>)>` : renvoie le type
 ```python
 >>> class MaClasse:
 ...     pass
@@ -67,5 +87,51 @@ str <- <type 'str'>
 <class 'type'>
 >>> type(inst_2_MaClass)
 <class '__main__.MaClass'>
+>>> 
+```
+## Opérateurs
+### Comparaisons
+- `<, >, <=, >=, ==, !=`
+### Logiques
+- `and, or, not`
+### Binaires
+- `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
+## Structures de contrôles
+- `if [(]<condition>[)]: [...] [elif <condition>:] [...] [else:]` : si, alors si, ..., sinon
+```python
+a = 1 
+if a > 10: 
+    print('a > 10')
+elif a == 10: 
+    print('a == 10')
+else:
+    print('a < 10')
+```
+```python
+
+## Fonctions
+- `def <nom_fonction>([arg1, arg2, ...]): [...]` : les `()` sont obligatoires
+```python
+>>> def f():
+...     pass
+... 
+>>> f
+<function f at 0x7fcaa4e3abf8>
+>>> f()
+>>> 
+```
+## Astuces
+- permuter des va>leurs : `<var_a>, <var_b> = <var_b>, <var_a>`
+```python
+>>> a, b = 1, 2
+>>> a
+1
+>>> b
+2
+>>> a, b = b, a
+>>> a
+2
+>>> b
+1
 >>> 
 ```
