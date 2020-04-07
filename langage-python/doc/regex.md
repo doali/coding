@@ -42,7 +42,7 @@ _Expression symbolique permettant de rechercher des motifs_
 |\D|tout sauf un chiffre|
 |\W|tout sauf : un chiffre ou bien une lettre ou bien un _|
 |\S|tout sauf un (espace, tabulation, ...)|
-|\w+|un ou plusieurs caractèreshttps://go.squidapp.co/n/fvEgIh0 alphanumériques|
+|\w+|un ou plusieurs caractères alphanumériques|
 |\s*|aucun ou plusieurs espaces|
 |\d?|au plus un chiffre|
 |[ACGT]|A ou bien C ou bien G ou bien T|
