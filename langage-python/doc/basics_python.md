@@ -5,15 +5,16 @@ _Les fondamentaux : langage de programmation interprété._
 - Python Software Foundation : création en 2001
 
 ## installation
-_Installé par déafut sous linux._
+_Installé par défaut sous linux._
 - `python --version` : dans un terminal renvoie la version
 
 > Compatibilité ascendante cassée lors du passage de versions *2.X* en *3.X*
 
 ## Interpréteur
-_Python est un langage interprété qui traduit évalue au fur et à mesure les instructions lue via son interpréteur._
+_Python est un langage interprété qui traduit évalue au fur et à mesure les instructions lues via son interpréteur._
 
 - Accès dans la console en lançant `python[X]`
+
 ```bash
 blackpc@blackpc-pc:~$ python3
 Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
@@ -26,9 +27,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 - `#` : introduit une ligne de commentaires
 
 ## Structures de données
+
 ### Les types
 - `None` : valeur vide
 - `True, False`
+
 ```python
 >>> True
 True
@@ -43,7 +46,9 @@ False
 <class 'NoneType'>
 >>> 
 ```
+
 - `type(<nom_variable|nom_type>)>` : renvoie le type
+
 ```python
 >>> class MaClasse:
 ...     pass
@@ -61,7 +66,9 @@ False
 ... 
 >>> 
 ```
+
 ce qui nous permet de vérifier les types présents suivants
+
 ```python
 >>> affiche(l_type)
 0 <- <type 'int'>
@@ -74,7 +81,9 @@ str <- <type 'str'>
 <__main__.MaClasse instance at 0x7fb70c6d5370> <- <type 'instance'>
 >>> 
 ```
+
 ...ajout concernant les `class`
+
 ```python
 >>> class MaClass:
 ...     pass
@@ -89,15 +98,23 @@ str <- <type 'str'>
 <class '__main__.MaClass'>
 >>> 
 ```
+
 ## Opérateurs
+
 ### Comparaisons
 - `<, >, <=, >=, ==, !=`
+
 ### Logiques
 - `and, or, not`
+
 ### Binaires
-- `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
+- `<<, >>, &, ^, |, ~` 
+  - `^` : xor
+  - `~` : complémentaire (not)
+
 ## Structures de contrôles
 - `if [(]<condition>[)]: [...] [elif <condition>:] [...] [else:]` : si, alors si, ..., sinon
+
 ```python
 a = 1 
 if a > 10: 
@@ -107,10 +124,10 @@ elif a == 10:
 else:
     print('a < 10')
 ```
-```python
 
 ## Fonctions
 - `def <nom_fonction>([arg1, arg2, ...]): [...]` : les `()` sont obligatoires
+
 ```python
 >>> def f():
 ...     pass
@@ -120,8 +137,45 @@ else:
 >>> f()
 >>> 
 ```
+
+## Itérations
+- `while <condition>: [...]`
+```python
+#!/usr/bin/env python3
+
+import time
+
+timer = 0.8
+nb_cycle = 5
+
+print("debut timer de + " + str(timer) + " seconde")
+
+cpt = 0
+while cpt < nb_cycle:
+    cpt += 1
+    print(cpt)
+    time.sleep(timer)
+
+print("fin timer")
+```
+- `for <element> in <sequence>: [...]`
+```python
+#!/usr/bin/env python3
+
+import sys
+
+# Python3 => utilisation de list
+l = list(range(10))
+
+for element in l:
+    sys.stdout.write(element.__str__())
+    sys.stdout.flush()
+```
+
+
 ## Astuces
 - permuter des va>leurs : `<var_a>, <var_b> = <var_b>, <var_a>`
+
 ```python
 >>> a, b = 1, 2
 >>> a

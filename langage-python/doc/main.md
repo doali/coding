@@ -131,11 +131,11 @@ host  /tmp  cat lapin.py
 # lapin.py
 
 def langue():
-print('lapin.py : __name__',__name__)
-print('le lapin')
+    print('lapin.py : __name__',__name__)
+    print('le lapin')
 
 if __name__ == '__main__':
-langue()
+    langue()
 ```
 
 ```bash
@@ -157,7 +157,7 @@ host  /tmp  cat faune.py
 import lapin
 
 def parle_ici():
-lapin.langue()
+    lapin.langue()
 
 print('faune.py : __name__',__name__)
 parle_ici()
