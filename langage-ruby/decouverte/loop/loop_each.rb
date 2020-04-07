@@ -35,3 +35,14 @@ end
   end
 end
 
+# iteration .. <= avec le dernier
+(1 .. 10).each do |element|
+  print element.to_s + " " 
+end
+
+puts
+# iteration ... <= sans le dernier
+(1 ... 10).each do |element|
+  print element.to_s + " "
+end
+puts

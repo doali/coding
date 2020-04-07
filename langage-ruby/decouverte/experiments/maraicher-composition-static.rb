@@ -88,7 +88,7 @@ etale = Etale.cree_etale(10) # utilisation de methodes static
 Etale.desription(etale)      # utilisation de methodes static
 
 puts "---"
-panier = Panier.new("Georges", 7) # methodes d'instance + composition
+panier = Panier.new("Georges", 3) # methodes d'instance + composition
 panier.description
 
 puts "---"

@@ -14,9 +14,9 @@ if nb_rx_mails > 0
 end
 
 emails_rx.each do |email|
-  if email == "yo@lol.com"
+  if email =~ /^yo/
     puts ":-]"
-  elsif email == "abeille@lol.com"
+  elsif email =~ /abeille/
     puts ":-)"
   else
     puts "°_o"

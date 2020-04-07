@@ -2,24 +2,27 @@
 
 class MiniFB
   # === attributs
-  attr_accessor :prenom
-  attr_accessor :amis
+  attr_accessor :_prenom
+  attr_accessor :_amis
 
   # === initialisation
   def initialize(prenom, amis=[])
-    self.prenom = prenom
-    @amis = amis
+    self._prenom = prenom
+    @_amis = amis
   end
 
   # === methodes
   def nb_amis
-    return amis.size
+    return _amis.size
   end
 
   def to_s
-    super
     des = (nb_amis  > 1) ? "s" : ""
-    return "[" + nb_amis.to_s + "] ami" + des + " compte pour " + prenom
+    info =  "[" + nb_amis.to_s + "] ami" + des + " compte pour " + _prenom
+    _amis.each do |ami|
+      info += ("\n- " + ami._prenom)
+    end
+    return info
   end
 end
 

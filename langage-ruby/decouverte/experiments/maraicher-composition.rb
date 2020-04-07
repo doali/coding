@@ -57,13 +57,13 @@ def legume_au_hasard
 end
 
 etale = []
-30.times do
+10.times do
   etale << legume_au_hasard
 end
 
 puts "Etale :" + etale.to_s
 
-panier = Panier.new(10)
+panier = Panier.new(3)
 panier.description
 panier.remplir(etale)
 panier.description

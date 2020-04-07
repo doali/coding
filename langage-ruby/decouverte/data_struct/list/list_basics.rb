@@ -33,4 +33,3 @@ puts list_ex.to_s
 
 list_ex.reverse
 puts list_ex.to_s
-

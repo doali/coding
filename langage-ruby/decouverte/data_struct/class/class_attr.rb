@@ -29,4 +29,3 @@ puts instance_2.class
 
 puts instance_1.attr_1.class
 puts instance_1.attr_2.class
-

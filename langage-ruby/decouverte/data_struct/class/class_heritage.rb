@@ -1,4 +1,4 @@
-#!/usr/binenv ruby
+#!/usr/bin/env ruby
 
 class ClassParent
   attr_accessor :nom
