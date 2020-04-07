@@ -40,9 +40,9 @@ _Expression symbolique permettant de rechercher des motifs_
 |\w|un chiffre ou bien une lettre ou bien un _|
 |\s|un (espace, tabulation, ...) _dépend de l'OS_|
 |\D|tout sauf un chiffre|
-|\W|tout sauf : un chiffre oubien une lettre ou bien un _|
+|\W|tout sauf : un chiffre ou bien une lettre ou bien un _|
 |\S|tout sauf un (espace, tabulation, ...)|
-|\w+|un ou plusieurs caractères alphanumériques|
+|\w+|un ou plusieurs caractèreshttps://go.squidapp.co/n/fvEgIh0 alphanumériques|
 |\s*|aucun ou plusieurs espaces|
 |\d?|au plus un chiffre|
 |[ACGT]|A ou bien C ou bien G ou bien T|
