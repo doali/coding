@@ -171,6 +171,9 @@ for element in l:
     sys.stdout.write(element.__str__())
     sys.stdout.flush()
 ```
+### Rupture et reprise 
+- `break` : sortie de boucle immédiate
+- `continue` : reprise immédiate au début de la boucle
 
 
 ## Astuces
