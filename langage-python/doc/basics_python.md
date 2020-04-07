@@ -125,19 +125,6 @@ else:
     print('a < 10')
 ```
 
-## Fonctions
-- `def <nom_fonction>([arg1, arg2, ...]): [...]` : les `()` sont obligatoires
-
-```python
->>> def f():
-...     pass
-... 
->>> f
-<function f at 0x7fcaa4e3abf8>
->>> f()
->>> 
-```
-
 ## Itérations
 - `while <condition>: [...]`
 ```python
@@ -175,6 +162,33 @@ for element in l:
 - `break` : sortie de boucle immédiate
 - `continue` : reprise immédiate au début de la boucle
 
+## Fonctions
+- `def <nom_fonction>([arg1, arg2=<valeur_defaut>, ...]): [...]` : les `()` sont obligatoires
+> (!) la signature d'une fonction est réduite à nom \
+> Du coup, si deux fonctions portent le même nom, c'est la définition de la dernière qui sera prise en compte !
+
+```python
+>>> def f():
+...     pass
+... 
+>>> f
+<function f at 0x7fcaa4e3abf8>
+>>> f()
+>>> 
+```
+- ordre des arguments libres lors de l'appel ***si*** présence de valeurs par défaut de définies
+```python
+#!/usr/bin/env python3
+
+def f_val_defaut(a, b=2, c=3):
+    print(a, b, c)
+
+f_val_defaut(1, c=4, b=0)
+```
+- qui renvoie
+```bash
+1 0 4
+```
 
 ## Astuces
 - permuter des va>leurs : `<var_a>, <var_b> = <var_b>, <var_a>`
@@ -191,4 +205,105 @@ for element in l:
 >>> b
 1
 >>> 
+```
+
+## Documenter
+_Utilisation des ***docstring*** introduites par `"""`...`"""`_
+
+Exemple d'un fichier comportant des commentaires ***docstring***
+```python
+#!/usr/bin/env python
+"""
+Good habit
+- __doc__ to document
+- __main__ to specify entry point
+"""
+print(__doc__)
+
+def create_complex(real=0.0, imag=0.0):
+    """Form a complex number.
+
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+    
+    """
+    return [real, imag]
+
+
+def main():
+    """Let us say that this is our main method"""
+    print(main.__doc__)
+    l = create_complex(1, 2)
+    print(l)
+
+# Entry point of the script
+if __name__ == '__main__':
+    main()
+```
+- on peut obtenir l'aide sur tout notre module `main` en tapant `help(main)` depuis l'interpreteur (lancé dans le même répertoire contenant notre module défini par `main.py`)
+```python
+Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import main
+
+Good habit
+- __doc__ to document
+- __main__ to specify entry point
+
+>>> help(main)
+
+>>> 
+```
+- qui produit le résultat suivant
+```bash
+Help on module main:
+
+NAME
+    main
+
+DESCRIPTION
+    Good habit
+    - __doc__ to document
+    - __main__ to specify entry point
+
+FUNCTIONS
+    create_complex(real=0.0, imag=0.0)
+        Form a complex number.
+        
+        Keyword arguments:
+        real -- the real part (default 0.0)
+        imag -- the imaginary part (default 0.0)
+    
+    main()
+        Let us say that this is our main method
+
+FILE
+    /home/blackpc/git-github/computing/langage-python/decouverte/docstring/main.py
+```
+- de même 
+```python
+Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import main
+
+Good habit
+- __doc__ to document
+- __main__ to specify entry point
+
+>>> help(main.create_complex)
+
+>>> 
+```
+- produit le résultat
+```bash
+create_complex(real=0.0, imag=0.0)
+    Form a complex number.
+    
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+(END)
 ```
