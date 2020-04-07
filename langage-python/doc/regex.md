@@ -46,7 +46,7 @@ _Expression symbolique permettant de rechercher des motifs_
 |\s*|aucun ou plusieurs espaces|
 |\d?|au plus un chiffre|
 |[ACGT]|A ou bien C ou bien G ou bien T|
-|[^ACGT]|tout sauf : un A ou bien un C ou bine un G ou bien un T|
+|[^ACGT]|tout sauf : un A ou bien un C ou bien un G ou bien un T|
 |{2,4}|répétition entre 2 et 4 fois|
 |{14}|exactement 14 fois|
 |{15,}|au moins 15 fois|
