@@ -1,0 +1,9 @@
+# compilation
+#javac -d class -sourcepath src src/Main.java
+
+# execution
+#cd class
+#java Main
+
+# automatisation
+# utiliser le script : do.sh
