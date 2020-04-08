@@ -5,8 +5,11 @@ _Langage de programmation ***interprété*** où tout est ***objet***._
 - `sudo apt install ruby-full`
 
 _Exécuter également la commande suivante suite à des problèmes rencontrés sur `18.04.4`_
+
+
 ```bash
 sudo gem update --system 3.0.6
+
 ```
 ---
 
@@ -19,6 +22,7 @@ Ruby dispose à l'instar de Python, OCaml, ... d'un mode interactif auquel on ac
 ## Structures de données
 ### Tableaux, Hash
 - Tableaux
+
 ```ruby
 irb(main):045:0> tab = ["a", 1, 2, "d"]
 => ["a", 1, 2, "d"]
@@ -37,9 +41,11 @@ irb(main):051:0> tab.append('F')
 irb(main):052:0> tab.reverse
 => ["F", "E", "D", 2, 1, "A"]
 irb(main):053:0> 
+
 ```
 
 - Hash _(Map, tableau associatif, table de hashage...)_
+
 ```ruby
 irb(main):055:0> hash_ex = {alice: 10, bob: "frere", un: 1}
 => {:alice=>10, :bob=>"frere", :un=>1}
@@ -52,11 +58,13 @@ irb(main):058:0> hash_ex[:deux] = 2
 irb(main):059:0> hash_ex
 => {:alice=>10, :bob=>"frere", :un=>1, :deux=>2}
 irb(main):060:0> 
+
 ```
 
 ### Survol des types
 - `nil` : valeur nulle, vide
 - `true, false`
+
 ```ruby
 irb(main):030:0> true
 => true
@@ -71,7 +79,9 @@ irb(main):034:0> nil
 irb(main):035:0> nil.class
 => NilClass
 irb(main):036:0>
+
 ```
+
 ```ruby
 irb(main):001:0> class MaClass
 irb(main):002:1> end
@@ -93,10 +103,12 @@ MaClass <- Class
 #<MaClass:0x0000561d7b081d00> <- MaClass
 => [1, 1.0, "c", "chaine", [1, 2, "k"], {:clef=>"valeur", :autre_clef=>10}, MaClass, #<MaClass:0x0000561d7b081d00>]
 irb(main):008:0> 
+
 ```
 
 ## Itérations
 - itérer sur une liste : `<ma_liste>.each do |elmt_de_liste| ... end`
+
 ```ruby
 # liste
 list_user = ['u_1', 'u_2', 'u_3', 'u_4', 'u_5']
@@ -105,7 +117,9 @@ list_user = ['u_1', 'u_2', 'u_3', 'u_4', 'u_5']
 list_user.each do |element|
   puts element
 end
+
 ```
+
 ```ruby
 # hash
 p_1 = {nom:'n_1', prenom: 'p_1'}
@@ -120,16 +134,20 @@ annuaire = [p_1, p_2, p_3, p_4, p_5]
 annuaire.each do |pers|
   puts pers[:nom] + " --> " + pers[:prenom]
 end
+
 ```
 - itérer sur des valeurs entières
+
 ```ruby
 # iteration
 5.times do |i| 
   puts i
 end
+
 ```
 
 ## Affichage
+
 ```ruby
 irb(main):027:0> l
 => [1, 2, 3, 4, 5, 6]
@@ -142,23 +160,28 @@ irb(main):028:0> puts l
 6
 => nil
 irb(main):029:0> 
+
 ```
 Pour afficher le contenu d'une liste et d'une chaine de caractères on peut procéder des façons suivantes
 ### Accéder au contenu : `#{...}`
 - `#{<nom_variable>}` : accède au contenu de <nom_variable>
+
 ```ruby
 irb(main):031:0> puts "Liste : #{l}"
 Liste : [1, 2, 3, 4, 5, 6]
 => nil
 irb(main):032:0> 
+
 ```
 ### Concatener : `+` _(et récupérer la string d'un objet avec `<...>.to_s`)_
 - `<nom_variable>.to_s` : renvoie la chaine de caractères décrivant <nom_variable>
+
 ```ruby
 irb(main):034:0> puts "Liste : " + l.to_s
 Liste : [1, 2, 3, 4, 5, 6]
 => nil
 irb(main):035:0> 
+
 ```
 
 ## Opérateurs
@@ -170,6 +193,7 @@ irb(main):035:0>
 - `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
 ### Des referenecs / adresses
 - `<ref_instance1> is <ref_instance2>`
+
 ```python
 >>> class A:
 ...     pass
@@ -191,9 +215,11 @@ False
 >>> a is b
 True
 >>> 
+
 ```
 
 ### Matching operator
+
 ```ruby
 irb(main):015:0> "3oranges" =~ /[0-9]/
 => 0
@@ -204,18 +230,22 @@ irb(main):017:0> "ora4nges" =~ /[0-9]/
 irb(main):018:0> "oranges" =~ /[0-9]/
 => nil
 irb(main):019:0> 
+
 ```
 
 ### Not matching operator
+
 ```ruby
 irb(main):019:0> "oranges" !~ /[0-9]/
 => true
 irb(main):020:0> "oran4ges" !~ /[0-9]/
 => false
 irb(main):021:0> 
+
 ```
 
 ### Redéfinition des opérateurs
+
 ```ruby
 #!/usr/bin/env ruby
 
@@ -252,8 +282,10 @@ obj_b.nom = 'objA'
 puts
 puts "nom:" + obj_b.nom + "\t" + obj_b.to_s
 puts "identiques ? " + (obj_a == obj_b).to_s
+
 ```
 qui produit le résultat
+
 ```text
 nom:objA	#<MaClass:0x000055eb0f0c7038>
 nom:objB	#<MaClass:0x000055eb0f0c6fe8>
@@ -267,10 +299,13 @@ modification de l'attribut nom pour qu'ils aient les mêmes valeurs
 
 nom:objA	#<MaClass:0x000055eb0f0c6fe8>
 identiques ? true
+
 ```
 
 ## Structures de contrôle
 - `if [...] elsif [...] else [...] end`
+
+
 ```ruby
 val = 15
 a = 12
@@ -284,18 +319,23 @@ elsif a < 15
 else 
   puts "a est supérieur à #{val}"
 end
+
 ```
 - `<condition> ? <resultat_si_vrai> : <resultat_si_faux>`
+
 ```ruby
 irb(main):016:0> "".size == 0 ? "Chaine vide" : "Chaine non vide"
 => "Chaine vide"
 irb(main):017:0> 
+
 ```
 
 ## POO _(Programmation Orientée Objet)_
 _En ***Ruby*** ***tout est objet*** même ce qui d'ordinaire est un _type primitif_ par exemple un entier `10` dans d'autres langages._
+
 ### Classes
 - `<objet>.class` : renvoie le type de l'objet
+
 ```ruby
 irb(main):015:0> "une string".class
 => String
@@ -308,10 +348,13 @@ irb(main):018:0> [1, 0, "coucou", 3.14, 'L'].class
 irb(main):019:0> {clef:'valeur', mois_str:'avril', mois_num:4}.class
 => Hash
 irb(main):020:0> 
+
 ```
 
 - `class <MaClasse> [...] end` : déclaration et définition d'une classe
 - `mon_instance = <MaClasse>.new` : instanciation de la classe
+
+
 ```ruby
 irb(main):020:0> class MaClasse
 irb(main):021:1> end
@@ -321,9 +364,12 @@ irb(main):022:0> mon_instance = MaClasse.new
 irb(main):023:0> mon_instance.class
 => MaClasse
 irb(main):024:0> 
+
 ```
 #### Attributs
 - `attr_accessor :<nom_attribut>` : attention `:<nom_attribut>` forme un seul mot !! (pas d'espace entre `:` et `<nom_attribut>`)
+
+
 ```ruby
 # Définition d'une classe
 class Utilisateur
@@ -339,10 +385,14 @@ ym.nom ='Matsumoto'
 ym.oeuvres = ['ruby']
 
 puts ym.prenom + " " + ym.nom + ", créateur de : " + ym.oeuvres.to_s
+
 ```
+
 #### Méthodes
 - `def <nom_methode>[(arg, ...)] [...] end` : declaration et définition d'une methode
 - `<nom_instance>.<nom_methode>[(arg, ...)]` : pour l'appel de ladite methode
+
+
 ```ruby
 class MaClass
   attr_accessor :attr_1
@@ -367,10 +417,12 @@ instance_1.ma_methode(instance_1.attr_1)
 # Informations
 puts instance_1.class
 puts instance_1.attr_1.class
+
 ```
 #### Initialisation : _constructeur_
 - `def initialize[(arg1, arg2=<valeur_par_defaut>, ...)]` : initialisation des attributs de la classe
   - appelée dès lors qu'on invoque `<MaClasse>.new[(arg1, arg2, ...)]`
+
 ```ruby
 class MiniFB
   # === attributs
@@ -391,20 +443,24 @@ ken = MiniFB.new("Ken")
 brian = MiniFB.new("Brian")
 larry = MiniFB.new("Larry", [ken, linus, brian])
 bill = MiniFB.new("Bill")
+
 ```
 #### Héritage
 - `class <ClassFils> < <ClassPere> [...] end` : définie une relation d'héritage où `<ClassFils>` dérive de `<ClassPere>`
 - redéfinition d'une méthode de sa classe parente en reprenant la signature de celle-ci dans ses classes filles
 - `super` : appel une methode dans la classe parente de meme nom que celle contenant l'appel super
-  ```ruby
+  
+```ruby
   def methode_ex
     super
   end
-  ```
+  
+```
   > `super` invoquée dans `methode_ex` appellera la methode de même nom `methode_ex` de la classe parente
   - `super()` : pour appeler la méthode parente sans argument
   - `super(arg1, arg2, ...)` : pour appeler la méthode parente avec des arguments
   - on peut récupérer la valeur de retour de `super`
+
 ```ruby
 class ClassParent
   attr_accessor :nom
@@ -432,16 +488,20 @@ puts a.description
 
 b = ClassFils.new("B")
 puts b.description
+
 ```
+
 ```bash
 Je suis le père
 A:ClassParent
 Je suis le père
 le fils
 B:ClassFils
+
 ```
 ### Composition
 - `attr_attr_accessor :<nom_composant>` : `<nom_composant>` est une reference vers l'objet pour lequel on définit une relation de composition
+
 ```ruby
 class Panier
   attr_accessor :_legumes # composition
@@ -493,8 +553,10 @@ puts panier
 panier.ajouter(legume_tomate)
 panier.ajouter(legume_patate)
 puts panier
+
 ```
 qui produit le résultat suivant
+
 ```bash
 Legume :{tomate:fruit}
 Legume :{patate:racine}
@@ -503,11 +565,13 @@ Panier :vide
 Panier :
 - Legume :{tomate:fruit}
 - Legume :{patate:racine}
+
 ```
 
 ## Arguments variables
 - `*args` : quantite variable d'arguments transmis à l'appelé (sous forme d'une liste)
 - `**kwargs` : quantite variable d'arguments présentés comme une succession de hash map
+
 ```ruby
 # Arguments variables
 # *args : quantite variable d'arguments transmis à l'appele (sous forme d'une liste)
@@ -546,8 +610,10 @@ end
 
 testing({un:1, deux:2}, 'a', 'b', 'c', 'd', 'e', d: 2, x: 1, lol:{mon_hash:{hein:1, deux:2}})
 puts "------------------------------"
+
 ```
 qui produit le résultat suivant
+
 ```bash
 ["a", "b", "c", 1, 2, 3]
 a
@@ -578,10 +644,12 @@ e
 2
 {:x=>1, :lol=>{:mon_hash=>{:hein=>1, :deux=>2}}}
 ------------------------------
+
 ```
 
 ## Astuces
 ### Afficher sur une ligne
+
 ```ruby
 # Afficher sans passer à la ligne
 # str : une chaine de caractères
@@ -590,7 +658,9 @@ def print_and_flush(*liste_des_arguments)
   print *liste_des_arguments
   $stdout.flush
 end
+
 ```
+
 ```ruby
 # ---------------------------------------------------------------------
 # Exemples
@@ -625,8 +695,10 @@ saut_de_ligne
 print_and_flush()
 saut_de_ligne
 
+
 ```
 produit le résultat suivant
+
 ```bash
 mot_1 # saut_de_ligne
 mot_1mot_2 # saut_de_ligne
@@ -636,6 +708,7 @@ mot_1 mot_2 # saut_de_ligne
 mot_1mot_2mot_3 # saut_de_ligne
 mot_1 # saut_de_ligne
  # saut_de_ligne
+
 ```
 
 ## Conventions de nommage
