@@ -1,2 +1,9 @@
-# computing
-_Repository pour langages de programmation._
+# Computing
+- coding-c
+- coding-cpp
+- coding-go
+- coding-java
+- coding-js
+- coding-python
+- coding-ruby
+- coding-shell
