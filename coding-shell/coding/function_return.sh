@@ -2,6 +2,7 @@
 
 set -o nounset
 
+# https://www.linuxjournal.com/content/return-values-bash-functions
 # Bonne pratique
 # - definir des variables locales
 # - renvoyer sur la sortie standard le resultat a exploiter

@@ -24,3 +24,7 @@ function my_func()
 result=$(my_func) # on capture dans la variable le resultat  
 echo $result
 ```
+
+## Biblio
+
+- [linux journal](https://www.linuxjournal.com/content/return-values-bash-functions)
