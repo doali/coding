@@ -307,3 +307,6 @@ create_complex(real=0.0, imag=0.0)
     imag -- the imaginary part (default 0.0)
 (END)
 ```
+
+## Biblio
+- [Pierre Giraud](https://www.pierre-giraud.com/python-apprendre-programmer-cours/introduction/)
