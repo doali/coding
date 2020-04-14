@@ -1,0 +1,12 @@
+# Operators
+
+## `>`
+
+- `> file redirects stdout to file`
+- `1> file redirects stdout to file`
+- `2> file redirects stderr to file`
+- `&> file redirects stdout and stderr to file`
+
+## Biblio
+
+- [askubuntu](https://askubuntu.com/questions/350208/what-does-2-dev-null-mean)
