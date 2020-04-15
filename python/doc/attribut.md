@@ -27,9 +27,16 @@ print instance.Variable    # 3  (ordinary variable)
 print Example.Variable     # 5  (static variable)
 ```
 - `Variable = 2` : est une variable static
+
 > Toute variable définie au niveau d'une classe est static \
 > (!) On peut définir malgré tout une variable d'instance de ***même*** nom !! \
 > _(Ce qui peut porter à confusion)_
+
+> On peut comprendre que \
+> -  instance.Variable est une static accédée via l'instance \
+> -  Example.Variable est la même static accédée de façon conventionnelle \
+> -  instance.Variable = 3 définit une variable d'instance de même nom que la variable static Variable \
+> -  On dispose de deux variables qui vivent indépendamment
 
 ```python
 class SomeClass:
