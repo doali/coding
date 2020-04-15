@@ -6,7 +6,7 @@ sent_from = 'moi'
 to = ['to@a.com']
 subject = 'First test'
 body = 'mardi 25 fevrier 2020, 01:20:39 (UTC+0100)'
-email_text = "Dernier message envoye en python via smtplib... Option de securite reactive pour le compte doali.phone"
+email_text = "Dernier message envoye en python via smtplib... Option de securite reactive pour le compte toto@titi.com"
 
 try:
         smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
