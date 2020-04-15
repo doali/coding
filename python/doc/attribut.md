@@ -1,6 +1,11 @@
-# Attributs : static et d'instance
+# Variables _static_ et d'_instance_
 
 ## Dans une classe
+
+### Attribut static
+
+### Attribut d'instance
+
 - `NomClasse.nom_attribut` : utilisation
 - `nom_instance._nom_attribut` : utilisation
 

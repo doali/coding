@@ -63,3 +63,4 @@ print(scott)
 ## Biblio
 
 - [stackabuse](https://stackabuse.com/pythons-classmethod-and-staticmethod-explained/)
+- [medium](https://medium.com/@arkilis/python-instance-method-vs-static-method-vs-class-method-5e43cef6df78)
