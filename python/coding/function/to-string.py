@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class ReprVsStr:
     def __repr__(self):
         return "<{0}.{1} object at {2}>".format(
