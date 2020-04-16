@@ -233,3 +233,4 @@ class MultiDerived(Base1, Base2):
 - [realpython](https://realpython.com/lessons/super-and-inheritance-hierarchy/)
 - [python docs Enum](https://docs.python.org/3/library/enum.html)
 - [programiz](https://www.programiz.com/python-programming/multiple-inheritance)
+- [inheritance](https://realpython.com/inheritance-composition-python/#whats-composition)
