@@ -31,9 +31,8 @@ if __name__ == "__main__":
 
     try:
         c = Celsius(-375)
-        print(c)
-        c = -375
-        print(c)
     except ValueError as err:
         print(err)
+    else:
+        print(c)
 
