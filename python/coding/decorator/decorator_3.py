@@ -11,8 +11,10 @@ def decorator(func):
 
 @decorator
 def decorated(name):
-    print(f"I've been called {name}")
+    msg = f"I've been called {name}"
+    return msg
 
 
 if __name__ == '__main__':
-    decorated(sys.argv[1] if (len(sys.argv) == 2) else "")
+    ret = decorated(sys.argv[1] if (len(sys.argv) == 2) else "")
+    print(ret)
