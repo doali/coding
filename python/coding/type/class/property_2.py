@@ -23,5 +23,5 @@ class Celsius:
             raise ValueError(f"{temperature} <= {Celsius.ZERO}")
 
     temperature = property()
-    temperature.getter(get_temperature)
-    temperature.setter(set_temperature)
+    temperature = temperature.getter(get_temperature)
+    temperature = temperature.setter(set_temperature)
