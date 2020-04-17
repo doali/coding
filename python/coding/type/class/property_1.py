@@ -22,7 +22,7 @@ class Celsius:
         if temperature >= Celsius.ZERO:
             self._temperature = temperature
         else:
-            raise ValueError(f"{temperature} <= {Celsius.ZERO}")
+            raise ValueError(f"{temperature} < {Celsius.ZERO}")
 
     # ATTENTION: il est important d'avoir deux variables
     # temperature et _temperature

@@ -20,7 +20,7 @@ class Celsius:
         if temperature >= Celsius.ZERO:
             self._temperature = temperature
         else:
-            raise ValueError(f"{temperature} <= {Celsius.ZERO}")
+            raise ValueError(f"{temperature} < {Celsius.ZERO}")
 
     temperature = property()
     temperature = temperature.getter(get_temperature)
