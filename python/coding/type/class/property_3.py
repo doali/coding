@@ -17,12 +17,12 @@ class Celsius:
         return self._temperature
 
     @temperature.setter
-    def temperature(self, temperature):
+    def temperature(self, temp):
         print("set_temperature called")
-        if temperature >= Celsius.ZERO:
-            self._temperature = temperature
+        if temp >= Celsius.ZERO:
+            self._temperature = temp
         else:
-            raise ValueError(f"{temperature} < {Celsius.ZERO}")
+            raise ValueError(f"{temp} < {Celsius.ZERO}")
 
 
 if __name__ == "__main__":
