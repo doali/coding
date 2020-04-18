@@ -2,7 +2,128 @@
 
 ## Gérer des exceptions
 
+- clause `try`, `except`, `else`, `finally`
+- attraper les exception selon leurs positions dans la hiérarchie des classes
+- `raise` pour relancer une exception
+- `raise <Exception>` pour lancer `<Exception>`
+
+```python
+#!/usr/bin/env python3
+
+
+class B(Exception):
+    pass
+
+
+class C(B):
+    pass
+
+
+class D(C):
+    pass
+
+
+def test_exception():
+    for cls in [B, C, D]:
+        try:
+            raise cls()
+        except D:
+            print("D")
+        except (B, C):
+            print("B or C")
+
+
+def main():
+    test_exception()
+
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Créer ses propres exceptions
+
+- dériver de la classe `Exception`
+
+```python
+#!/usr/bin/env python3
+
+
+class Error(Exception):
+    """Base class for exceptions in this module."""
+
+    pass
+
+
+class InputError(Error):
+    """Exception raised for errors in the input.
+
+    Attributes:
+        expression -- input expression in which the error occurred
+        message -- explanation of the error
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
+
+class TransitionError(Error):
+    """Raised when an operation attempts a state transition that's not
+    allowed.
+
+    Attributes:
+        previous -- state at beginning of transition
+        next -- attempted new state
+        message -- explanation of why the specific transition is not allowed
+    """
+
+    def __init__(self, previous, next, message):
+        self.previous = previous
+        self.next = next
+        self.message = message
+
+
+# Implementation sous forme de class
+# avec des methodes statiques
+class Test:
+    @staticmethod
+    def wanna_raise_input():
+        raise InputError("expression", "message")
+
+    @staticmethod
+    def something_will_happen():
+        try:
+            print("Ready ?")
+            Test.wanna_raise_input()
+        except InputError as err:
+            print(err)
+        finally:
+            print("I told you")
+
+
+# Implementation differente
+# utilisation de fonctions
+def test_exception():
+    def wanna_raise_input():
+        raise InputError("expression", "message")
+
+    def something_will_happen():
+        try:
+            print("Ready ?")
+            Test.wanna_raise_input()
+        except InputError as err:
+            print(err)
+        finally:
+            print("I told you")
+
+    something_will_happen()
+
+
+if __name__ == "__main__":
+    Test.something_will_happen()
+    test_exception()
+```
 
 ## Exemple
 
@@ -56,9 +177,11 @@ class FourMalin:
         print(f"Essai de cuisson")
         try:
             self.allumer(temperature)
-            print(f"{self.temperature}{FourMalin.DEGRE}, cuisson en cours")
         except FourException as err:
             print(err)
+        else:
+            # Mieux de mettre ici que dans la clause try
+            print(f"{self.temperature}{FourMalin.DEGRE}, cuisson en cours")
         finally:
             self.eteindre()
 
@@ -78,3 +201,4 @@ if __name__ == "__main__":
 
 - [pierre giraud](https://www.pierre-giraud.com/python-apprendre-programmer-cours/gestion-exception-try-except-else/)
 - [docs python](https://docs.python.org/3/library/re.html)
+- [docs python](https://docs.python.org/3/tutorial/errors.html)
