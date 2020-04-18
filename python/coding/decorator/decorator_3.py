@@ -6,7 +6,6 @@ def decorator(func):
     def wrapper(*args, **kwargs):
         print(f"{decorator.__name__}")
         return func(*args, **kwargs)
-
     return wrapper
 
 @decorator
