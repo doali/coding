@@ -7,12 +7,12 @@ def display(l):
 l = list(range(8))
 display(l)
 
-# Comprehension
+# Comprehension (de liste)
 lc_pair = [value for value in l if (value % 2 == 0)]
 display(l)
 display(lc_pair)
 
-# Generator
+# Generator (à executer une fois, valeur à la volée)
 lg_pair = (value for value in l if (value % 2 == 0))
 display(l)
 display(list(lg_pair))
