@@ -13,12 +13,14 @@ def read_file(file_path):
         for line in text_mode_file:
             print(line, end="")
 
+
 # binary mode
 def read_file_bin(file_path):
     # rb
     with open(file_path, "rb") as binary_mode_file:
         data = binary_mode_file.read()
         print(data)
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 3:
