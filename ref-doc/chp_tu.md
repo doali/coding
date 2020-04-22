@@ -1,1 +1,4 @@
 # Tests unitaires
+
+- lcov
+- gcov
