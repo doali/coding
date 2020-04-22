@@ -60,7 +60,7 @@
 ## Manipulation des chaines de caractères
 
 - formatage (print, printf, f-string, .format(...), ...)
-- représentation en mémoire (tableau, '\0', ...)
+- représentation en mémoire (tableau, '\\0', ...)
 - comparaison
 - immuable / mutable
 

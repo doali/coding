@@ -1,13 +1,20 @@
-# Ensemble
+# Built-in data structures
 
-## Tuple
-## List
-## Map / Hash / HashMap
-## Dictionnaire
+## Structures
 
-## Iteration
+#### Ensemble
+
+#### Tuple
+
+#### List
+
+#### Map / Hash / HashMap / Dictionnaire
+
+## Iterations
 
 - for
 - while
 - do
 - foreach
+
+### Iterateur, itérable, générateur

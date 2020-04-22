@@ -1,5 +1,6 @@
 # Lib de base
 
+- string
 - math
 - random
 - time

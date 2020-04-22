@@ -2,6 +2,7 @@
 
 - abstraite
 - concrete
+- interne
 
 # Structures
 
@@ -25,6 +26,10 @@
 - surcharge
 
 ## Héritage
+
+### Simple
+
+### Multiple
 
 ## Transtypage / cast
 

@@ -2,8 +2,8 @@
 
 - malloc()
 - calloc()
-- free()
 - realloc()
+- free()
 
 - new
 - new []
