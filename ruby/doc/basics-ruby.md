@@ -722,6 +722,7 @@ mot_1 # saut_de_ligne
 
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
+- [ruby for beginners](http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html)
 - [problem gem](https://github.com/rubygems/rubygems/issues/3068)
 - [guide ruby](https://www.rubyguides.com/2018/09/ruby-super-keyword/)
 - [ruby doc](https://ruby-doc.com/docs/ProgrammingRuby/html/intro.html)
