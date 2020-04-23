@@ -725,4 +725,5 @@ mot_1 # saut_de_ligne
 - [problem gem](https://github.com/rubygems/rubygems/issues/3068)
 - [guide ruby](https://www.rubyguides.com/2018/09/ruby-super-keyword/)
 - [ruby doc](https://ruby-doc.com/docs/ProgrammingRuby/html/intro.html)
-- [rubocop coding style](https://github.com/github/rubocop-github/blob/master/STYLEGUIDE.md)
+- [irubocop coding style](https://github.com/github/rubocop-github/blob/master/STYLEGUIDE.md)
+- [rubocop docs](https://rubocop.readthedocs.io/en/latest/formatters/)
