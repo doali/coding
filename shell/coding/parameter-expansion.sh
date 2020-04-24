@@ -19,10 +19,13 @@ echo "${WORD#*.}" # two.three.four
 
 # trim from TAIL to head
 # looking for anything which matches the patter *.
-# ends to the FIRST pattern
+# ends to the LAST pattern
 echo "${WORD%%.*}" # one
 
 # trim from TAIL to head
 # looking for anything which matches the patter *.
 # ends to the FIRST pattern
 echo "${WORD%.*}" # one.two.three
+
+# ASTUCE
+# il faut voir les patterns comme des MASQUES
