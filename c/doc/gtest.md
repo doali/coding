@@ -203,7 +203,7 @@ compare
 
 ## CODE
 
-- [doali coding-c](https://github.com/doali)
+- [doali coding-c](https://github.com/doali/coding/tree/master/c/coding/ut/gtest/using_plain_gcc)
 
 ## Biblio
 
