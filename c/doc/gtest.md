@@ -25,11 +25,11 @@ if [ -d ${PATH_GTEST} ]; then
     echo "creating symlinks.."
     [ -f "${i}" ] && sudo ln -snf "${PATH_GTEST}"/"${i}" "${DST_LIB}"
   done
+
+  cd -
 else
   echo "error no ${PATH_GTEST} directory found"
 fi
-
-cd -
 ```
 
 ## Practise case
