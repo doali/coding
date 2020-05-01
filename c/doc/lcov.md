@@ -249,6 +249,10 @@ generates all needed files in `main_test_report` folder
 
 - `firefox --new-tab main_test_report/index.html`
 
+## CODE
+
+- [gtest_scenario.sh](https://github.com/doali/coding/blob/master/c/coding/ut/g_test_cov/gtest_scenario.sh)
+
 ## Biblio
 
 - [gcov lcov](https://www.youtube.com/watch?v=D9LXwfg_tqI)
