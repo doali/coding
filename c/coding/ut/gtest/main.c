@@ -4,6 +4,7 @@
 void scenario(int, int, int);
 void usage(const char *);
 
+/*
 int main(int nbargs, char *argv[]) {
   if (nbargs == 4) {
     scenario(atoi(argv[1]), atoi(argv[2]), atoi(argv[3]));
@@ -14,6 +15,7 @@ int main(int nbargs, char *argv[]) {
 
   return 0;
 }
+*/
 
 void usage(const char *prog_name) {
   fprintf(stdout, "Usage %s <int> <int> <int>\n", prog_name);
