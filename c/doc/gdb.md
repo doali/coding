@@ -22,7 +22,7 @@ Scénario
 3 gdb: r 1 456 78 (lancement de l'exécutable main avec des arguments : dans gdb) 
 4 gdb: refresh main.c (ouvre le fichier source et positionne des infos : dans gdb)
 5 gdb: n (passer à la prochaine ligne d'instruction : dans gdb)
-6 gdb: c (poursuivre le programme après qu'il ait été stoppé par un breakpoint : dans gdb)
+6 gdb: c (poursuivre le programme (stoppé) jusqu'au prochain breakpoint : dans gdb)
 ```
 
 ## Biblio
