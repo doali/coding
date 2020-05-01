@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# Compile main.c with gtest support !!
+# ------------------------------------------------------------------------------
 g++ -o main_test main_test.cpp -L /usr/lib/ -I /usr/include/ -lgtest -lpthread
 
 #-L dir
