@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# https://github.com/doali/coding/blob/master/c/doc/gtest.md
+# ------------------------------------------------------------------------------
+
 # compile time (check that main function in main.c is well uncommented)
 ./compile.sh main.c
 
