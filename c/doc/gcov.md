@@ -258,6 +258,10 @@ function main called 1 returned 100% blocks executed 80%
 - `gprof` : profiling tool which analyses computing time
 - `gtest` : google test tools
 
+## CODE
+
+- [gcov_scenario.sh](https://github.com/doali/coding/blob/master/c/coding/ut/gcov/gcov_scenario.sh)
+
 ## Biblio
 
 - [gcov lcov](https://www.youtube.com/watch?v=D9LXwfg_tqI)
