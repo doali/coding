@@ -11,6 +11,9 @@ lcov (1)             - a graphical GCOV front-end
 
 We refering to [gcov](https://github.com/doali/coding/blob/master/c/doc/gcov.md) and especially [gtest](https://github.com/doali/coding/blob/master/c/doc/gtest.md) that we keep on going with
 
+> The below example can be rendered with the following script  \
+> [gtest_scenario.sh](https://github.com/doali/coding/blob/master/c/coding/ut/g_test_cov/gtest_scenario.sh)
+
 ### Compilation
 
 according to what has been done in [gtest](https://github.com/doali/coding/blob/master/c/doc/gtest.md) 
