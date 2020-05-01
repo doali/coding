@@ -45,8 +45,11 @@ When using gcov, you must first compile your program with two special GCC option
     - data file
     - needs `-fprofile-arcs` compile option to be created
     - for each source file, we get a .gcda file
+    - profiling and coverage information
 - `.gcno`
     - data file
+    - basic block construction info and line numbers
+    - thanks to `-ftest-coverage` option
 - `.gcov`
     - human readable
     - one .gcov file per .gcda file
