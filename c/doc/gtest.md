@@ -219,3 +219,4 @@ compare
 
 - [google github](https://github.com/google/googletest/blob/master/googletest/samples/sample1_unittest.cc)
 - [tuto Erik Smistad](https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/)
+- [eatonphil](https://notes.eatonphil.com/unit-testing-c-code-with-gtest.html)
