@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     printf("%d : %s\n", indice, argv[indice]);
   }
 
-  for (char **p = &argv[0]; p < &argv[4]; p++) {
+  for (char **p = &argv[0]; p < &argv[argc]; p++) {
     printf("%p %s\n", p, *p);
   }
 }
