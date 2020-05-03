@@ -1,22 +1,24 @@
 #include <stdio.h>
 
-/* Compilation 
- * gcc -o hello_c hello.c
+/* Compilation
+ * gcc -o hello hello.c
  */
 
 /* Execution
- * ./hello_c
+ * ./hello
  */
 
-void doSomething()
-{
-    printf("function");
+void do_something() {
+  printf(__func__);
+  printf("\n");
+  printf("Hi doing something\n");
 }
 
-int main()
-{
-    printf("main\n");
-    doSomething();
+int main() {
+  printf(__func__);
+  printf("\n");
 
-    return 0;
+  do_something();
+
+  return 0;
 }
