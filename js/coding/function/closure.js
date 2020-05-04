@@ -1,7 +1,7 @@
 #!/usr/bin/env nodejs
 
 function closure(a) {
-  return function(x) { return a ** x }
+  return (x) => { return a ** x }
 }
 
 let f_10 = closure(10)
