@@ -24,28 +24,27 @@ int main(int argc, char **argv) {
 
   // ---
   char *buff = NULL;
-  const int SUCCESS = create_buff(&buff, 1024);
+  const int SUCCESS =
+      create_buff(&buff, 1024); // 1024 octects since 1 char => 1 octec
 
   if (SUCCESS) {
-    strcpy(buff, MESSAGE);
+    strcpy(buff, MESSAGE); // strcpy ends with '\0' in buff
     printf("Buffer (malloc): %s", buff);
   }
+  // ---
+  FREE(buff)
 
   // ---
-  char buf[strlen(MESSAGE) + 1];
-  strcpy(buf, MESSAGE);
+  char buf[strlen(MESSAGE) + 1]; // +1 for '\0'
+  strcpy(buf, MESSAGE);          // strcpy ends with '\0' in buff
   printf("Buffer (stack) :%s\n", buf);
 
   // ---
   char *word = (char *)malloc(sizeof(char) * 100);
   if (word) {
-    strcpy(word, MESSAGE);
+    strcpy(word, MESSAGE); // strcpy ends with '\0' in buff
     printf("Word :%s\n", word);
   }
-
-  // ---
-  FREE(buff)
-
   // ---
   FREE(word)
 
