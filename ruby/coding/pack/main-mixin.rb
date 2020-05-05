@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 
+# DO NOT FORGET `./` 
+require './mon-module.rb'
+#require './mon-module' # works as well
+
 ##
 # class MaClass
 class Maclass
-  include do-something
+  include OneModule
   attr_accessor :name
 
   # Constructor
@@ -28,6 +32,8 @@ def main
   l.each do |element|
     puts element
   end
+
+  mc_1.do_something()
 end
 
 # Main
