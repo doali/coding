@@ -728,3 +728,4 @@ mot_1 # saut_de_ligne
 - [ruby doc](https://ruby-doc.com/docs/ProgrammingRuby/html/intro.html)
 - [irubocop coding style](https://github.com/github/rubocop-github/blob/master/STYLEGUIDE.md)
 - [rubocop docs](https://rubocop.readthedocs.io/en/latest/formatters/)
+- [rbuyforadmins](http://rubyforadmins.com/objects)
