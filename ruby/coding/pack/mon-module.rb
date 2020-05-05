@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 
-def do_something
-  puts "do something"
+module OneModule
+  def do_something
+    puts "do something"
+  end
 end
 
-do_something
+if __FILE__ == $0
+  include OneModule
+  do_something()
+end
