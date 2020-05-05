@@ -1,5 +1,9 @@
 #!/usr/bin/env nodejs
 
+/*
+ * https: // medium.com/better-programming/prototypes-in-javascript-5bba2990e04b
+ */
+
 class Person {
   constructor(nom, prenom) {
     this._nom = nom;
