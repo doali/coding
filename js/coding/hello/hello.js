@@ -1,3 +1,5 @@
+#!/usr/bin/env nodejs
+
 var fac =
     function(n) {
         if (n == 0) {
