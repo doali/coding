@@ -1,6 +1,7 @@
 #!/usr/bin/env nodejs
 
 function closure(a) {
+  // lambda function
   return (x) => { return a ** x }
 }
 
