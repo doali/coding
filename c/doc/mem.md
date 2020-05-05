@@ -100,3 +100,6 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
 - [damien rohmer](https://imagecomputing.net/damien.rohmer/data/previous_website/documents/teaching/14_0fall_cpe/3eti_software_development_c/cours/cours7_imprimable.pdf)
 - [sourceware x/s, x/i, ...](https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html)
 - [AMD64 Architecture](https://www.amd.com/system/files/TechDocs/24592.pdf)
+- [wikipedia data segment](https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es#Segment_BSS)
+- [nandu310](https://nandu310.wordpress.com/2009/11/09/memory-areas-in-c-language/)
+- [stackoverflow](https://stackoverflow.com/questions/3684760/where-are-the-local-global-static-auto-register-extern-const-volatile-var/3685092#3685092)
