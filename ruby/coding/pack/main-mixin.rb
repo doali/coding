@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
 # DO NOT FORGET `./` 
-require './mon-module.rb'
+require './mon-module.rb' # loading our module here
 #require './mon-module' # works as well
 
 ##
 # class MaClass
 class Maclass
-  include OneModule
+  include OneModule # including our module here
   attr_accessor :name
 
   # Constructor
@@ -33,7 +33,7 @@ def main
     puts element
   end
 
-  mc_1.do_something()
+  mc_1.do_something() # using our module here
 end
 
 # Main
