@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 
+# ------------------------------------------------------------------------------
+# Tests
+# ------------------------------------------------------------------------------
+# - methodes d'instance / de classe (static)
+# ajoutées directement dans la classe
+# comme si nous l'avions fait dans l'interprêteur python
+# Lecture pouvant être intéressante pour la notion de binding
+# https://stackoverflow.com/a/39984352
+# ------------------------------------------------------------------------------
+
 
 class Test:
     # static
@@ -62,5 +72,6 @@ def a_few_test():
     # t.static_do_bis(40) <= ERROR
 
 
+# ------------------------------------------------------------------------------
 if __name__ == "__main__":
     a_few_test()
