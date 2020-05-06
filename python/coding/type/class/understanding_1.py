@@ -6,8 +6,12 @@
 # - methodes d'instance / de classe (static)
 # ajoutées directement dans la classe
 # comme si nous l'avions fait dans l'interprêteur python
+# ------------------------------------------------------------------------------
 # Lecture pouvant être intéressante pour la notion de binding
 # https://stackoverflow.com/a/39984352
+# ------------------------------------------------------------------------------
+# Bible !!
+# https://realpython.com/python-metaclasses/
 # ------------------------------------------------------------------------------
 
 
@@ -18,6 +22,7 @@ class Test:
     # instance
     def __init__(self):
         Test.s_cpt += 1
+        self.attr_titi = "titi"
 
     # redefinition (instance)
     def __str__(self):
@@ -70,6 +75,12 @@ def a_few_test():
     Test.static_do_bis(20)
     # t.static_do(30) <= ERROR
     # t.static_do_bis(40) <= ERROR
+
+    # u = understanding_1.Test()
+    # l = list(map(lambda x: print(f"{x[0]} => {x[1]}"), u.__dict__.items()))
+    # l = list(map(lambda x: print(f"{x[0]} => {x[1]}"), understanding_1.Test.__dict__.items()))
+    # l = list(map(lambda x: print(f"{x}"), dir(u)))
+    # l = list(map(lambda x: print(f"{x}"), dir(understanding_1.Test)))
 
 
 # ------------------------------------------------------------------------------
