@@ -8,10 +8,10 @@ class Celsius:
     ZERO = -273.15
 
     def __init__(self, temperature=0):
-        self.temperature = temperature
+        self.init_temp = temperature
 
     def __str__(self):
-        return f"{self.temperature}"
+        return f"{self.init_temp}"
 
     def get_temperature(self):
         print("get_temperature called")
@@ -27,11 +27,11 @@ class Celsius:
     # ATTENTION: il est important d'avoir deux variables
     # temperature et _temperature
     # En effet :
-    # self.temperature = temp est vu comme set_temperature(temp)
-    # self.temperature est vu comme un appel à get_temperature()
+    # self.init_temp = temp est vu comme set_temperature(temp)
+    # self.init_temp est vu comme un appel à get_temperature()
     # si nous avions _temperature = property(get_temperature, set_temperature)
     # alors nous aurions de appels RECURSIFS...
-    temperature = property(get_temperature, set_temperature)
+    init_temp = property(get_temperature, set_temperature)
 
 
 if __name__ == "__main__":

@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
+from random import randint
+
 
 class Celsius:
 
     ZERO = -273.15
 
     def __init__(self, temperature=0):
-        self.temperature = temperature
+        self.init_temp = temperature
 
     def __str__(self):
-        return f"{self.temperature}"
+        return f"{self.init_temp}"
 
     def get_temperature(self):
         print("get_temperature called")
@@ -22,6 +24,17 @@ class Celsius:
         else:
             raise ValueError(f"{temperature} < {Celsius.ZERO}")
 
-    temperature = property()
-    temperature = temperature.getter(get_temperature)
-    temperature = temperature.setter(set_temperature)
+    init_temp = property()
+    init_temp = init_temp.getter(get_temperature)
+    init_temp = init_temp.setter(set_temperature)
+
+
+if __name__ == "__main__":
+    l_alea = [randint(270, 280) for i in list(range(10))]
+    for i in l_alea:
+        p = -i if (i % 2 == 0) else i
+        try:
+            c = Celsius(p)
+            print(c)
+        except ValueError as err:
+            print(err)
