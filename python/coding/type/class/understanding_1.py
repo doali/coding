@@ -44,7 +44,9 @@ def a_few_test():
     t.inst_do_bis(2)
 
     # Test.inst_do(3) <= ERROR
+    Test.inst_do(t, 3)  # <= OK, instance passee en argument
     # Test.inst_do_bis(4) <= ERROR
+    Test.inst_do_bis(t, 4)  # <= OK, instance passe en argument
 
     Test()
     Test()
