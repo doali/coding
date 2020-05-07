@@ -181,3 +181,4 @@ yaml2js < fichier.yaml  > fichier.json
 - [w in y](https://learnxinyminutes.com/docs/yaml/)
 - [daemonl](https://blog.daemonl.com/2016/02/yaml.html)
 - [wikipedia](https://en.wikipedia.org/wiki/YAML)
+- [bogotobogo](https://www.bogotobogo.com/python/python_yaml_json_conversion.php)
