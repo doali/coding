@@ -39,5 +39,27 @@ Jackson Cooper
 >>> 
 ```
 
+## `reduce(...)`
+
+```python
+>>> l.split()
+['abfc']
+>>> list(map(lambda x: x, l))
+['a', 'b', 'f', 'c']
+>>> l = list(map(lambda x: x, l))
+>>> l
+['a', 'b', 'f', 'c']
+>>> reduce(lambda x, y: x+y, l)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'reduce' is not defined
+>>> from functools import reduce
+>>> reduce(lambda x, y: x+y, l)
+'abfc'
+>>> reduce(lambda x, y: x+"|"+y, l)
+'a|b|f|c'
+>>>
+```
+
 ## Biblio
 - [pythonceltral](https://www.pythoncentral.io/pythons-range-function-explained/)
