@@ -95,6 +95,12 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
  58 $34 = (char **) 0x7fffffffde80
 ```
 
+## Segments
+
+![concis](img/mem_short.png)
+
+![détaillé](img/mem_detailed.png)
+
 ## Biblio
 
 - [damien rohmer](https://imagecomputing.net/damien.rohmer/data/previous_website/documents/teaching/14_0fall_cpe/3eti_software_development_c/cours/cours7_imprimable.pdf)
