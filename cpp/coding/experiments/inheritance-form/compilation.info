@@ -1,0 +1,27 @@
+# https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
+# https://www.geeksforgeeks.org/compiling-with-g-plus-plus/
+# https://www.fil.univ-lille1.fr/~sedoglav/PDC2/main006.html
+# ------------------------------------------------------------------------------
+# A few word about compilation
+# 1. Expanded source code (header, macro)
+cpp Main.c >Main.i # headers and macro => Main.i
+
+# 2. Assemble code
+g++ -S Main.i # assemble code => Main.s
+
+# 3. Object code (understanding by computer)
+as -o Main.o Main.s # convert .s => object code Main.o
+
+# 1. to 3.
+g++ -c Main.cpp # object code Main.o (no need to call `as` ...
+
+# 4. Executable code thanks to linker
+ld -o Main Main.o [libs] # executable code Main
+
+# 1. to 4.
+g++ -o Main Main.cpp # executable code Main (no need to call `ld` ...
+# g++ -v -o Main Main.cpp # -v shows useful info about compilation and linking
+# https://stackoverflow.com/questions/14163208/how-to-link-c-object-files-with-ld
+# ------------------------------------------------------------------------------
+
+objdump -S Main.o
