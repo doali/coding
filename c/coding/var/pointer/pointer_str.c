@@ -12,7 +12,7 @@
     printf("%p -> %p\n", &POINTER, POINTER);                                   \
   }
 
-int create_buff(char **buff, int size) {
+int create_buff(char **buff, size_t size) {
   *buff = (char *)malloc(sizeof(char) * size);
 
   return (*buff) ? EXIT_SUCCESS : EXIT_FAILURE;
