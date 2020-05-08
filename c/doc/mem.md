@@ -4,8 +4,8 @@
 
 |bits|taille pointeur (bits)|octet|hexadecimal|
 |----|---------------|-----|-----------|
-|32|32|4|1 digit|
-|64|64|8|2 digts|
+|32|32|4|8 digits|
+|64|64|8|16 digts|
 
 ## Exemple
 
