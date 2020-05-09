@@ -1,3 +1,7 @@
+/*
+ * https://en.cppreference.com/w/c/language/enum
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
