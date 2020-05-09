@@ -17,13 +17,15 @@ enum color {
 // ATTENTION : r_color_var, var_enum_color sont des variables du type
 // enum color et non des alias vers le type enum color !!
 
+const char *color_to_str(enum color);
+
 void r_color_var() {
-  //
-  // r_color c = BLACK; // lvalue est une VARIABLE !!
+  // r_color c = BLACK; // lvalue est une VARIABLE et non un alias vers enum
+  // color !!
   r_color = VIOLET;
   var_enum_color = GREEN;
-  printf("val enum:%d\n", r_color);
-  printf("val enum:%d\n", var_enum_color);
+  printf("%s => %d\n", color_to_str(r_color), r_color);
+  printf("%s => %d\n", color_to_str(var_enum_color), var_enum_color);
 }
 
 const char *color_to_str(enum color e_color) {
@@ -56,4 +58,6 @@ int compute_r(enum color first, enum color second, enum color third) {
 int main(void) {
   compute_r(BLUE, GREEN, YELLOW);
   r_color_var();
+  enum color e_color = YELLOW;
+  printf("%s => %d\n", color_to_str(e_color), e_color);
 }
