@@ -109,3 +109,4 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
 - [wikipedia data segment](https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es#Segment_BSS)
 - [nandu310](https://nandu310.wordpress.com/2009/11/09/memory-areas-in-c-language/)
 - [stackoverflow](https://stackoverflow.com/questions/3684760/where-are-the-local-global-static-auto-register-extern-const-volatile-var/3685092#3685092)
+- [cppreference declarations](https://en.cppreference.com/w/c/language/declarations)

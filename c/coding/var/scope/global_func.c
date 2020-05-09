@@ -12,3 +12,4 @@ void useless_extern_f() {
   // definition
   PRINT_FUNC
 }
+// https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/

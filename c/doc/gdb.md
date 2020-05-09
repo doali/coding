@@ -32,3 +32,4 @@ Scénario
 ## Biblio
 
 - `man gdb`
+- [sourceware](https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html)

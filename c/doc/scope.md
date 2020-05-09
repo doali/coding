@@ -2,6 +2,8 @@
 
 Portée d'une variable, fonction, type structuré ...définie lors de la déclaration.
 
+- [cppreference scope](https://en.cppreference.com/w/c/language/scope)
+
 ## Portée locale
 
 Variable dite locale
@@ -45,7 +47,11 @@ _Translation unit (portée de fichier), introduite par `static`_
 
 - [static_global.c](https://github.com/doali/coding/blob/master/c/coding/var/scope/static_global.c)
 
+## Lifetime
+
+- [cppreference](https://en.cppreference.com/w/c/language/lifetime)
+
 ## Biblio
 
 - [Tony Zhang](https://www.amazon.fr/Langage-C-Tony-Zhang/dp/2744015180)
-
+- [cppreference scope](https://en.cppreference.com/w/c/language/scope)
