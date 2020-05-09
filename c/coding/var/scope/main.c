@@ -10,6 +10,7 @@ extern int global_1; // extern : necessary even if global
 void global_func_f(void);
 // extern void use_static_global(void);
 void use_static_global(void);
+void useless_extern_f();
 
 // extern int static_global;
 /* forbidden !! since static is FILE scope
@@ -36,6 +37,7 @@ int main(void) { // Block scope
   // extern functions
   global_func_f();
   use_static_global();
+  useless_extern_f();
 
   // Functons using headers
   api_f();
