@@ -21,7 +21,7 @@ int read_file(const char *file_name) {
 
   int c = fgetc(fstream);
   while (c != EOF) {
-    fprintf(stdout, "%c", c);
+    fprintf(stdout, "%c", (unsigned char)(c));
     c = fgetc(fstream);
   }
 
