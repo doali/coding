@@ -53,7 +53,7 @@ struct s_geek {
   Person person;
   const char *hobby;
 } brianKernighan =
-    /* Initialiazation of a struct s_geek VARIABLE */
+    /* VARIABLE which type is struct s_geek, and which is initialized */
     {{
          "Jean",                   // const char *name;
          "LaCruche",               // const char *firstname;
@@ -69,9 +69,3 @@ void print_hobby(Geek geek) {
   print_person(&geek->person);
   printf("- hobby : %s\n", geek->hobby);
 }
-
-/*
-void print_geek(const struct s_geek *geek) {
-  geek->person.print_s_person(&geek->person);
-  printf(", com
-  */
