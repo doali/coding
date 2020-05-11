@@ -9,9 +9,7 @@
 
 - [stackoverflow](https://stackoverflow.com/questions/14163208/how-to-link-c-object-files-with-ld)
 
-## Read file objects
-
-_First install `bvi` with the command line `sudo apt install bvi`_
+## Read file objects `.o` (under linux)
 
 Assuming that we did as follow
 
@@ -19,10 +17,19 @@ Assuming that we did as follow
 
 then, we can read `hello.o` file like this `bvi hello.o`
 
-### Example
+### `bvi`
+
+_First install `bvi` with the command line `sudo apt install bvi`_
+
+#### Example
 
 [bvi_gdb_main](img/bvi_gdb_main.png)
 
+### `od` or (`hexdump`)
+
+```bash
+od -A x -t xz -v -w8 hello.o
+```
 
 ## Biblio
 

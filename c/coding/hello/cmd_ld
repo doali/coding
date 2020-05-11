@@ -1,0 +1,1 @@
+#ld -o exe hello.o <other_needed_libs>

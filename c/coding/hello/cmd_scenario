@@ -1,0 +1,7 @@
+cpp hello.c >hello.i
+gcc -S hello.i
+as -o hello.o hello.s
+#ld -o exe hello.o <other_needed_libs>
+gcc -c hello.c && nm hello.o
+gcc -o exe hello.o && nm exe
+gcc -o exe hello.c && ldd exe

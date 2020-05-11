@@ -1,0 +1,5 @@
+gcc hello.c
+gcc -o exe hello.c
+gcc -S hello.c
+gcc -c hello.c
+gcc -o exe hello.o
