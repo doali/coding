@@ -103,6 +103,7 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
 
 ## Biblio
 
+- [alignement mémoire](https://courses.cs.washington.edu/courses/cse351/17au/lectures/14/CSE351-L14-structs_17au.pdf)
 - [damien rohmer](https://imagecomputing.net/damien.rohmer/data/previous_website/documents/teaching/14_0fall_cpe/3eti_software_development_c/cours/cours7_imprimable.pdf)
 - [sourceware x/s, x/i, ...](https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html)
 - [AMD64 Architecture](https://www.amd.com/system/files/TechDocs/24592.pdf)
