@@ -1,5 +1,20 @@
 # Javascript
 
+## Installation
+
+- `sudo apt install nodejs`
+
+### Settings
+
+Some extra modules : [doali esm](https://github.com/doali/linux/blob/master/ubuntu/etc/install-esm.sh)
+
+## Interpreter
+
+In a terminal `nodeJS` or else `node`
+
+![doali nodejs interpreter](img/chromium-source_js-nodejs_interpreter.png)
+![doali nodejs interpreter chromium](img/chromium-interpreter-nodejs.png)
+
 ## Biblio
 - [delicious](https://delicious-insights.com/fr/articles/dix-bonnes-pratiques-javascript/)
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

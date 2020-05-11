@@ -6,6 +6,8 @@
 
 - `nodejs inspect ./scope.js`
 
+![doali nodejs inspect](img/nodejs_inspect_sourcejs.png)
+
 #### Commandes dans le deboggueur (dans le terminal)
 
 - `help`
@@ -39,6 +41,8 @@ For help see https://nodejs.org/en/docs/inspector
 
 > Entrer l'URL : `devtools://devtools/bundled/js_app.html?experiments=true&v8only=true&ws=//127.0.0.1:9229/0087fdab-e9f3-4289-8c9e-0dd441f6d26f` \
 > `F12` pour entrer dans le mode développeur
+
+![doali nodejs inspect-brk](img/chromium-bind-inspect-brk.png)
 
 ## Biblio
 
