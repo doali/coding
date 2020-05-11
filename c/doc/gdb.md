@@ -33,3 +33,4 @@ Scénario
 
 - `man gdb`
 - [sourceware](https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html)
+- [brown edu](https://cs.brown.edu/courses/cs033/docs/guides/gdb.pdf)
