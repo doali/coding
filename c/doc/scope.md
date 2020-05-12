@@ -43,9 +43,26 @@ Variable dite globale
 
 _Translation unit (portée de fichier), introduite par `static`_
 
-### Exemple
+## `static`
 
 - [static_global.c](https://github.com/doali/coding/blob/master/c/coding/var/scope/static_global.c)
+
+### Variables
+
+> Static variables should not be declared inside structure. \
+> The reason is C compiler requires the entire structure elements to be placed together (i.e.) \
+> memory allocation for structure members should be contiguous.
+
+- [statckoverflow](https://stackoverflow.com/questions/572547/what-does-static-mean-in-c)
+- [geeksforgeeks variable](https://www.geeksforgeeks.org/static-variables-in-c)
+
+### functions 
+
+> In C, functions are global by default. \
+> The “static” keyword before a function name makes it static. \
+> Unlike global functions in C, access to static functions is restricted to the file where they are declared.
+
+- [geeksforgeeks function](https://www.geeksforgeeks.org/what-are-static-functions-in-c/)
 
 ## Lifetime
 

@@ -95,6 +95,10 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
  58 $34 = (char **) 0x7fffffffde80
 ```
 
+## Memory layout
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+
 ## Segments
 
 ![concis](img/mem_short.png)

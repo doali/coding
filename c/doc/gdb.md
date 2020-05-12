@@ -29,6 +29,11 @@ Scénario
 
 - [compile.sh](https://github.com/doali/coding/blob/master/c/coding/ut/gtest/compile.sh)
 
+## Captures
+
+- [gdb disassemble](img/disassemble-next-line.png)
+- [gdb disassemble deeper](img/disassemble-next-line_2.png)
+
 ## Biblio
 
 - `man gdb`

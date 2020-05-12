@@ -7,7 +7,21 @@
 
 ## Linker
 
+### Overview
+
+![linker 1](img/linking_1.png)
+
+![linker 2](img/linking_1_straitght_forward.png)
+
+![linker 3](img/linking_1_until_obj_files.png)
+
+![linker 4](img/linking_2.png)
+
+### Reference
+
 - [stackoverflow](https://stackoverflow.com/questions/14163208/how-to-link-c-object-files-with-ld)
+- [gnu collect2](https://gcc.gnu.org/onlinedocs/gccint/Collect2.html)
+- [ntu](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
 
 ## Read file objects `.o` (under linux)
 
