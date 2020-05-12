@@ -45,7 +45,7 @@ s_base_a.fieldInner = 2; // if varInner is not written then
                          // we can access fieldInner directly
 ```
 
-- [struct-2](https://github.com/doali/coding/tree/master/c/coding/var/struct/struct-2)
+- [doali struct-2](https://github.com/doali/coding/tree/master/c/coding/var/struct/struct-2)
 
 ## Aliases vs Variables
 
@@ -80,7 +80,8 @@ struct s_geek {
 > what is more, `brianKernighan` is initialized !! \
 > Note that we use a fonction pointer `p_print_person` \
 
-- [struct-1](https://github.com/doali/coding/tree/master/c/coding/var/struct/struct-1)
+- [doali struct-1](https://github.com/doali/coding/tree/master/c/coding/var/struct/struct-1)
+- [cppreference struct and union initialization](https://en.cppreference.com/w/c/language/struct_initialization)
 
 ## Biblio
 
