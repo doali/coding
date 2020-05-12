@@ -1,7 +1,23 @@
-cpp hello.c >hello.i
-gcc -S hello.i
-as -o hello.o hello.s
-#ld -o exe hello.o <other_needed_libs>
-gcc -c hello.c && nm hello.o
-gcc -o exe hello.o && nm exe
-gcc -o exe hello.c && ldd exe
+# ------------------------------------------------------------------------------
+# Preprocessing : cpp
+# Compilation   : gcc
+# Assemble      : as
+# Linking       : ld
+# ------------------------------------------------------------------------------
+# source code (.c, .h) => preprocessor (cpp) => hello.i (include header, expand macro)
+cpp hello.c >hello.i 
+
+# include header, expand macro (.i) => compiler (gcc) => hello.s (assembly code)
+gcc -S hello.i 
+
+# assembly code (.s) => assemble (as) => hello.o (object file, machine code)
+as -o hello.o hello.s 
+
+#ld -o exe hello.o <other_needed_libs> # static library (.a) + .o => linker (ld) => .exe (executable machine code)
+# ------------------------------------------------------------------------------
+gcc -c hello.c && nm hello.o # hello.o generated && symbols on stdout
+# ------------------------------------------------------------------------------
+gcc -o exe hello.o && nm exe # linking exe generated && symbols on stdout
+# ------------------------------------------------------------------------------
+gcc -o exe hello.c && ldd exe # (compilation + assemble + linking) exe generated on stdout
+# ------------------------------------------------------------------------------
