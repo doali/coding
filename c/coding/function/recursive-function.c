@@ -54,8 +54,13 @@ int main(int argc, char **argv) {
   printf("len(%s)=%d\n", t_b, len(t_b));
 
   printf("len(NULL)=%d\n", len(NULL));
-  printf("len(%s)=%d\n", "", len(""));
-  printf("len(%s)=%d\n", "abc", len("abc"));
+
+  int ret_print = 0;
+  ret_print = printf("len(%s)=%d\n", "", len(""));
+  printf("%d previous char written ('\\0' <= 1 char)\n", ret_print);
+
+  ret_print = printf("len(%s)=%d\n", "abc", len("abc"));
+  printf("%d previous char written ('\\0' <= 1 char)\n", ret_print);
 
   return 0;
 }
