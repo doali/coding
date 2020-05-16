@@ -31,11 +31,13 @@ Scénario
 
 ## Captures
 
-- [gdb disassemble](img/disassemble-next-line.png)
-- [gdb disassemble deeper](img/disassemble-next-line_2.png)
+![gdb disassemble](img/disassemble-next-line.png)
+![gdb disassemble deeper](img/disassemble-next-line_2.png)
+![gdb Crt + x + 2](img/disassemble-next-line.png)
 
 ## Biblio
 
 - `man gdb`
 - [sourceware](https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html)
 - [brown edu](https://cs.brown.edu/courses/cs033/docs/guides/gdb.pdf)
+- [gdb Crt + x + 2](https://stackoverflow.com/questions/1902901/show-current-assembly-instruction-in-gdb)
