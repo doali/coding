@@ -1,5 +1,11 @@
 # `struct`
 
+## Initialization
+
+- default values
+
+- [cppreference](https://en.cppreference.com/w/c/language/initialization#Implicit_initialization)
+
 ## Anonymous structure
 
 ```c
