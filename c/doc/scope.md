@@ -68,6 +68,10 @@ _Translation unit (portée de fichier), introduite par `static`_
 
 - [cppreference](https://en.cppreference.com/w/c/language/lifetime)
 
+## `auto`, `static`, `register`, `volatile`, `extern`
+
+- [casteyde christian](http://casteyde.christian.free.fr/cpp/cours/online/x1432.html)
+
 ## Biblio
 
 - [Tony Zhang](https://www.amazon.fr/Langage-C-Tony-Zhang/dp/2744015180)
