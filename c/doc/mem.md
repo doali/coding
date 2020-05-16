@@ -105,6 +105,10 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
 
 ![détaillé](img/mem_detailed.png)
 
+## `free`
+
+- [stackoverflow](https://stackoverflow.com/questions/22130925/how-to-properly-free-a-mallocd-structure)
+
 ## Biblio
 
 - [alignement mémoire](https://courses.cs.washington.edu/courses/cse351/17au/lectures/14/CSE351-L14-structs_17au.pdf)
