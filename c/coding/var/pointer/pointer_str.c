@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
   // ---
   char *buff = NULL;
   const int SUCCESS =
-      create_buff(&buff, 1024); // 1024 octects since 1 char => 1 octec
+      create_buff(&buff, 1024); // 1024 octets since 1 char => 1 octet
 
   if (SUCCESS) {
     strcpy(buff, MESSAGE); // strcpy ends with '\0' in buff
