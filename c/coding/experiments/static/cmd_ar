@@ -1,1 +1,2 @@
+# https://www.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
 ar -q liboperation.a operation.o # generates .a (archive file)

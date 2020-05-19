@@ -70,7 +70,39 @@ _Translation unit (portée de fichier), introduite par `static`_
 
 ## `auto`, `static`, `register`, `volatile`, `extern`
 
+![storage classes in c](img/Storage-Classes-In-C.png)
+
+> image from [geeksforgeeks](https://www.geeksforgeeks.org/storage-classes-in-c/)
+
 - [casteyde christian](http://casteyde.christian.free.fr/cpp/cours/online/x1432.html)
+
+### `auto`
+
+```text
+auto: This is the default storage class for all the variables declared inside a function or a block. Hence, the keyword auto is rarely used while writing programs in C language.
+```
+
+> from [geeksforgeeks](https://www.geeksforgeeks.org/storage-classes-in-c/)
+
+### `extern`
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/)
+
+#### for variables
+```c
+extern int var;
+```
+
+- declaration only, no memory allocation
+
+```c
+int var;
+```
+- declaration + (definition => memory allocation, stack)
+
+#### for functions
+
+- `extern` is implicite !!
 
 ## Biblio
 

@@ -1,0 +1,13 @@
+# https://www.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
+# ------------------------------------------------------------------------------
+# gcc -c operation.c
+gcc -shared -o liboperation.so operation.o # generates .so (shared object)
+# ------------------------------------------------------------------------------
+# to be used, we need
+# - to move operation.h in a well known place => /usr/include
+# - to move liboperation.so in a well known place => /usr/lib
+# Then
+# gcc -c main.c
+# gcc -o main.exe main.o -loperation
+# (or else) gcc -o main.exe main.c -loperation
+# => generates the executable main.exe linked to liboperation.so
