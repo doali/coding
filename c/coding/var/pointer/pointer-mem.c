@@ -20,6 +20,7 @@
   if (X != NULL) {                                                             \
     printf("free(%p)\n", X);                                                   \
     free(X);                                                                   \
+    X = NULL;                                                                  \
   }
 
 struct no_align {
@@ -68,17 +69,28 @@ void test_char() {
 
 void test_str() {
   const char *str = "bleue comme une orange";
+  // char *str = "bleue comme une orange";
   PRINT_P_S(str);
 
   const char t_str[] = {'y', 'o', 'l', 'e', 'n', 'e', '\0'};
+  // char t_str[] = {'y', 'o', 'l', 'e', 'n', 'e', '\0'};
   PRINT_P_S(t_str);
   PRINT_TAB(t_str);
 
+  {
+    const char *p_it = t_str;
+    const unsigned int SZ = sizeof(t_str[0]);
+    while (*p_it != '\0') {
+      PRINT_P_C(p_it);
+      p_it += SZ;
+    }
+  }
+
   printf("size(%s)=%lu\n", str, strlen(str));
 
-  char *m_str = (char *)malloc(sizeof(char) * (strlen(str) + 0));
-  memcpy(m_str, str, sizeof(char) * (strlen(str) + 0));
-  m_str[strlen(str)] = '\0';
+  char *m_str = (char *)malloc(sizeof(char) * (strlen(str) + 1));
+  memcpy(m_str, str, sizeof(char) * (strlen(str) + 1));
+  // m_str[strlen(str)] = '\0';
   PRINT_P_S(m_str);
 
   printf("%s\n", m_str);
@@ -94,14 +106,14 @@ void test_memcpy() {
   printf("|%c|%d|\n", '\0', '\0');
 
   char t_titi[] = {'t', 'i', 't', 'i', '\0'};
-  printf("%s %lu %lu\n", t_titi, sizeof(t_titi), strlen(t_titi));
+  printf("%20p|%s %lu %lu\n", t_titi, t_titi, sizeof(t_titi), strlen(t_titi));
 
   const char *s_titi = "titi";
-  printf("%s %lu %lu\n", s_titi, sizeof(s_titi), strlen(s_titi));
+  printf("%20p|%s %lu %lu\n", s_titi, s_titi, sizeof(s_titi), strlen(s_titi));
 
   char *b_titi = (char *)malloc(sizeof(char) * (strlen(s_titi) + 1));
   memcpy(b_titi, t_titi, (strlen(s_titi) + 1));
-  printf("%s %lu %lu\n", b_titi, sizeof(b_titi), strlen(b_titi));
+  printf("%20p|%s %lu %lu\n", b_titi, b_titi, sizeof(b_titi), strlen(b_titi));
 
   print_mem(t_titi, 10);
   print_mem(s_titi, 10);
@@ -119,7 +131,8 @@ int main(int argc, char **argv) {
 void print_mem(const char *p, uint size) {
   printf("MEM (begining):%p\n", p);
   for (unsigned long i = 0; i < size; ++i) {
-    printf("offset %4lu (bytes)|%20p|%20c|%20d|\n", i, p, *p, *p);
+    printf("offset %4lu (bytes)|%20p|%20c|%20d|\n", i, p, *p /* -> char */,
+           *p /* -> int */);
     ++p;
   }
   printf("MEM (end):%p\n", p);
