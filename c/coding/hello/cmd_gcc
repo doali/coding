@@ -1,5 +1,5 @@
 gcc hello.c
 gcc -o exe hello.c
 gcc -S hello.c
-gcc -c hello.c
+gcc -c hello.c # .h correspondant au niveau du .c sinon utiliser l'option I
 gcc -o exe hello.o
