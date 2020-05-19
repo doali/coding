@@ -1,0 +1,1 @@
+ar -q liboperation.a operation.o 

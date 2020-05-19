@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Scenario
+# ------------------------------------------------------------------------------
+# - object files .o
+# - static lib .a
+# - executable file 
+#   - .a code (object code) is within this executable file
+#   - .a modified => compilation needed !! <= be careful updates !!
+# ==============================================================================
+# compilation
+gcc -c operation.c # generates operation.o
+# ------------------------------------------------------------------------------
+# static lib command
+ar -q liboperation.a operation.o  # generates liboperation.a
+# ------------------------------------------------------------------------------
+nm operation.o # show symbols
+nm liboperation.a # idem
+# ------------------------------------------------------------------------------
+# compile and link 
+gcc -o main.exe main.c liboperation.a 
+# ------------------------------------------------------------------------------
+# run
+./main.exe 
+./main.exe 7 2
