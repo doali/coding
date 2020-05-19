@@ -1,7 +1,8 @@
-#include <stdio.h>
+#include <stdio.h> // en-tete standard
+                   // directive preprocesseur => #include
 
 /* Compilation
- * gcc -o hello hello.c
+ * gcc -Wall -ggdb -o hello hello.c
  */
 
 /* Execution
