@@ -1,5 +1,6 @@
 #include <stdio.h> // en-tete standard
                    // directive preprocesseur => #include
+                   // copie le contenu du fichier stdio.h
 
 /* Compilation
  * gcc -Wall -ggdb -o hello hello.c
