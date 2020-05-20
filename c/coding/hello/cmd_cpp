@@ -1,4 +1,6 @@
 # ------------------------------------------------------------------------------
 # cpp -v # list the default include-paths in this system used by GNU C Preprocessor
 # ------------------------------------------------------------------------------
-cpp hello.c
+cpp hello.c >hello.i
+# or else
+# gcc -E hello.c >hello.i
