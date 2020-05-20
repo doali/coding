@@ -3,8 +3,11 @@
 
 #define FREE(X)                                                                \
   if (X) {                                                                     \
+    printf("| @p -> p <=> ");                                                  \
+    printf("%p -> %p | free(p) => ", &X, X);                                   \
     free(X);                                                                   \
     X = NULL;                                                                  \
+    printf("%p -> %p\n", &X, X);                                               \
   }
 
 typedef struct {
