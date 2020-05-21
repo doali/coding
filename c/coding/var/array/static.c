@@ -22,25 +22,23 @@ int main(int argc, char **argv) {
 
   LINE_BREAK
   // static array
-  const unsigned int SZ_2 = 6;
-  int s_arr_2[] = {0};
+  // const unsigned int SZ_2 = 6; <= DOES NOT WORK FOR ARRAYS
+  int s_arr_2[6] = {0};
   // int s_arr_2[SZ_2] = {0}; <= DOES NOT WORK
   ID("s_arr_2")
-  print_int(SZ_2, s_arr_2, ",");
+  print_int(6, s_arr_2, ",");
 
   LINE_BREAK
   // static array
-  const unsigned int SZ_3 = 3;
-  int s_arr_3[] = {7};
+  int s_arr_3[3] = {7};
   ID("s_arr_3")
-  print_int(SZ_3, s_arr_3, ";");
+  print_int(3, s_arr_3, ";");
 
   LINE_BREAK
   // static array
-  const unsigned int SZ_4 = 15;
-  int s_arr_4[] = {1, 2, 5, 4, 3, 234};
+  int s_arr_4[15] = {1, 2, 5, 4, 3, 234};
   ID("s_arr_4")
-  print_int(SZ_4, s_arr_4,
+  print_int(15, s_arr_4,
             " "); // from index 6 to 14, s_arr_4 values are not initialized
 
   LINE_BREAK
