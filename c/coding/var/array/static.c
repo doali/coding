@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 
   LINE_BREAK
   // static array
-  int s_arr_3[3] = {7};
+  int s_arr_3[3] = {};
   ID("s_arr_3")
   print_int(3, s_arr_3, ";");
 
