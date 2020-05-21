@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# assert(...) 
+# ------------------------------------------------------------------------------
+# https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/5155_la-gestion-derreur-2/
+# ------------------------------------------------------------------------------
+# assert - abort the program if assertion is false
+# #include <assert.h>
+# ------------------------------------------------------------------------------
+#gcc -DNDEBUG -o hello hello.c # DISABLE debug mode
+gcc -DDEBUG -o hello hello.c   # ENABLE debug mode

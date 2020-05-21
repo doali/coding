@@ -1,6 +1,9 @@
 #include <stdio.h> // en-tete standard
                    // directive preprocesseur => #include
                    // copie le contenu du fichier stdio.h
+
+#include <assert.h> // https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/5155_la-gestion-derreur-2/
+
 // --------------------------------------------------------------------------------
 // INFO : Compile and Run
 // --------------------------------------------------------------------------------
@@ -17,6 +20,7 @@
  * ./hello
  * ---------
  */
+
 // --------------------------------------------------------------------------------
 // PREPROCESSOR
 // --------------------------------------------------------------------------------
@@ -32,6 +36,7 @@
 #else
 #define LINE_BREAK printf("\n");
 #endif
+
 // --------------------------------------------------------------------------------
 // FUNCTIONS
 // --------------------------------------------------------------------------------
@@ -40,6 +45,11 @@ void do_something() { // declaration + definition
   printf("\n");
   printf("Hi doing something\n");
 }
+
+void do_bug() { // declaration + definition
+  assert(1 < 0);
+}
+
 // --------------------------------------------------------------------------------
 // ENTRY POINT
 // --------------------------------------------------------------------------------
@@ -56,6 +66,8 @@ int main() { // declaration + definition
 
   LINE_BREAK
   do_something(); // call function
+
+  do_bug(); // call function
 
   return 0; // to ENV, i.e. to the OS
 }

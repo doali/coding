@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Generate
+# gdb
 # ------------------------------------------------------------------------------
-# object code (.o) from assemble code (.s)
+# - needs special symbols
+# - option: -g or else -ggdb
 # ------------------------------------------------------------------------------
-as -o hello.o hello.s
+#gcc -Wall -ggdb -o hello hello.c
+gcc -Werror -ggdb -o hello hello.c

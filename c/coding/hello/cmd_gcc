@@ -1,5 +1,13 @@
-gcc hello.c
-gcc -o exe hello.c
-gcc -S hello.c
-gcc -c hello.c # .h correspondant au niveau du .c sinon utiliser l'option -I
-gcc -o exe hello.o
+#!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# A few gcc commands
+# ------------------------------------------------------------------------------
+#gcc hello.c        # generates executable a.out
+#                   # .o files are generated in /tmp then deleted
+#gcc -o exe hello.c # generates executable named exe
+#                   # .o files are generated in /tmp then deleted
+#gcc -S hello.c     # generates assemble code (.s)
+#gcc -c hello.c     # .h correspondant au niveau du .c sinon utiliser l'option -I
+#gcc -o exe hello.o # generates executable exe from object code hello.o
+# ------------------------------------------------------------------------------
+gcc -o hello.exe hello.c
