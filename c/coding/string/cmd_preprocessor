@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/chapitre5.html
+gcc -DLOG -o string string.c
+# ------------------------------------------------------------------------------
+# Otherwise
+# - add symbol LOG in string.c: #define LOG
+# - compile: gcc -o string string.c
+# ------------------------------------------------------------------------------
