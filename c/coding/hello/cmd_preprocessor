@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/chapitre5.html
+gcc -DLOG -o hello.exe hello.c
+# ------------------------------------------------------------------------------
+# Otherwise
+# - add symbol LOG source file hello.c: 
+# =>#define LOG
+# - compile
+# =>gcc -o hello hello.c
+# ------------------------------------------------------------------------------

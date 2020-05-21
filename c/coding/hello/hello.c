@@ -1,24 +1,49 @@
 #include <stdio.h> // en-tete standard
                    // directive preprocesseur => #include
                    // copie le contenu du fichier stdio.h
-
-/* Compilation
+// --------------------------------------------------------------------------------
+// INFO : Compile and Run
+// --------------------------------------------------------------------------------
+/* Compile
+ * -----------
  * gcc -Wall -ggdb -o hello hello.c
+ * -----------
+ * gcc -Werror -ggdb -o hello hello.c
+ * -----------
  */
 
-/* Execution
+/* Run
+ * ---------
  * ./hello
+ * ---------
  */
-
-#define LINE_BREAK printf("====================================\n");
-
-void do_something() {
+// --------------------------------------------------------------------------------
+// PREPROCESSOR
+// --------------------------------------------------------------------------------
+//#define LOG
+#ifdef LOG // needed if no -DLOG option while compiling
+/*
+ * #ifdef LOG
+ * we can comment this line even if we want to use LOG
+ * provided we compile this way
+ * gcc -DLOG -o string string.c
+ */
+#define LINE_BREAK printf("%40s:%d\n", __func__, __LINE__);
+#else
+#define LINE_BREAK printf("\n");
+#endif
+// --------------------------------------------------------------------------------
+// FUNCTIONS
+// --------------------------------------------------------------------------------
+void do_something() { // declaration + definition
   printf(__func__);
   printf("\n");
   printf("Hi doing something\n");
 }
-
-int main() {
+// --------------------------------------------------------------------------------
+// ENTRY POINT
+// --------------------------------------------------------------------------------
+int main() { // declaration + definition
   LINE_BREAK
   printf("%d\n", __LINE__); // line number of the current file being compiled
   printf("%s\n", __FILE__); // name of the current file being compiled
@@ -29,7 +54,7 @@ int main() {
   printf(__func__);
   printf("\n");
 
-  do_something();
+  do_something(); // call function
 
-  return 0;
+  return 0; // to ENV, i.e. to the OS
 }
