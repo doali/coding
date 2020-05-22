@@ -1,0 +1,60 @@
+# ------------------------------------------------------------------------------
+#https://fr.wikibooks.org/wiki/Programmation_C-C%2B%2B/Structures_et_types
+#https://courses.cs.washington.edu/courses/cse351/17au/lectures/14/CSE351-L14-structs_17au.pdf
+# ------------------------------------------------------------------------------
+struct SystemEvent
+{
+    int iEventType;  /* Discriminant de l'événement.
+                        Permet de choisir comment l'interpréter. */
+    union
+    {
+        struct
+        {                     /* Structure permettant d'interpréter */
+            int iMouseX;      /* les événements souris. */
+            int iMouseY;
+        };
+        struct
+        {                     /* Structure permettant d'interpréter */
+            char cCharacter;  /* les événements clavier. */
+            int iShiftState;
+        };
+        /* etc. */
+    };
+};
+
+/* Exemple d'utilisation des événements : */
+int ProcessEvent(struct SystemEvent e)
+{
+    int result;
+    switch (e.iEventType)
+    {
+    case MOUSE_EVENT:
+        /* Traitement de l'événement souris... */
+        result = ProcessMouseEvent(e.iMouseX, e.iMouseY);
+        break;
+    case KEYBOARD_EVENT:
+        /* Traitement de l'événement clavier... */
+        result = ProcessKbdEvent(e.cCharacter, e.iShiftState);
+        break;
+    }
+    return result;
+}
+# ------------------------------------------------------------------------------
+struct champ_de_bits
+{
+    int var1;                    /* Définit une variable classique. */
+    int bits1a4  : 4;            /* Premier champ : 4 bits. */
+    int bits5a10 : 6;            /* Deuxième champ : 6 bits. */
+    unsigned int bits11a16 : 6;  /* Dernier champ : 6 bits. */
+};
+
+
+struct champ_de_bits essai;
+
+int main(void)
+{
+    essai.bits1a4 = 3;
+    /* suite du programme */
+    return 0;
+}
+# ------------------------------------------------------------------------------
