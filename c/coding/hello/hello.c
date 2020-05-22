@@ -47,6 +47,8 @@ void do_something() { // declaration + definition
 }
 
 void do_bug() { // declaration + definition
+  // gcc -DDEBUG -o hello.exe hello.c // ENABLE debug mode
+  // gcc -DNDEBUG -o hello.exe hello.c // DISABLE debug mode
   assert(1 < 0);
 }
 
