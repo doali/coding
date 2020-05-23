@@ -14,9 +14,12 @@ int main(void) {
 
   while ((c = fgetc(f_in)) != EOF) {
     if (c == '0') {
-      ungetc('a', f_in); // on empile => le dernier
-      ungetc('b', f_in); // on empile => le second
-      ungetc('c', f_in); // on empile => sera le premier lu
+      ungetc('a', f_in); // on empile => sera le dernier lu
+      ungetc('b', f_in); // on empile => le second lu
+      ungetc('c', f_in); // on empile => le premier lu
+      // ungetc injecte dans le flux des caractères: a, b et c
+      // lors de la lecture, le dernier caractere pushed sera le premier lu
+      // etc...
     }
     putchar(c); // on lit dans le flux en tenant compte de ce qui a été empilé
   }
