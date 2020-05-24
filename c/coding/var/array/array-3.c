@@ -84,8 +84,10 @@ int main(int argc, char **argv) {
     printf("|%15p->%15p->%10d|\n", p_deallocator, *(p_deallocator + row) + 1,
            *(*(p_deallocator + row) + 1)); // since 2 columns (COL = 2)
 
-    free(*(p_deallocator + row));  // free (short)
+    free(*(p_deallocator + row)); // free (short)
+    // free(p_deallocator[row]);  // or else, same as above
     *(p_deallocator + row) = NULL; // INIT to NULL
+    // p_deallocator[row] = NULL;     // or else, same as above
   }
   // ROW
   free(p_deallocator);  // free (short *)
