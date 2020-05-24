@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -x
+
+# Generate Doxyfile -> documentation
+doxygen -g && doxygen
+
+# Browse documentation
+if [ $? -eq 0 ]; then
+  firefox --new-tab html/index.html
+fi
