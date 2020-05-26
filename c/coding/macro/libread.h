@@ -1,6 +1,10 @@
 #ifndef _LIBREAD_H
 #define _LIBREAD_H
 
+/**
+ * \file libread.h
+ * \brief LIB
+ */
 #include <stdio.h>
 
 /**

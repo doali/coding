@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# clean compilation...
+# Generation
 # ------------------------------------------------------------------------------
-rm *.{o,i,s,exe,gch,a} 2> /dev/null
+doxygen -g # generates Doxyfile
+doxygen    # generates ./html and ./latex
 
 # ------------------------------------------------------------------------------
-# clean documentation
+# run
 # ------------------------------------------------------------------------------
-rm -rf ./html ./latex 2> /dev/null
-rm Doxyfile* 2> /dev/null
+firefox --new-tab ./html/index.html
