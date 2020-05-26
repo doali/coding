@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# clean
+rm *.{o,i,s,exe}
+
+# [preprocessor] => .i
+cpp macro.c >macro.i
+
+# assemblee code => .s
+gcc -S macro.i 
+
+# object code => .o
+as -o macro.o macro.s 
+
+# interface
+nm macro.o 
+
+# linked (ld) => .exe
+gcc -o macro.exe macro.o 
+
+# dependencies
+ldd macro
+
+# run
+#./macro 

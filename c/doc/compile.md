@@ -35,6 +35,12 @@ then, we can read `hello.o` file like this `bvi hello.o`
 
 _First install `bvi` with the command line `sudo apt install bvi`_
 
+```bash
+bvi <object_file>
+```
+
+> `:set cm=8` to print exactly 8 columns that is to say 8 bytes
+
 #### Example
 
 [bvi_gdb_main](img/bvi_gdb_main.png)
