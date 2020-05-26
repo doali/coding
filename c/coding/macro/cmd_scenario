@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # clean
-rm *.{o,i,s,exe}
+./cmd_clean
 
 # [preprocessor] => .i
 cpp macro.c >macro.i
@@ -19,7 +19,8 @@ nm macro.o
 gcc -o macro.exe macro.o 
 
 # dependencies
-ldd macro
+ldd macro.o
+ldd macro.exe
 
 # run
 #./macro 
