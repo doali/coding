@@ -3,4 +3,5 @@
 # ------------------------------------------------------------------------------
 cpp hello.c >hello.i
 # or else # https://stackoverflow.com/questions/43967458/difference-between-cpp-and-gcc-e
-# gcc -E hello.c >hello.i
+#gcc -E hello.c >hello.i
+#gcc -E hello.c -o hello.i

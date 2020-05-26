@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-#nm (1)               - list symbols from object files
+# readelf (1)          - Displays information about ELF files.
 # ------------------------------------------------------------------------------
 #gcc -c hello.c
-nm hello.o
-#nm -a hello.o
+readelf -s hello.o
+#readelf -a hello.o
