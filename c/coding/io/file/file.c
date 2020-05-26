@@ -5,6 +5,7 @@
 
 int main(int argc, char **argv) {
 
+  // FILE* : pointeur de flux
   FILE *f_out = fopen("out.txt", "a");
   FILE *f_in = fopen("in.txt", "r");
 
