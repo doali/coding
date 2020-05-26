@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # cpp -v # list the default include-paths in this system used by GNU C Preprocessor
 # ------------------------------------------------------------------------------
-cpp macro.c >macro.i
+cpp main.c >main.i
 # or else # https://stackoverflow.com/questions/43967458/difference-between-cpp-and-gcc-e
-#gcc -E macro.c >macro.i
-#gcc -E macro.c -o macro.i
+#gcc -E main.c >main.i
+#gcc -E main.c -o main.i

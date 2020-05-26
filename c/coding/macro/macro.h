@@ -3,14 +3,6 @@
 
 #define MAX_BUFF 1024 // définition d'une constante
 
-/*
- *
- *
- *
- *
- *
- *
- */
 #define FREE(P)                                                                \
   do {                                                                         \
     free(P);                                                                   \
