@@ -1,10 +1,9 @@
-#include <errno.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define LINE_BREAK printf("\n");
+#define LINE_BREAK printf("\n")
 
 typedef struct {
   char c;   // 1 byte
@@ -51,7 +50,7 @@ size_t sz_str(e_t t) {
     sz = sizeof(s_2);
     break;
   default:
-    perror("Error s_str\n");
+    printf("Error s_str\n");
     break;
   }
 
@@ -82,7 +81,7 @@ int print_s(s_g *p_s) {
     break;
   }
   default: {
-    perror("Error print_s\n");
+    printf("Error print_s\n");
     break;
   }
   }
@@ -117,17 +116,16 @@ int main(int argc, char **argv) {
   s_2 s2 = {1, 1, 'r', 1.0};
 
   s_g sg0 = {T_0, {&s0}};
-  s_g sg1 = {T_1, {&s1}};
-  s_g sg2 = {T_2, {&s2}};
+  s_g sg1 = {T_1, .u.s1 = &s1};
+  s_g sg2 = {T_2, .u.s2 = &s2};
 
   s_g *p_s[SZ_T] = {&sg0, &sg1, &sg2};
 
   for (u_char t = T_0; t < SZ_T; ++t) {
     int type = print_s(p_s[t]);
     printf("SZ: %4lu (octets)\n", sz_str((e_t)type));
+    LINE_BREAK;
   }
-
-  LINE_BREAK
 
   return 0;
 }
