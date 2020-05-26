@@ -3,7 +3,7 @@
 ## Install
 
 - `sudo apt update`
-- `sudo apt install -y doxygen`
+- `sudo apt install -y doxygen graphviz`
 
 ## Generate
 
@@ -55,6 +55,10 @@ to generate the documentation for your project
 ```
 
 > These two lines indicates doxygen to read this file and generate its documentation.
+> It must be added at the begining of the file
+
+- [doali macro](https://github.com/doali/coding/tree/master/c/coding/macro)
+- [doali doc-generator](https://github.com/doali/coding/tree/master/c/coding/doc-generator)
 
 ## Biblio
 
