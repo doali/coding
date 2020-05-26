@@ -57,3 +57,4 @@ od -A x -t xz -v -w8 hello.o
 - [geeks for geeks](https://www.geeksforgeeks.org/compiling-with-g-plus-plus/)
 - [useful macro gnu](https://gcc.gnu.org/onlinedocs/cpp/Standard-Predefined-Macros.html)
 - [ELF](https://refspecs.linuxbase.org/elf/gabi4+/ch4.intro.html)
+- [calleerlandsson](https://www.calleerlandsson.com/the-four-stages-of-compiling-a-c-program/)
