@@ -5,6 +5,8 @@
 #include <stdlib.h>
 
 int r_file_char(FILE *stream) {
+  errno = 0;
+
   int c = 0;
   while ((c = fgetc(stream)) != EOF) {
     printf("%c", c);
@@ -19,6 +21,8 @@ int r_file_char(FILE *stream) {
 }
 
 int r_file_line(FILE *stream) {
+  errno = 0;
+
   u_long l_n = 0;
   char *buff = (char *)malloc(sizeof(char) * MAX_BUFF);
   size_t buff_sz = (size_t)MAX_BUFF;
