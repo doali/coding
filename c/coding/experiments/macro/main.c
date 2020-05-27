@@ -1,3 +1,4 @@
+#include "show.h"
 #include "util.h"
 #include <stdio.h>
 
@@ -81,6 +82,7 @@ int main(int argc, char **argv) {
 
   printf("a" WRAPP(Z) "\n");
   SHOW(res);
+  SHOW_INT(res);
 
   notes();
 
