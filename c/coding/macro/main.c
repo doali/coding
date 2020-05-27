@@ -23,5 +23,9 @@ int main(int argc, char **argv) {
   LINE_BREAK_80;
   read_file_by_line(FILE_NAME_H);
 
+#ifdef INFO
+  PRINT_INFO;
+#endif
+
   return EXIT_SUCCESS;
 }

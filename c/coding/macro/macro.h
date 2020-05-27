@@ -7,6 +7,28 @@
  */
 #include <stdio.h>
 
+#define LINE_BREAK(NB_C)                                                       \
+  do {                                                                         \
+    for (int i = 0; i < NB_C; ++i) {                                           \
+      printf("%c", '-');                                                       \
+    }                                                                          \
+    printf("\n");                                                              \
+  } while (0)
+
+#define LINE_BREAK_80 LINE_BREAK(80)
+
+#ifdef INFO
+#define PRINT_INFO                                                             \
+  do {                                                                         \
+    LINE_BREAK_80;                                                             \
+    printf("%s:", __FILE__);                                                   \
+    printf("%d, ", __LINE__);                                                  \
+    printf("%s, ", __TIME__);                                                  \
+    printf("%s\n", __DATE__);                                                  \
+    LINE_BREAK_80;                                                             \
+  } while (0)
+#endif
+
 #define MAX_BUFF 1024 // définition d'une constante
 
 #define FREE(P)                                                                \

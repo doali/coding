@@ -5,6 +5,7 @@
  * \file libread.h
  * \brief LIB
  */
+#include "macro.h"
 #include <stdio.h>
 
 /**

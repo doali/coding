@@ -1,5 +1,4 @@
 #include "libread.h"
-#include "macro.h"
 
 #include <errno.h>
 #include <stdlib.h>
