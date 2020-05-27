@@ -287,3 +287,4 @@ int main(int argc, char **argv) {
 ## Biblio
 
 - [gnu](https://gcc.gnu.org/onlinedocs/cpp/Standard-Predefined-Macros.html)
+- [medium](https://medium.com/@hauyang/convert-int-into-string-with-c-macro-125eeaa71600)
