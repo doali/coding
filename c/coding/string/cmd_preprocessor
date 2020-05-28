@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
 # https://www.rocq.inria.fr/secret/Anne.Canteaut/COURS_C/chapitre5.html
-gcc -DLOG -o string string.c
+gcc -DLOG -o string-1 string-1.c
 # ------------------------------------------------------------------------------
 # Otherwise
 # - add symbol LOG in string.c: #define LOG
