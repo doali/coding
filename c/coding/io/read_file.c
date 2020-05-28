@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
   if (argc == 2) {
     read_file(argv[1]);
   } else {
-    printf("Usage: %s <file_name>\n", argv[1]);
+    printf("Usage: %s <file_name>\n", argv[0]);
   }
 
   return EXIT_SUCCESS;
