@@ -108,6 +108,7 @@ sachant que la taille d'un `char` en mémoire est précisément de `1 octet`
 ## `free`
 
 - [stackoverflow](https://stackoverflow.com/questions/22130925/how-to-properly-free-a-mallocd-structure)
+- [zestedesavoir malloc et goto](https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/5155_la-gestion-derreur-2/)
 
 ## Biblio
 
