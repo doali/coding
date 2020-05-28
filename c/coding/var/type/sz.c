@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PRINT_SZ(T, X) printf("%6s|%2lu byte(s)\n", T, sizeof(X));
+#define PRINT_SZ(T, X) printf("%6s|%2lu byte(s)\n", T, sizeof(X))
 
 typedef struct {
   char c;
