@@ -7,3 +7,7 @@ _A few words about C MACRO and about..._
 - `doxygen -g && doxyge`
 
 _... as well._
+
+_An interesting use case of goto..._
+- [zestedesavoir](https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/5155_la-gestion-derreur-2/)
+
