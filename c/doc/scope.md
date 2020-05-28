@@ -21,6 +21,7 @@ Variable visible uniquement dans la fonction
 ### Exemple
 
 - [goto.c](https://github.com/doali/coding/blob/master/c/coding/var/goto.c)
+- [zestedesavoir exemple cas utilisation](https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/5155_la-gestion-derreur-2/)
 
 ## Portée globale
 
