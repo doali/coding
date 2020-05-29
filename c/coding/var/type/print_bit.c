@@ -1,5 +1,11 @@
+/**
+ * \file print_bit.c
+ * \brief
+ * https://en.wikipedia.org/wiki/Bitwise_operations_in_C#Right_shift_%3E%3E
+ */
 #include <stdio.h>
 #include <stdlib.h>
+
 // -----------------------------------------------------------------------------
 #define MAX_BITS                                                               \
   64 /*                                                                        \
@@ -47,7 +53,7 @@ void test() {
 // -----------------------------------------------------------------------------
 
 int main(int argc, char **argv) {
-  test();
+  // test();
 
   if (argc != 2) {
     printf("Usage: %s <number_+>\n", argv[0]);
