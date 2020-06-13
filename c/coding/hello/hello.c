@@ -71,5 +71,7 @@ int main() { // declaration + definition
 
   do_bug(); // call function
 
+printf("olivier\n");
+
   return 0; // to ENV, i.e. to the OS
 }
