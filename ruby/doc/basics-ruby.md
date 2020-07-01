@@ -191,7 +191,7 @@ irb(main):035:0>
 - `&&, ||, !`
 ### Binaires
 - `<<, >>, &, ^, |, ~` : `^` : xor, `~` : complémentaire (not)
-### Des références / adresses
+### Des références / adresses (python)
 - `<ref_instance1> is <ref_instance2>`
 
 ```python
