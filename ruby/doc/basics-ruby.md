@@ -500,7 +500,7 @@ B:ClassFils
 
 ```
 ### Composition
-- `attr_attr_accessor :<nom_composant>` : `<nom_composant>` est une reference vers l'objet pour lequel on définit une relation de composition
+- `attr_accessor :<nom_composant>` : `<nom_composant>` est une reference vers l'objet pour lequel on définit une relation de composition
 
 ```ruby
 class Panier
