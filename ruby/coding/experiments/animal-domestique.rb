@@ -43,4 +43,7 @@ def main
 end
 
 # === Fonction principale
-main
+# Trick as in python if __name__ == "__main__"
+if __FILE__ == $0
+  main
+end
