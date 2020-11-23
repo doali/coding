@@ -45,6 +45,9 @@ p_f1 to_str(char *buf, Person *p) {
     strncat(buf, ", ", 1);
     strncat(buf, p->fd_2, sizeof(p->fd_2));
     strncat(buf, "}", 1);
+    
+    // To study
+    //snprintf(buf, 100, "{%s, %s}", p->fd_1, p->fd_2);
 
     return buf;
   }
