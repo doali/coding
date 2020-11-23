@@ -40,14 +40,7 @@ int delete_person(Person *p) {
 
 p_f1 to_str(char *buf, Person *p) {
   char *to_s(char *buf) {
-    strncat(buf, "{", 1);
-    strncat(buf, p->fd_1, sizeof(p->fd_1));
-    strncat(buf, ", ", 1);
-    strncat(buf, p->fd_2, sizeof(p->fd_2));
-    strncat(buf, "}", 1);
-    
-    // To study
-    //snprintf(buf, 100, "{%s, %s}", p->fd_1, p->fd_2);
+    snprintf(buf, 100, "{%s, %s}", p->fd_1, p->fd_2);
 
     return buf;
   }
