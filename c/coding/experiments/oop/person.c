@@ -45,7 +45,5 @@ p_f1 to_str(char *buf, Person *p) {
     return buf;
   }
 
-  p_f1 pf_to_s = to_s;
-
-  return pf_to_s;
+  return to_s;
 }
