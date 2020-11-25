@@ -41,6 +41,7 @@ int delete_person(Person *p) {
 p_f1 to_str(char *buf, Person *p) {
   char *to_s(char *buf) {
     snprintf(buf, 100, "{%s, %s}", p->fd_1, p->fd_2);
+    //snprintf(buf, 100, "{%.*s, %.*s}", (int)sizeof(p->fd_1), p->fd_1, (int)sizeof(p->fd_2), p->fd_2);
 
     return buf;
   }
