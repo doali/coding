@@ -108,5 +108,4 @@ _In the current directory which is also our workspace :_ `mkdir .vscode`
 }
 ```
 
-
 [debug](https://code.visualstudio.com/docs/cpp/config-linux#_prerequisites)
