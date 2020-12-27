@@ -720,6 +720,10 @@ mot_1 # saut_de_ligne
 |thx1138|	$plan9|	@_|	@@x_pos|	MyClass|
 |_26|	$Global|	@plan9|	@@SINGLE|	Jazz_Song|
 
+> Ruby adopte le principe de Convention over Configuration (CoC) ou encore Coding by convention \
+> où l'idée est de respecter des conventions de nommages, d'arborescence, ... \
+> plutôt que des fichiers de configuration.
+
 ## Biblio
 - [premiers pas](https://openclassrooms.com/fr/courses/2913686-lancez-vous-dans-la-programmation-avec-ruby/2915056-installez-vos-outils)
 - [ruby for beginners](http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html)
