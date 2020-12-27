@@ -141,6 +141,8 @@ Il est également possible de lancer directement `pry`
 pry condition-list.rb
 ```
 
+_Similaire à un REPL (Read–Eval–Print Loop)_
+
 ### Exemple
 
 ## `byebug`
