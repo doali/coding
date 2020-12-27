@@ -224,4 +224,5 @@ gitpod /workspace/coding/ruby/coding/control $
 - [pry](https://pry.github.io/)
 - [byebug](https://github.com/deivid-rodriguez/byebug)
 - [rdebug](https://stackoverflow.com/questions/3955688/how-to-debug-ruby-scripts)
+- [rdebug usage](http://bashdb.sourceforge.net/ruby-debug.html)
 - [youtube Jim Weirich](https://www.youtube.com/watch?v=GwgF8GcynV0)
