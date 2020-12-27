@@ -145,8 +145,6 @@ pry condition-list.rb
 
 ## `byebug`
 
-_Très proche dans son utilisation à `pdb` (python), `gdb` (C, C++)_
-
 ### Installation
 
 - `gem install byebug`
@@ -182,6 +180,8 @@ gitpod /workspace/coding/ruby/coding/control $ byebug condition-list.rb
 > quitter via la commande `quit` et revenir à `byebug`
 
 ## `rdebug`
+
+_Très proche dans son utilisation à pdb (python), gdb (C, C++)_
 
 ### Installation
 
