@@ -9,7 +9,13 @@
 # --------------------------------------------------------------------------------
 # Pour comprendre
 # https://medium.com/geckoboard-under-the-hood/how-to-build-a-network-stack-in-ruby-f73aeb1b661b
+# https://github.com/geckoboard/RUDP/blob/master/server.rb
 # --------------------------------------------------------------------------------
+# Utile
+# https://gist.github.com/k-sone/8036832
+# --------------------------------------------------------------------------------
+# select en ruby
+# https://ruby-doc.org/core-2.5.0/IO.html
 
 require 'socket'
 
