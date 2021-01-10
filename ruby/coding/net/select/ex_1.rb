@@ -10,6 +10,7 @@ message = "time is up !!"
 
 def evt_timer
   puts "Time is up"
+  UDPSocket.new.send("socket client says that time is up", 0, "192.168.1.87", 6666)
 end
 
 th = Thread.new do
