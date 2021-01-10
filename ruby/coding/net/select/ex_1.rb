@@ -6,10 +6,22 @@ mysocket = UDPSocket.new
 #mysocket.bind('192.168.1.87', 6666)
 mysocket.bind('192.168.1.87', 6666)
 
+message = "time is up !!"
+
+def evt_timer
+  puts "Time is up"
+end
+
 th = Thread.new do
-    while true
+    is_alive = true
+    while is_alive
         puts "DEBUG : loop <<"
-        ready = IO.select([mysocket])
+        ready = IO.select([mysocket], nil, nil, 3)
+        puts "#{is_alive}"
+        if ready == nil
+          evt_timer
+          next
+        end
         readable = ready[0]
 
         readable.each do |socket|
@@ -25,7 +37,6 @@ th = Thread.new do
                 end
             end
         end
-
     end
     puts "DEBUG : loop >>"
 end
