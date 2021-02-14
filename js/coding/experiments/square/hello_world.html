@@ -1,0 +1,34 @@
+<html>
+    <!-- header -->
+    <head>
+        <style>
+            div#square {
+                position: absolute;
+                left: 600px;
+                top: 76px;
+            }
+        </style>
+    </head>
+
+    <!-- body -->
+    <body>
+        Hello world !
+        <div id="square" onmousedown="plop()" >
+            <img id="plip" src="img/square_black_25.png">
+        </div>
+    </body>
+
+    <script>
+        document.getElementById("square").onclick = function (event) {
+            let x = event.clientX;
+            let y = event.clientY;
+            console.log(x, y);
+        }
+
+        function plop() {
+            console.log("plop()");
+            document.getElementById("plip").src = "img/square_purple_25.png";
+            document.getElementById("square").style.top = "42px";
+        }
+    </script>
+</html>
