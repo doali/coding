@@ -1,11 +1,11 @@
 <html>
     <!-- header -->
     <head>
-        <style>
+        <style type="text/css">
             div#square {
                 position: absolute;
-                left: 600px;
-                top: 76px;
+                left: 1px;
+                top: 1px;
             }
         </style>
     </head>
@@ -13,22 +13,44 @@
     <!-- body -->
     <body>
         Hello world !
-        <div id="square" onmousedown="plop()" >
+        <div id="square">
             <img id="plip" src="img/square_black_25.png">
         </div>
     </body>
 
     <script>
-        document.getElementById("square").onclick = function (event) {
-            let x = event.clientX;
-            let y = event.clientY;
-            console.log(x, y);
+        // Coordonnees initiales
+        let x = document.getElementById("square").style.left
+        let y = document.getElementById("square").style.top
+
+        document.getElementById("square")
+        square.onmousedown = function (event) {
+            console.log("select")
+
+            x = event.clientX - x
+            y = event.clientY - y
+
+            document.getElementById("plip").src = "img/square_purple_25.png"
+            document.onmousemove = mouseMove
+            document.onmouseup = mouseStop
+
+            return false // tres important : permet de desactiver le drag&drop du navigateur
         }
 
-        function plop() {
-            console.log("plop()");
-            document.getElementById("plip").src = "img/square_purple_25.png";
-            document.getElementById("square").style.top = "42px";
+        function mouseMove (event) {
+            console.log("mouseMove")
+            square.style.left = event.clientX - x
+            square.style.top = event.clientY - y
+        }
+
+        function mouseStop (event) {
+            console.log("mouseStop")
+            document.getElementById("plip").src = "img/square_black_25.png"
+            document.onmousemove = null                    
+            document.onmouseup = null        
+
+            x = event.clientX - x
+            y = event.clientY - y
         }
     </script>
 </html>
