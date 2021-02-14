@@ -1,4 +1,9 @@
 #!/usr/bin/env nodejs
+
+// --------------------------------------------------------------------------------
+// IIFE : Immediately Invoked Function Expression
+// https://developer.mozilla.org/fr/docs/Glossaire/IIFE
+// --------------------------------------------------------------------------------
 //
 // anonymous
 // function declaration
