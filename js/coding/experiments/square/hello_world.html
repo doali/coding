@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
     <!-- header -->
     <head>
+        <meta charset="utf-8"/>
         <style type="text/css">
             div#squareModel, div.square {
                 position: absolute;
@@ -18,7 +20,7 @@
     <body>
         Hello world !
         <button onclick="addImg()">add</button>
-        <button onclick="delImg()">del</button>
+        <button onclick="delImg(this)">del</button>
         <div class="square" id="squareModel">
             <img id="plip" src="img/square_black_25.png">
         </div>
@@ -30,12 +32,18 @@
         let currentSquare = null        
         let currentSquareX = null
         let currentSquareY = null
+        let squareDelId = null
 
         
         function mouseStart (event) {
             console.log("mouseStart")
 
             currentSquare = this
+
+            if (squareDelId !== null) {
+                this.parentNode.removeChild(this)
+                squareDelEnd()
+            }
 
             currentSquareX = event.clientX - currentSquare.x
             currentSquareY = event.clientY - currentSquare.y
@@ -49,8 +57,8 @@
 
         function mouseMove (event) {
             console.log("mouseMove")
-            currentSquare.style.left = event.clientX - currentSquareX
-            currentSquare.style.top = event.clientY - currentSquareY
+            currentSquare.style.left = (event.clientX - currentSquareX) + "px"
+            currentSquare.style.top = (event.clientY - currentSquareY) + "px"
         }
 
         function mouseStop (event) {
@@ -86,8 +94,21 @@
             document.body.appendChild(squareCloned)
         }
 
-        function delImg() {
+        function delImg(id) {
             console.log("delImg")
+            if (squareDelId != null) {
+                squareDelEnd()
+            } else {
+                squareDelId = id
+                squareDelId.innerHTML = "Deleting in progress"
+            }            
+
+            return false
+        }
+
+        function squareDelEnd() {
+            squareDelId.innerHTML = "del"                
+            squareDelId = null
         }
     </script>        
 </html>
