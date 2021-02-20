@@ -2,10 +2,13 @@
     <!-- header -->
     <head>
         <style type="text/css">
-            div#square {
+            div#squareModel, div.square {
                 position: absolute;
                 left: 1px;
                 top: 1px;
+            }
+            
+            div#squareModel {
                 display: none;
             }
         </style>
@@ -16,22 +19,26 @@
         Hello world !
         <button onclick="addImg()">add</button>
         <button onclick="delImg()">del</button>
-        <div id="square">
+        <div class="square" id="squareModel">
             <img id="plip" src="img/square_black_25.png">
         </div>
     </body>
 
     <script>
-        // Coordonnees initiales
-        let x = document.getElementById("square").style.left
-        let y = document.getElementById("square").style.top
+        let squareModel = document.getElementById("squareModel")
+        let squareCounter = 1
+        let currentSquare = null        
+        let currentSquareX = null
+        let currentSquareY = null
 
-        square = document.getElementById("square")
-        square.onmousedown = function (event) {
-            console.log("select")
+        
+        function mouseStart (event) {
+            console.log("mouseStart")
 
-            x = event.clientX - x
-            y = event.clientY - y
+            currentSquare = this
+
+            currentSquareX = event.clientX - currentSquare.x
+            currentSquareY = event.clientY - currentSquare.y
 
             document.getElementById("plip").src = "img/square_purple_25.png"
             document.onmousemove = mouseMove
@@ -42,8 +49,8 @@
 
         function mouseMove (event) {
             console.log("mouseMove")
-            square.style.left = event.clientX - x
-            square.style.top = event.clientY - y
+            currentSquare.style.left = event.clientX - currentSquareX
+            currentSquare.style.top = event.clientY - currentSquareY
         }
 
         function mouseStop (event) {
@@ -52,22 +59,35 @@
             document.onmousemove = null                    
             document.onmouseup = null        
 
-            x = event.clientX - x
-            y = event.clientY - y
+            currentSquare.x = event.clientX - currentSquareX
+            currentSquare.y = event.clientY - currentSquareY
+
+            currentSquare = null
         }        
     </script>
 
     <script>
         function addImg() {
             console.log("addImg")
-            squareCloned = square.cloneNode(true)
+
+            squareCloned = squareModel.cloneNode(true)
+            
             squareCloned.style.display="block"
+            squareCloned.id = squareCounter++
+            
+            squareCloned.onmousedown = mouseStart
+            
+            squareCloned.x = 10
+            squareCloned.y = 10
+            
+            squareCloned.style.top = "10px"
+            squareCloned.style.left = "10px"
+            
             document.body.appendChild(squareCloned)
         }
 
         function delImg() {
             console.log("delImg")
-            
         }
     </script>        
 </html>
