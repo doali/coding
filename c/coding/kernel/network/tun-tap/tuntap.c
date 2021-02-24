@@ -1,100 +1,62 @@
-#include <stdlib.h>
-#include <stdio.h>
 
-extern int pi;
+#include <linux/if.h>
+#include <linux/if_tun.h>
 
-extern int sum(int, int);
-extern int mul(int, int);
-extern int sub(int, int);
-extern void dom(int);
+#include <string.h>
+#include <fcntl.h> // for open
+#include <unistd.h> // for close
+#include <sys/ioctl.h>
 
-int g(int, int);
+// Creating the interface => CAP_NET_ADMIN
+// /dev/net/tun <= called clone device
+int tun_alloc(char *dev, int flags) {
 
-typedef int (*pf)(int, int);
+  struct ifreq ifr;
+  int fd, err;
+  char *clonedev = "/dev/net/tun";
 
-void f(const char* s)
-{
-    int g(int a, int b) 
-    {
-        return a + b;
-    }
+  /* Arguments taken by the function:
+   *
+   * char *dev: the name of an interface (or '\0'). MUST have enough
+   *   space to hold the interface name if '\0' is passed
+   * int flags: interface flags (eg, IFF_TUN etc.)
+   */
 
-    struct inner
-    {
-        pf op;
-    } titi;
+   /* open the clone device */
+   if( (fd = open(clonedev, O_RDWR)) < 0 ) {
+     return fd;
+   }
 
-    g(0, 1);  
+   /* preparation of the struct ifr, of type "struct ifreq" */
+   memset(&ifr, 0, sizeof(ifr));
 
-    titi.op = g;
-    printf("titi %d\n", titi.op(100, 66));
+   ifr.ifr_flags = flags;   /* IFF_TUN or IFF_TAP, plus maybe IFF_NO_PI */
 
-    s = "titi                                                                       p";   
-    printf("%d\n", g(10000, 1));
-    printf("%s\n", s);
+   if (*dev) {
+     /* if a device name was specified, put it in the structure; otherwise,
+      * the kernel will try to allocate the "next" device of the
+      * specified type */
+     strncpy(ifr.ifr_name, dev, IFNAMSIZ);
+   }
+
+   /* try to create the device */
+   if( (err = ioctl(fd, TUNSETIFF, (void *) &ifr)) < 0 ) {
+     close(fd);
+     return err;
+   }
+
+  /* if the operation was successful, write back the name of the
+   * interface to the variable "dev", so the caller can know
+   * it. Note that the caller MUST reserve space in *dev (see calling
+   * code below) */
+  strcpy(dev, ifr.ifr_name);
+
+  /* this is the special file descriptor that the caller will use to talk
+   * with the virtual interface */
+  return fd;
 }
 
-typedef int (*op)(int, int);
-
-static int global = 23;
-
-static int fun() 
+int main(int nargs, char** argsv)
 {
-    static int gseed = 0;    
-    return ++gseed;    
-}
-
-
-int main(int nargs, char** argvs)
-{
-    printf("nargs: %d\n", nargs);
-
-    for (int index = 0; index < nargs; ++index)
-    {
-        printf("argsv: %s\n", *(argvs + index));
-    }
-
-    const char* message = "coucou";       
-    printf("%p|%s\n", message, message);
-    message = "ceci est une chaine";  
-    printf("%p|%s\n", message, message);
-
-    f("toto");
-       
-    char* pc = "titi";
-    printf("%s\n", pc);
-
-    //int (*op)(int, int);
-
-    op pf = &sum;    
-
-    for (int i = 0; i < 5; ++i) 
-    {
-        printf("%d\n", (*pf)(i, i));
-    }
-
-    pf = mul;
-
-    op t_op[] = {sum, mul, sub};
-
-    printf("Debut\n");
-    for (int operation = 0; operation < 2; ++operation) 
-    {        
-        for (int i = 0; i < 4; ++i)
-        {
-            printf("%d\n", t_op[operation](i, i));
-        }
-    }    
-
-    printf("%d\n", global);
-    printf("%d\n", fun(1));
-    printf("%d\n", fun(10));
-    printf("%d\n", fun(1));
-    printf("%d\n", fun(1));
-
-    printf("%d\n", pi);
-
-    dom(243);
-
-    return EXIT_SUCCESS;
+    return 0;
 }

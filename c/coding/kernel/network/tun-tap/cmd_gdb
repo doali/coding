@@ -5,4 +5,5 @@
 # - needs special symbols
 # - option: -g or else -ggdb
 # ------------------------------------------------------------------------------
-gcc -Werror -ggdb -o tuntap tuntap.c util.c
+#gcc -Werror -ggdb -o stuff stuff.c stuff_tool.c
+gcc -Werror -ggdb -o tuntap tuntap.c 
