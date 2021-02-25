@@ -5,4 +5,4 @@ usage() {
 }
 
 # -ggdb : set on symbols for gdb
-[ ${#} = 1 ] && [ ! -z ${1} ] && [ -f ${1} ] && gcc -ggdb -o "${1%.*}" ${1} || usage
+[ ${#} == 1 ] && [ ! -z ${1} ] && [ -f ${1} ] && gcc -ggdb -o "${1%.*}" ${1} || usage
