@@ -11,4 +11,13 @@
 #gcc -o exe hello.o # generates executable exe from object code hello.o
 # ------------------------------------------------------------------------------
 #gcc -o hello.exe hello.c
-gcc -o basics basics.c -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+
+# Simple command to compile with glib
+#gcc -o basics basics.c -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+
+# More friendly command
+if [ $# == 1 ]; then
+	gcc -ggdb -o "${1%.*}" ${1} -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+else
+	echo ${0} "<filename.c>"
+fi
