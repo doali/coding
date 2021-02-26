@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <glib.h>
 
+
+typedef int(*pf)(int);
+typedef int(*ppf)(pf, int);
+
 int main(int argc, char** argv) {
      GList* list = NULL;
 
@@ -13,6 +17,16 @@ int main(int argc, char** argv) {
      list = g_list_prepend(list, "titi_2");
      list = g_list_prepend(list, "titi_3");
      list = g_list_prepend(list, "titi_4");
+
+     int f(int a) {
+          return a;
+     }
+
+     int ff(pf p, int a) {
+          return p(a);
+     }
+
+     printf("%d\n", ff(f, 3));
 
      struct s {
           int val;
