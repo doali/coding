@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# ------------------------------------------------------------------------------
+# Termux
+# - compilation OK au niveau de /sdcard/
+# - execution KO => changer de répertoire
+# ------------------------------------------------------------------------------
+# Sat Feb 27 10:28:19 CET 2021
+# ------------------------------------------------------------------------------
+
+# Termux
+PATH_TERMUX_RUN=/data/data/com.termux/files/home/downloads
+
+## Compilation
+gcc -o ${PATH_TERMUX_RUN}/hello.exe hello.c
+
+## Execution
+chmod +x ${PATH_TERMUX_RUN}/hello.exe
+${PATH_TERMUX_RUN}/hello.exe
+
+## Suppression
+#rm ${PATH_TERMUX_RUN}/hello.exe
