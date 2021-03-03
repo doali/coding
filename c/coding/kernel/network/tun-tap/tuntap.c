@@ -56,7 +56,10 @@ int tun_alloc(char *dev, int flags) {
   return fd;
 }
 
+#include <stdio.h>
+
 int main(int nargs, char** argsv)
 {
+    printf("Todo !!\n");
     return 0;
 }
