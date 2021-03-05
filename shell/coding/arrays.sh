@@ -1,5 +1,6 @@
 #!/bin/bash
 # repris de : https://www.linuxjournal.com/content/bash-arrays
+# https://linuxhint.com/associative_array_bash/
 
 array=(one two three four [5]=five)
 
