@@ -7,3 +7,11 @@ gcc -DLOG -o string-1 string-1.c
 # - add symbol LOG in string.c: #define LOG
 # - compile: gcc -o string string.c
 # ------------------------------------------------------------------------------
+
+
+# ------------------------------------------------------------------------------
+#gcc -DLOG -o string-5 string-5.c
+gcc -c -std=c99 string-5.c
+objdump -Sr string-5.o
+gcc -o string-5 string-5.o
+readelf -l string-5
