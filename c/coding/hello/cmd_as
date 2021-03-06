@@ -5,3 +5,5 @@
 # object code (.o) from assemble code (.s)
 # ------------------------------------------------------------------------------
 as -o hello.o hello.s
+# https://zestedesavoir.com/articles/130/programmez-en-langage-dassemblage-sous-linux/
+# nasm
