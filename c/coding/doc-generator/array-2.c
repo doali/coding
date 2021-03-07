@@ -15,6 +15,7 @@
     printf("\n----------------------------------------------------------\n");
 
 /**
+ * \brief fetch a value in an array at [r][c]
  * \fn int fetch(char *t, int r, int c) { return *(t + (c + r * COL)); }
  * \param t array of char
  * \param r row
