@@ -16,7 +16,11 @@
                     "name" : "component_3",
                     "constraint" : {
                         "field_1" : "equal",
-                        "field_2" : "different"
+                        "field_2" : "equal",
+                        "field_1_3" : {
+                            "target" : "field_3_1",
+                            "op" : "equal"
+                        }
                     }
                 }
             ]
@@ -44,7 +48,11 @@
                     "constraint" : 
                     {
                         "field_1" : "equal",
-                        "field_2" : "different"
+                        "field_2" : "equal",
+                        "field_3_1" : {
+                            "target" : "field_1_3",
+                            "op" : "equal"
+                        }
                     }
                 }
             ]
