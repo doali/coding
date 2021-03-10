@@ -1,0 +1,53 @@
+{
+    "components": [
+        { 
+            "name" : "component_1",
+            "path" : "comp_1.json",
+            "depends" : [
+                {
+                    "name": "component_2",
+                    "constraint" : 
+                    {
+                        "field_1" : "equal",
+                        "field_2" : "different"
+                    }
+                },
+                {
+                    "name" : "component_3",
+                    "constraint" : {
+                        "field_1" : "equal",
+                        "field_2" : "different"
+                    }
+                }
+            ]
+        },
+        { 
+            "name" : "component_2",
+            "path" : "comp_2.json",
+            "depends" : [
+                {
+                    "name" : "component_1",
+                    "constraint" : 
+                    {
+                        "field_1" : "equal",
+                        "field_2" : "different"
+                    }
+                }
+            ]
+        },
+        { 
+            "name" : "component_3",
+            "path" : "comp_3.json",
+            "depends" : [
+                {
+                    "name" : "component_1",
+                    "constraint" : 
+                    {
+                        "field_1" : "equal",
+                        "field_2" : "different"
+                    }
+                }
+            ]
+        }
+    ]
+}
