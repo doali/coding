@@ -30,10 +30,11 @@ def is_atomic_rule_satisfied(field_1, field_2, rule):
 
     res = switcher.get(rule, False)
 
+    log = ""
     if (not res):
-        print(f"KO:{rule} \n{field_1:>30} \n{field_2:>30}")
+        log = f"KO:{rule} \n{field_1:>30} \n{field_2:>30}"
 
-    return res
+    return res, log
 
 
 def check_constraints(dico):
@@ -64,30 +65,36 @@ def check_constraints(dico):
 
 def is_atomic_rule_obj_satisfied(obj_1, obj_2, pattern_rule):
     for e_pattern in pattern_rule:
-        res = is_atomic_rule_satisfied(obj_1[e_pattern], obj_2[e_pattern], pattern_rule[e_pattern])
-        if not res:
-            break
 
-    return res
+        res, log = is_atomic_rule_satisfied(obj_1[e_pattern], obj_2[e_pattern], pattern_rule[e_pattern])
+        if not res:
+            #print(f"{log}")
+            return False, log
+
+    return True, ""
 
 
 def is_flat_to_list_satisfied(obj_flat, obj_list, pattern):
     # Ajouter dans constraints.json 
     # - un moyen d'indiquer la liste : target = list, name = clef_liste    
     # Algo
-    result = False
     
     obj_flat_restricted = flat_to_obj(obj_flat, pattern)
 
+    stack_log = []
     for e_list in obj_list:
-        print(e_list)
-        
-        result = is_atomic_rule_obj_satisfied(obj_flat_restricted, e_list, pattern)
+                
+        result, log = is_atomic_rule_obj_satisfied(obj_flat_restricted, e_list, pattern)
         if result:
-            # Au moins un element e_list satisfait la regle (pattern)
-            break
+            # Au moins un element e_list satisfait la regle (pattern)            
+            return True
+        else:
+            stack_log.append(log)
 
-    return result
+    for e_log in stack_log:
+        print(f"{e_log}")
+
+    return False
 
 
 def flat_to_obj(obj_flat, pattern):
@@ -102,4 +109,8 @@ def flat_to_obj(obj_flat, pattern):
 if __name__ == "__main__":
     dico = fill_dico()
     print("ok") if (check_constraints(dico)) else "ko"
-    is_flat_to_list_satisfied(dico['component_1'], dico['component_2'], { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+    obj_flat = dico['component_2']
+    obj_list = dico['component_1']['field_list_1']
+    res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+    ok = "ok" if res else "ko"
+    print(ok)

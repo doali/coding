@@ -4,12 +4,12 @@
     "field_1_3" : "ab",
     "field_list_1" : [
         {
-            "field_list_1_1" : "fd_lst_1",
-            "field_list_1_2" : "fd_lst_2"
-        },
-        {
             "field_list_1_1" : "fd_lst_a",
             "field_list_1_2" : "fd_lst_b"
+        },
+        {
+            "field_list_1_1" : "fd_lst_1",
+            "field_list_1_2" : "fd_lst_2"
         }
     ]
 }
