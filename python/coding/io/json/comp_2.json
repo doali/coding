@@ -1,4 +1,6 @@
 {
     "field_1" : "1",
-    "field_2" : "1_2"
+    "field_2" : "1_2",
+    "field_list_1_1" : "fd_lst_1",
+    "field_list_1_2" : "fd_lst_2"
 }
