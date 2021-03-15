@@ -5,6 +5,71 @@ import json
 import colorama
 from colorama import Fore, Style
 
+# ------------------------------------------------------------------------------
+class Component:
+    def __init__(self, name, path):
+        self._name = name
+        self._path = path        
+    
+    @property
+    def name(self):
+        """Nom du composant"""
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
+    @property
+    def path(self):
+        """Chemin du fichier de configuration du composant"""
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        self._path = path
+    
+    def __str__(self):
+        descr = f"Component:\n" \
+            + f"{'':2}{'- Name':<10} :{self.name:>20}\n" \
+            + f"{'':2}{'- Path':<10} :{self.path:>20}\n"
+
+        return descr
+# ------------------------------------------------------------------------------
+class Constraint:
+    def __init__(self, comp_base, comp_target):
+        self._comp_base = comp_base
+        self._comp_target = comp_target
+    
+    @property
+    def comp_base(self):
+        """Nom du composant identifié comme le composant de base"""
+        return self._comp_base
+
+    @comp_base.setter
+    def comp_base(self, comp_base):
+        self._comp_base = comp_base
+
+    @property
+    def comp_target(self):
+        """Chemin du fichier de configuration du composant"""
+        return self._comp_target
+
+    @comp_target.setter
+    def comp_target(self, comp_target):
+        self._comp_target = comp_target
+    
+    def __str__(self):
+        descr = f"Constraint:\n" \
+            + f"{'':2}{'- Base':<10} :{self.comp_base.name:>20}\n" \
+            + f"{'':2}{'- Target':<10} :{self.comp_target.name:>20}\n"
+
+        return descr
+
+    def is_satisfied(self):
+        return True
+# ------------------------------------------------------------------------------
+
 obj_rules = json.load(open("constraints.json", "r"))
 
 def get_path(comp_name):
@@ -170,3 +235,16 @@ if __name__ == "__main__":
     # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
     # ok = "ok" if res else "ko"
     # print(ok)
+
+# ------------------------------------------------------------------------------
+    component_1 = Component("comp_1", "conf/comp_1.json")
+    print(component_1)
+
+    component_2 = Component("comp_2", "conf/comp_2.json")
+    print(component_2)
+
+    component_3 = Component("comp_3", "conf/comp_3.json")
+    print(component_3)
+
+    cons_1_2 = Constraint(component_1, component_2)
+    print(cons_1_2)
