@@ -5,6 +5,7 @@ import json
 import colorama
 from colorama import Fore, Style
 
+
 # ------------------------------------------------------------------------------
 class Component:
     def __init__(self, name, path):
@@ -37,9 +38,37 @@ class Component:
         return descr
 # ------------------------------------------------------------------------------
 class Constraint:
-    def __init__(self, comp_base, comp_target):
+    def __init__(self, path_constraints):
+        self._path_constraints = path_constraints
+        self._constraints = None
+        self.definition = None
+    
+    @property
+    def path_constraints(self):
+        """Chemin du fichier des contraintes"""
+        return self._path_constraints
+
+    @path_constraints.setter
+    def path_constraints(self, path_constraints):
+        self._path_constraints = path_constraints
+    
+    def load(self):        
+        self._constraints = json.load(open(self.path_constraints, "r"))
+
+    def define(self, comp_base, comp_target):        
         self._comp_base = comp_base
         self._comp_target = comp_target
+            
+        if self._constraints == None:
+            self.load()
+        
+        for e_component in self._constraints['components']:
+            if e_component['name'] == self._comp_base.name:
+                for e_dependence in e_component['depends']:
+                    if e_dependence['name'] == self._comp_target.name:
+                        self.definition = e_dependence['constraint']
+    
+        return self.definition
     
     @property
     def comp_base(self):
@@ -61,13 +90,50 @@ class Constraint:
     
     def __str__(self):
         descr = f"Constraint:\n" \
-            + f"{'':2}{'- Base':<10} :{self.comp_base.name:>20}\n" \
-            + f"{'':2}{'- Target':<10} :{self.comp_target.name:>20}\n"
+            + f"{'':2}{'- Path':<10} :{self.path_constraints:>20}\n"
 
         return descr
 
     def is_satisfied(self):
         return True
+    
+    def definition(self, obj_constraint):
+        self.definition = obj_constraint
+
+# ------------------------------------------------------------------------------
+class Dependence:
+    def __init__(self, path_constraints):
+        self._path_constraints = path_constraints
+        self._constraints = None
+    
+    @property
+    def path_constraints(self):
+        """Chemin du fichier des contraintes"""
+        return self._path_constraints
+
+    @path_constraints.setter
+    def path_constraints(self, path_constraints):
+        self._path_constraints = path_constraints
+    
+    def load(self):        
+        self._constraints = json.load(open(self.path_constraints, "r"))
+        
+    def dependences(self, component_name):        
+        if self._constraints == None:
+            self.load()
+        
+        for e_component in self._constraints['components']:
+            if e_component['name'] == component_name:
+                return e_component['depends']
+            
+        return []
+
+        
+    def __str__(self):
+        descr = f"Dependence:\n" \
+            + f"{'':2}{'- Path':<10} :{self.path_constraints:>20}\n" \
+
+        return descr
 # ------------------------------------------------------------------------------
 
 obj_rules = json.load(open("constraints.json", "r"))
@@ -237,14 +303,30 @@ if __name__ == "__main__":
     # print(ok)
 
 # ------------------------------------------------------------------------------
-    component_1 = Component("comp_1", "conf/comp_1.json")
+    component_1 = Component("component_1", "conf/comp_1.json")
     print(component_1)
 
-    component_2 = Component("comp_2", "conf/comp_2.json")
+    component_2 = Component("component_2", "conf/comp_2.json")
     print(component_2)
 
-    component_3 = Component("comp_3", "conf/comp_3.json")
+    component_3 = Component("component_3", "conf/comp_3.json")
     print(component_3)
 
-    cons_1_2 = Constraint(component_1, component_2)
-    print(cons_1_2)
+    constraint = Constraint("constraints.json")
+    print(constraint)
+    l_1_2 = constraint.define(component_1, component_3)
+    print(l_1_2)
+    print()
+
+    dependence = Dependence("constraints.json")
+    print(dependence)
+
+    l_dep = dependence.dependences("component_1")
+    print(l_dep)    
+
+    l_dep = dependence.dependences("component_2")
+    print(l_dep)
+
+    l_dep = dependence.dependences("component_3")
+    print(l_dep)
+    
