@@ -23,6 +23,9 @@ def fill_dico():
 
 
 def is_atomic_rule_satisfied(field_1, field_2, rule):    
+
+    # print(f"DEBUG {field_1} ? {field_2} | {rule}")
+
     switcher = {
         "equal" : (field_1 == field_2),
         "different" : (field_1 != field_2)
@@ -48,18 +51,58 @@ def check_constraints(dico):
 
             for k, v in dependence["constraint"].items():
                 if k in obj_comp_2:
-                    res = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[k], v)
+                    res, log = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[k], v)
                     all_satisfied = all_satisfied and res
                     if not res:
+                        print(f"{log}")
                         print(f"{comp['path']} => {get_path(dependence['name'])}")
                         print("---")
+                        
                 else:
-                    if 'target' in v:
-                        res = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[v["target"]], v['op'])
-                        all_satisfied = all_satisfied and res
-                        if not res:
-                            print(f"{comp['path']} => {get_path(dependence['name'])}")
-                            print("---")
+                    if 'target' in v:                        
+                        if v['target'] == 'flat':
+                            # print(f"DEBUG flat")
+
+                            obj_flat = obj_comp_2 #dico['component_2']
+                            # print(f"obj_flat {obj_flat}")
+
+                            obj_list = dico[comp['name']][k] #dico['component_1']['field_list_1']
+                            # print(f"obj_list {obj_list}")
+
+                            # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+                            res = is_flat_to_list_satisfied(obj_flat, obj_list, v['pattern']) # { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+
+                            if not res:
+                                print(f"{log}")
+                                print(f"{comp['path']} => {get_path(dependence['name'])}")
+                                print("---")
+
+                        elif v['target'] == 'list':
+                            # print(f"DEBUG list")
+
+                            obj_flat = dico[comp['name']] #dico['component_2']
+                            # print(f"obj_flat {obj_flat}")
+
+                            obj_list = dico[dependence['name']][v['name']] #dico['component_1']['field_list_1']
+                            # print(f"obj_list {obj_list}")
+
+                            # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+                            res = is_flat_to_list_satisfied(obj_flat, obj_list, v['pattern']) # { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+
+                            if not res:
+                                print(f"{log}")
+                                print(f"{comp['path']} => {get_path(dependence['name'])}")
+                                print("---")
+
+                        else:
+                            # print(f"DEBUG 'rename'")
+                            # print(f"DEBUG target => {v['target']}")
+                            res, log = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[v["target"]], v['op'])
+                            all_satisfied = all_satisfied and res
+                            if not res:
+                                print(f"{log}")
+                                print(f"{comp['path']} => {get_path(dependence['name'])}")
+                                print("---")
                             
     return all_satisfied and res
 
@@ -109,8 +152,8 @@ def flat_to_obj(obj_flat, pattern):
 if __name__ == "__main__":
     dico = fill_dico()
     print("ok") if (check_constraints(dico)) else "ko"
-    obj_flat = dico['component_2']
-    obj_list = dico['component_1']['field_list_1']
-    res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
-    ok = "ok" if res else "ko"
-    print(ok)
+    # obj_flat = dico['component_2']
+    # obj_list = dico['component_1']['field_list_1']
+    # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+    # ok = "ok" if res else "ko"
+    # print(ok)
