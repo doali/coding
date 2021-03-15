@@ -2,7 +2,8 @@
 
 
 import json
-
+import colorama
+from colorama import Fore, Style
 
 obj_rules = json.load(open("constraints.json", "r"))
 
@@ -51,8 +52,10 @@ def check_constraints(dico):
 
             for k, v in dependence["constraint"].items():
                 if k in obj_comp_2:
+
                     res, log = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[k], v)
                     all_satisfied = all_satisfied and res
+
                     if not res:
                         print(f"{log}")
                         print(f"{comp['path']} => {get_path(dependence['name'])}")
@@ -71,6 +74,7 @@ def check_constraints(dico):
 
                             # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
                             res = is_flat_to_list_satisfied(obj_flat, obj_list, v['pattern']) # { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+                            all_satisfied = all_satisfied and res
 
                             if not res:
                                 print(f"{log}")
@@ -88,6 +92,7 @@ def check_constraints(dico):
 
                             # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
                             res = is_flat_to_list_satisfied(obj_flat, obj_list, v['pattern']) # { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
+                            all_satisfied = all_satisfied and res
 
                             if not res:
                                 print(f"{log}")
@@ -99,6 +104,7 @@ def check_constraints(dico):
                             # print(f"DEBUG target => {v['target']}")
                             res, log = is_atomic_rule_satisfied(dico[comp["name"]][k], obj_comp_2[v["target"]], v['op'])
                             all_satisfied = all_satisfied and res
+                            
                             if not res:
                                 print(f"{log}")
                                 print(f"{comp['path']} => {get_path(dependence['name'])}")
@@ -151,7 +157,14 @@ def flat_to_obj(obj_flat, pattern):
 
 if __name__ == "__main__":
     dico = fill_dico()
-    print("ok") if (check_constraints(dico)) else "ko"
+
+    res_ok = f"{Fore.GREEN}OK{Style.RESET_ALL}"
+    res_ko = f"{Fore.RED}KO{Style.RESET_ALL}"
+
+    res_check = res_ok if (check_constraints(dico)) else res_ko
+
+    print(res_check)
+
     # obj_flat = dico['component_2']
     # obj_list = dico['component_1']['field_list_1']
     # res = is_flat_to_list_satisfied(obj_flat, obj_list, { "field_list_1_1" : "equal", "field_list_1_2" : "equal"})
