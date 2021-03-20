@@ -3,6 +3,9 @@
 
 #include "character.h"
 #include <stdlib.h>
+#include <string.h>
+
+#include <stdio.h>
 
 extern s_character *create(int, const char *);
 extern void delete (s_character *);
@@ -28,7 +31,7 @@ int main(int nargs, char **argsv) {
   }
 
   // Action
-  // handle(players, NB_PLAYERS, println);
+  handle(players, NB_PLAYERS, println);
 
   // Liberation
   handle(players, NB_PLAYERS, delete);
