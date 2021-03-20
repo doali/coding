@@ -20,15 +20,23 @@ void handle(s_character **players, const int sz_players, f_action action) {
   }
 }
 
+s_character **create_players(const int sz_players, s_character **const players,
+                             const char **const pseudo_players) {
+  for (int i_player = 0; i_player < sz_players; ++i_player) {
+    players[i_player] = create(i_player, pseudo_players[i_player]);
+  }
+
+  return players;
+}
+
 int main(int nargs, char **argsv) {
   const int NB_PLAYERS = 4;
-  char *pseudo_players[] = {"player_0", "player_1", "player_2", "player_3"};
+  const char *pseudo_players[] = {"player_0", "player_1", "player_2",
+                                  "player_3"};
   s_character *players[NB_PLAYERS];
 
   // Creation des joueurs
-  for (int i_player = 0; i_player < NB_PLAYERS; ++i_player) {
-    players[i_player] = create(i_player, pseudo_players[i_player]);
-  }
+  create_players(NB_PLAYERS, players, pseudo_players);
 
   // Action
   handle(players, NB_PLAYERS, println);
