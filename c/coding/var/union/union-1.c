@@ -43,5 +43,9 @@ int main(int argc, char **argv) {
   printf("%f\n", u_2.f);
   SZ_U(&u_2);
 
+  u_2.i = 4;
+  printf("%d\n", u_2.i);
+  SZ_U(&u_2);
+
   return 0;
 }
