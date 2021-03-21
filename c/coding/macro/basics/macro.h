@@ -1,6 +1,8 @@
 #ifndef _MACRO_H // include guards : permet de n'inclure
 #define _MACRO_H // qu'une seule fois ce fichier
 
+// https://stackoverflow.com/questions/1067226/c-multi-line-macro-do-while0-vs-scope-block
+
 /**
  * \file macro.h
  * \brief MACRO

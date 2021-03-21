@@ -5,6 +5,8 @@
 #- flask
 #- emettre des requetes 
 # ------------------------------------------------------------------------------
+# https://stackoverflow.com/questions/14684968/how-to-export-virtualenv
+# ------------------------------------------------------------------------------
 
 # list des modules installés 
 # au niveau global
