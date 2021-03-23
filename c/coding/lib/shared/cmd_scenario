@@ -26,8 +26,9 @@ nm liboperation.so # idem, show table symbols
 file liboperation.so 
 # ------------------------------------------------------------------------------
 # compile and link 
-sudo cp liboperation.so ${LIB_PATH}
-sudo cp operation.h ${INCLUDE_PATH}
+#sudo cp liboperation.so ${LIB_PATH}
+#sudo cp operation.h ${INCLUDE_PATH}
+export LD_LIBRARY_PATH=$(pwd):${LD_LIBRARY_PATH} # avoid using "sudo"
 gcc -o main.exe main.c -loperation
 # ------------------------------------------------------------------------------
 # run
