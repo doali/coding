@@ -1,5 +1,8 @@
 package main
 
+// #cgo LDFLAGS: -L//workspace/coding/go/coding/cgo/operation -loperation
+
+// #include "operation/operation.h"
 // typedef int (*intFunc) ();
 //
 // int
@@ -35,4 +38,7 @@ func main() {
 	fmt.Println("resMul:", resMul)
 	resSum := C.sum(2, 3)
 	fmt.Println("resMul:", resSum)
+	
+	resLibOpAdd := C.op_add(10, 20)
+	fmt.Println("resLibOpAdd:", resLibOpAdd)	
 }
