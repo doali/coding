@@ -10,4 +10,10 @@ func main() {
 	fmt.Println("resLibOpAdd:", resLibOpAdd)
 	message := C.affiche()
 	fmt.Println("Message:", C.GoString(message))
+
+	var s C.s_address	
+	C.s_address_init(&s)
+	fmt.Println("Number:", s.number)
+	fmt.Println("Street:", C.GoString(s.street))
+	fmt.Println("Titi:", s.s_titi.lol)
 }

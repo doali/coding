@@ -8,4 +8,20 @@ int op_div(int, int);
 
 char* affiche(void);
 
+
+
+struct titi
+{
+    int lol;
+};
+
+typedef struct s_address {
+  unsigned int number;
+  const char *street;
+  unsigned int postal_code;
+  struct titi s_titi;
+} s_address;
+
+void s_address_init(struct s_address* p);
+
 #endif
