@@ -7,5 +7,7 @@ import "fmt"
 
 func main() {
 	resLibOpAdd := C.op_add(10, 20)
-	fmt.Println("resLibOpAdd:", resLibOpAdd)	
+	fmt.Println("resLibOpAdd:", resLibOpAdd)
+	message := C.affiche()
+	fmt.Println("Message:", C.GoString(message))
 }
