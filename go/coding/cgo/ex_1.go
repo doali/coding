@@ -1,5 +1,9 @@
 package main
 
+/*
+https://golang.org/cmd/cgo/
+*/
+
 // #cgo LDFLAGS: -L/workspace/coding/go/coding/cgo/operation -loperation
 // #include "operation/operation.h"
 import "C"
