@@ -4,7 +4,7 @@ require 'ruby2d'
 
 # Si un argument est passé en ligne de commande ARGV[0]
 # Alors on joue depuis ce répertoire sinon => après le ||
-path_dir = ARGV[0] || '/home/blackpc/Music/Artist/TheRollingStones/Hot Rocks, 1964-1971 (1 of 2)'
+path_dir = ARGV[0] || '/home/blackpc/Musique/Artist/TheRollingStones/Hot Rocks, 1964-1971 (1 of 2)'
 
 # Vérification de l'existence du chemin
 exit(1) if not File.directory?(path_dir) 
