@@ -13,17 +13,17 @@ struct titi
     int lol;
 };
 
-enum status {
+typedef enum status {
     STATUS_KO,
     STATUS_OK
-};
+} e_status;
 
 typedef struct s_address {
   unsigned int number;
   const char *street;
   unsigned int postal_code;
   struct titi s_titi;
-  enum status e_status;
+  enum status status;
 } s_address;
 
 void s_address_init(struct s_address* p);

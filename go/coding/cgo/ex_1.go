@@ -20,5 +20,13 @@ func main() {
 	fmt.Println("Number:", s.number)
 	fmt.Println("Street:", C.GoString(s.street))
 	fmt.Println("Titi:", s.s_titi.lol)
-	fmt.Println("Status:", s.e_status)
+	fmt.Println("Status:", s.status)
+	
+	var e C.e_status
+	e = C.STATUS_OK
+	fmt.Println("Enum status", e)
+
+	var el C.enum_status
+	el = C.STATUS_KO
+	fmt.Println("Enum status", el)
 }
