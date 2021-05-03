@@ -19,4 +19,5 @@ void s_address_init(struct s_address* p)
     p->street = "adresse";
     p->postal_code = 92270;
     p->s_titi.lol = 2;
+    p->e_status = STATUS_OK;
 }

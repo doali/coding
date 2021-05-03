@@ -20,4 +20,5 @@ func main() {
 	fmt.Println("Number:", s.number)
 	fmt.Println("Street:", C.GoString(s.street))
 	fmt.Println("Titi:", s.s_titi.lol)
+	fmt.Println("Status:", s.e_status)
 }
