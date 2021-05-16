@@ -22,7 +22,7 @@ typedef struct s_address {
   unsigned int number;
   const char *street;
   unsigned int postal_code;
-  struct titi s_titi;
+  struct titi titi;
   enum status status;
 } s_address;
 
