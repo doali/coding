@@ -8,3 +8,4 @@
 - [golang developpez](https://go.developpez.com/tutoriels/go-par-l-exemple/#LI)
 - [a tour of go](https://tour.golang.org/welcome/1)
 - [channel](https://stackoverflow.com/questions/19992334/how-to-listen-to-n-channels-dynamic-select-statement)
+- [go routine, channel, select](https://medium.com/dev-bits/a-cup-of-gos-concurrent-programming-for-python-developers-a80e621c45ff)
