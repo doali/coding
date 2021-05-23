@@ -44,7 +44,7 @@ void idle(void);
 void idle() {
   while (ALIVE) {
     printf("%c\033[1D", TAB_SYMBOL[rand() % 5]);
-    usleep(500);
+    usleep(500); // microsecondes
   }
   PRINT_LOG("End\n")
 };
