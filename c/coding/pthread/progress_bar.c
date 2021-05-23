@@ -18,7 +18,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#define LOG 0
+#define LOG 0 // ou bien gcc -DLOG=1 progress_bar.c -lpthread
 #define PRINT_LOG(X)                                                           \
   if (LOG) {                                                                   \
     printf("%s\n", X);                                                         \
