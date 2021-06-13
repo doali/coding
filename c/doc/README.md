@@ -9,6 +9,10 @@
 
 - [gnu](https://gcc.gnu.org/onlinedocs/cpp/Standard-Predefined-Macros.html)
 
+## Kernel
+
+- [linux](https://github.com/perusio/linux-programming-by-example)
+
 ## Biblio
 
 - [univ-lille1 compilation](https://www.fil.univ-lille1.fr/~sedoglav/PDC2/main006.html)
