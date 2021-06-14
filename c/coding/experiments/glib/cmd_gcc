@@ -28,3 +28,9 @@ if [ $# == 1 ]; then
 else
 	echo ${0} "<filename.c>"
 fi
+
+## Examples
+#
+#gcc -ggdb -o ex_garray ex_garray.c -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -L/usr/lib -lm -lglib-2.0
+#
+#valgrind ./ex_garray

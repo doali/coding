@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <glib.h>
 
-
 typedef int(*pf)(int);
 typedef int(*ppf)(pf, int);
 
