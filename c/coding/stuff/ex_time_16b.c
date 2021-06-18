@@ -25,6 +25,7 @@ static void print_binary(unsigned int number)
 static int compare_date(uint16_t date_1, uint16_t date_2) 
 {
     // TODO
+    return 0;
 }
 
 static uint16_t compute_expiration_date(uint16_t offset)
