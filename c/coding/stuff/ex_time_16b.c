@@ -107,5 +107,7 @@ int main()
     uint16_t expiration_date = compute_expiration_date(46800);
     display_16bits_date(expiration_date);
 
+    compare_date(expiration_date, current_date);
+
     return 0;
 }
