@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <string.h>
 
+static void display_date_tm(const struct tm*);
+
 static void print_binary(unsigned int number)
 {
     if (number >> 1) {
@@ -40,7 +42,7 @@ static uint16_t compute_expiration_date(uint16_t offset)
     b_expiration_date |= (expiration_date->tm_mon & 1) << 13;
 
     // Parité du jour
-    b_expiration_date |= (expiration_date->tm_mday & 1) << 12;
+    b_expiration_date |= (expiration_date->tm_mday & 1) << 12;    
 
     // Heure
     b_expiration_date |= expiration_date->tm_hour << 7;
@@ -52,6 +54,9 @@ static uint16_t compute_expiration_date(uint16_t offset)
     // [0-29] => 0
     // [30-59] => 1
     b_expiration_date |= (expiration_date->tm_sec / 30);
+
+    display_date_tm(current_time);
+    display_date_tm(expiration_date);
 
     return b_expiration_date;
 }
@@ -71,12 +76,20 @@ static void display_16bits_date(uint16_t date_16)
     printf(":%s\n", sec);
 }
 
+static void display_date_tm(const struct tm* s_date)
+{
+    char buffer[26] = {0};
+
+    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", s_date);
+    puts(buffer);
+}
+
 int main()
 {
     uint16_t current_date = compute_current_date();
     display_16bits_date(current_date);
 
-    uint16_t expiration_date = compute_expiration_date(14430);
+    uint16_t expiration_date = compute_expiration_date(46800);
     display_16bits_date(expiration_date);
 
     return 0;
