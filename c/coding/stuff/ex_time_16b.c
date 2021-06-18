@@ -13,6 +13,20 @@ static void print_binary(unsigned int number)
     putc((number & 1) ? '1' : '0', stdout);
 }
 
+/**
+ * @brief compare deux dates
+ * 
+ * @param date_1 
+ * @param date_2 
+ * @return int 0 date_1 et date_2 sont identiques
+ *             1 date_1 est APRES date_2
+ *            -1 date_1 est AVANT date_2
+ */
+static int compare_date(uint16_t date_1, uint16_t date_2) 
+{
+    // TODO
+}
+
 static uint16_t compute_expiration_date(uint16_t offset)
 {
     uint16_t b_expiration_date = 0;
