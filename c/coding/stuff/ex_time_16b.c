@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
 
@@ -15,6 +16,16 @@ static void print_binary(unsigned int number)
         print_binary(number >> 1);
     }
     putc((number & 1) ? '1' : '0', stdout);
+}
+
+static void print_info(uint16_t date_1, uint8_t index_date_1, uint16_t date_2, uint8_t index_date_2)
+{
+    printf("date_1 [%2d] :", index_date_1);
+    print_binary((date_1 >> index_date_1) & 1);
+    puts("");
+    printf("date_2 [%2d] :", index_date_2);
+    print_binary((date_2 >> index_date_2) & 1);
+    puts("");
 }
 
 /**
@@ -83,32 +94,29 @@ static int compare_date_verbose(uint16_t date_1, uint16_t date_2)
     uint16_t B13 = (date_1 >> 13) & 1;
     uint16_t B14 = (date_1 >> 14) & 1;
     uint16_t B15 = (date_1 >> 15) & 1;
-    uint16_t B11_0 = date_1 && 0x0FFF;
+    uint16_t B11_0 = date_1 & 0x0FFF;
 
     // b pour date_2
     uint16_t b12 = (date_2 >> 12) & 1;
-    uint16_t b13 = (date_2 >> 12) & 1;
-    uint16_t b11_0 = date_2 && 0x0FFF;
+    uint16_t b13 = (date_2 >> 13) & 1;
+    uint16_t b11_0 = date_2 & 0x0FFF;
 
     if (B12 != b12)
     {
         printf("(B12 != b12)\n");
-        print_binary(B12);
-        print_binary(b12);
+        print_info(date_1, 12, date_2, 12);
 
         if (B12 != B14)
         {
             printf("(B12 != B14)\n");
-            print_binary(B12);
-            print_binary(B14);
+            print_info(date_1, 12, date_1, 14);
 
             return 1;
         }
         else
         {
             printf("(B12 (==) B14)\n");
-            print_binary(B12);
-            print_binary(B14);
+            print_info(date_1, 12, date_1, 14);
 
             return -1;
         }
@@ -116,14 +124,12 @@ static int compare_date_verbose(uint16_t date_1, uint16_t date_2)
     else
     {
         printf("(B12 (==) b12)\n");
-        print_binary(B12);
-        print_binary(b12);
+        print_info(date_1, 12, date_2, 12);
         
         if (B13 == b13)
         {
             printf("(B13 == b13)\n");
-            print_binary(B13);
-            print_binary(b13);
+            print_info(date_1, 13, date_2, 13);
 
             if (B11_0 < b11_0)
             {
@@ -149,16 +155,14 @@ static int compare_date_verbose(uint16_t date_1, uint16_t date_2)
         if (B13 != B15)
         {
             printf("(B13 != B15)\n");
-            print_binary(B13);
-            print_binary(B15);
+            print_info(date_1, 13, date_1, 15);
 
             return 1;
         }
         else
         {
             printf("(B13 == B15)\n");
-            print_binary(B13);
-            print_binary(B15);
+            print_info(date_1, 13, date_1, 15);
 
             return -1;
         }
@@ -191,6 +195,24 @@ static void summary_date(uint16_t date_1, uint16_t date_2)
     }
 
     printf("EQUAL\n");    
+}
+
+static bool is_expired(uint16_t date_1, uint16_t date_2)
+{
+    int ret = compare_date_verbose(date_1, date_2);
+    if (ret > 0) 
+    {
+        printf("date not expired\n");
+        return false;
+    }    
+    if (ret < 0) 
+    {
+        printf("!! date expired !!\n");
+        return true;
+    }
+
+    printf("date not expired\n");
+    return false;
 }
 
 static uint16_t compute_expiration_date(uint16_t offset)
@@ -239,6 +261,8 @@ static uint16_t compute_expiration_date(uint16_t offset)
     // [30-59] => 1
     b_expiration_date |= (expiration_date->tm_sec / 30);
 
+    display_16bits_date(b_expiration_date);
+
     return b_expiration_date;
 }
 
@@ -268,13 +292,16 @@ static void display_date_tm(const struct tm* s_date)
 int main()
 {
     uint16_t current_date = compute_current_date();
-    uint16_t expiration_date = compute_expiration_date(46800);
-    //uint16_t expiration_date = compute_expiration_date(50);
+    // uint16_t expiration_date = compute_expiration_date(46800);
+    uint16_t expiration_date = compute_expiration_date(30);
     
 
-    summary_date(expiration_date, current_date);
+    // summary_date(expiration_date, current_date);
     // summary_date(current_date, expiration_date);
     // summary_date(current_date, current_date);
+
+    // is_expired(expiration_date, current_date);
+    is_expired(current_date, expiration_date);
     
     return 0;
 }
