@@ -4,6 +4,9 @@
 #include <string.h>
 
 static void display_date_tm(const struct tm*);
+static int compare_date(uint16_t , uint16_t);
+static void summary_date(uint16_t, uint16_t);
+static void display_16bits_date(uint16_t);
 
 static void print_binary(unsigned int number)
 {
@@ -24,8 +27,65 @@ static void print_binary(unsigned int number)
  */
 static int compare_date(uint16_t date_1, uint16_t date_2) 
 {
-    // TODO
-    return 0;
+    if (date_1 == date_2)
+    {
+        return 0;
+    }
+
+    if (((date_2 >> 12) & 1) == ((date_1 >> 12) & 1))
+    {
+        if (((date_2 >> 13) & 1) == ((date_1 >> 13) & 1))
+        {
+            return (date_2 << 4) < (date_1 << 4);
+        } 
+        else
+        {
+            if (((date_1 >> 13) & 1) != ((date_1 >> 15) & 1))
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }        
+    }
+    else
+    {
+        if (((date_1 >> 12) & 1) != ((date_1 >> 14) & 1))
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+}
+
+static void summary_date(uint16_t date_1, uint16_t date_2)
+{
+    printf("\n%s\n", __func__);
+
+    printf("date_1\n");
+    display_16bits_date(date_1);
+
+    printf("date_2\n");
+    display_16bits_date(date_2);
+
+    int ret = compare_date(date_1, date_2);
+    if (ret > 0) 
+    {
+        printf("GREATER\n");
+        return;
+    }    
+    if (ret < 0) 
+    {
+        printf("LESS\n");
+        return;
+    }
+
+    printf("EQUAL\n");    
 }
 
 static uint16_t compute_expiration_date(uint16_t offset)
@@ -34,6 +94,8 @@ static uint16_t compute_expiration_date(uint16_t offset)
 
     time_t timestamp = time(NULL);
     struct tm *current_time = gmtime(&timestamp);
+
+    display_date_tm(current_time);
 
     // [15]            <1-bit-parité-mois-init>
     // [14]            <1-bit-parité-jour-init>
@@ -52,6 +114,8 @@ static uint16_t compute_expiration_date(uint16_t offset)
 
     timestamp += offset;
     struct tm *expiration_date = gmtime(&timestamp);
+    
+    display_date_tm(expiration_date);
 
     // Parité du mois
     b_expiration_date |= (expiration_date->tm_mon & 1) << 13;
@@ -69,9 +133,6 @@ static uint16_t compute_expiration_date(uint16_t offset)
     // [0-29] => 0
     // [30-59] => 1
     b_expiration_date |= (expiration_date->tm_sec / 30);
-
-    display_date_tm(current_time);
-    display_date_tm(expiration_date);
 
     return b_expiration_date;
 }
@@ -102,12 +163,12 @@ static void display_date_tm(const struct tm* s_date)
 int main()
 {
     uint16_t current_date = compute_current_date();
-    display_16bits_date(current_date);
-
-    uint16_t expiration_date = compute_expiration_date(46800);
-    display_16bits_date(expiration_date);
-
-    compare_date(expiration_date, current_date);
+    uint16_t expiration_date = compute_expiration_date(46840);
+    //uint16_t expiration_date = compute_expiration_date(50);
+    
+    summary_date(expiration_date, current_date);
+    summary_date(current_date, expiration_date);
+    summary_date(current_date, current_date);
 
     return 0;
 }
