@@ -4,7 +4,8 @@
 #include <string.h>
 
 static void display_date_tm(const struct tm*);
-static int compare_date(uint16_t , uint16_t);
+static int compare_date_old(uint16_t , uint16_t);
+static int compare_date_verbose(uint16_t , uint16_t);
 static void summary_date(uint16_t, uint16_t);
 static void display_16bits_date(uint16_t);
 
@@ -73,7 +74,7 @@ static int compare_date_old(uint16_t date_1, uint16_t date_2)
  *             1 date_1 est APRES date_2
  *            -1 date_1 est AVANT date_2
  */
-static int compare_date(uint16_t date_1, uint16_t date_2) 
+static int compare_date_verbose(uint16_t date_1, uint16_t date_2) 
 {
     int ret = 0;
 
@@ -176,8 +177,8 @@ static void summary_date(uint16_t date_1, uint16_t date_2)
     printf("date_2\n");
     display_16bits_date(date_2);
 
-    //int ret = compare_date_old(date_1, date_2);
-    int ret = compare_date(date_1, date_2);
+    // int ret = compare_date_old(date_1, date_2);
+    int ret = compare_date_verbose(date_1, date_2);
     if (ret > 0) 
     {
         printf("GREATER\n");
@@ -271,8 +272,8 @@ int main()
     //uint16_t expiration_date = compute_expiration_date(50);
     
 
-    // summary_date(expiration_date, current_date);
-    summary_date(current_date, expiration_date);
+    summary_date(expiration_date, current_date);
+    // summary_date(current_date, expiration_date);
     // summary_date(current_date, current_date);
     
     return 0;
