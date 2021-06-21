@@ -17,6 +17,7 @@ static void print_binary(unsigned int number)
 }
 
 /**
+ * OLD
  * @brief compare deux dates
  * 
  * @param date_1 
@@ -25,7 +26,7 @@ static void print_binary(unsigned int number)
  *             1 date_1 est APRES date_2
  *            -1 date_1 est AVANT date_2
  */
-static int compare_date(uint16_t date_1, uint16_t date_2) 
+static int compare_date_old(uint16_t date_1, uint16_t date_2) 
 {
     if (date_1 == date_2)
     {
@@ -63,6 +64,108 @@ static int compare_date(uint16_t date_1, uint16_t date_2)
     }
 }
 
+/**
+ * @brief compare deux dates
+ * 
+ * @param date_1 
+ * @param date_2 
+ * @return int 0 date_1 et date_2 sont identiques
+ *             1 date_1 est APRES date_2
+ *            -1 date_1 est AVANT date_2
+ */
+static int compare_date(uint16_t date_1, uint16_t date_2) 
+{
+    int ret = 0;
+
+    // B pour date_1
+    uint16_t B12 = (date_1 >> 12) & 1;
+    uint16_t B13 = (date_1 >> 13) & 1;
+    uint16_t B14 = (date_1 >> 14) & 1;
+    uint16_t B15 = (date_1 >> 15) & 1;
+    uint16_t B11_0 = date_1 && 0x0FFF;
+
+    // b pour date_2
+    uint16_t b12 = (date_2 >> 12) & 1;
+    uint16_t b13 = (date_2 >> 12) & 1;
+    uint16_t b11_0 = date_2 && 0x0FFF;
+
+    if (B12 != b12)
+    {
+        printf("(B12 != b12)\n");
+        print_binary(B12);
+        print_binary(b12);
+
+        if (B12 != B14)
+        {
+            printf("(B12 != B14)\n");
+            print_binary(B12);
+            print_binary(B14);
+
+            return 1;
+        }
+        else
+        {
+            printf("(B12 (==) B14)\n");
+            print_binary(B12);
+            print_binary(B14);
+
+            return -1;
+        }
+    }
+    else
+    {
+        printf("(B12 (==) b12)\n");
+        print_binary(B12);
+        print_binary(b12);
+        
+        if (B13 == b13)
+        {
+            printf("(B13 == b13)\n");
+            print_binary(B13);
+            print_binary(b13);
+
+            if (B11_0 < b11_0)
+            {
+                printf("(B11_0 < b11_0)\n");
+                
+                return -1;
+            }
+            else
+            {
+                printf("(B11_0 (>=) b11_0)\n");
+
+                if (B11_0 == b11_0)
+                {
+                    printf("(B11_0 == b11_0)\n");
+                    
+                    return 0;
+                }
+
+                return 1;
+            }
+        }
+
+        if (B13 != B15)
+        {
+            printf("(B13 != B15)\n");
+            print_binary(B13);
+            print_binary(B15);
+
+            return 1;
+        }
+        else
+        {
+            printf("(B13 == B15)\n");
+            print_binary(B13);
+            print_binary(B15);
+
+            return -1;
+        }
+    }
+
+    return ret;
+}
+
 static void summary_date(uint16_t date_1, uint16_t date_2)
 {
     printf("\n%s\n", __func__);
@@ -73,6 +176,7 @@ static void summary_date(uint16_t date_1, uint16_t date_2)
     printf("date_2\n");
     display_16bits_date(date_2);
 
+    //int ret = compare_date_old(date_1, date_2);
     int ret = compare_date(date_1, date_2);
     if (ret > 0) 
     {
@@ -163,12 +267,13 @@ static void display_date_tm(const struct tm* s_date)
 int main()
 {
     uint16_t current_date = compute_current_date();
-    uint16_t expiration_date = compute_expiration_date(46840);
+    uint16_t expiration_date = compute_expiration_date(46800);
     //uint16_t expiration_date = compute_expiration_date(50);
     
-    summary_date(expiration_date, current_date);
-    summary_date(current_date, expiration_date);
-    summary_date(current_date, current_date);
 
+    // summary_date(expiration_date, current_date);
+    summary_date(current_date, expiration_date);
+    // summary_date(current_date, current_date);
+    
     return 0;
 }
