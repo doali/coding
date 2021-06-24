@@ -6,6 +6,10 @@ static const char *s_listening_address = "http://localhost:8000";
 static void cb(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
   struct mg_http_serve_opts opts = {.root_dir = s_web_root_dir};
   if (ev == MG_EV_HTTP_MSG) mg_http_serve_dir(c, ev_data, &opts);
+  if (ev == MG_EV_HTTP_MSG)
+  {
+      printf("ok");
+  }
 }
 
 int main(int argc, char *argv[]) {
