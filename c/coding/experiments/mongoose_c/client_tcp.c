@@ -2,7 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef AARCH64
+#include <arpa/inet.h>
+#else
 #include <sys/socket.h>
+#endif
 
 #define MAX 80
 #define PORT 1234
