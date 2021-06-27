@@ -29,6 +29,8 @@ _Déboggueur en console avec prompt de python_.
 
 > Il existe également d'autres déboggueurs tels que : pdb-clone, pudb, ipdb, ...
 
+`pip install pudb` : [pudb](https://pypi.org/project/pudb/)
+
 ### Exemple
 
 _Admettons que nous ayons le script suivant `division_zero.py`_
