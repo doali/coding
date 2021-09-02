@@ -60,7 +60,6 @@ sleep(120)
 # Liens utiles
 # --------------------------------------------------------------------------------
 # https://dzone.com/articles/tcpdump-learning-how-read-udp
-# https://dzone.com/articles/tcpdump-learning-how-read-udp
 # https://help.ubidots.com/en/articles/937233-sending-tcp-udp-packets-using-netcat
 # https://leejava.wordpress.com/2009/08/24/udp-client-and-server-in-ruby/
 # https://stackoverflow.com/questions/6165735/understanding-io-select-when-reading-socket-in-ruby
