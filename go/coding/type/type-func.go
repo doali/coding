@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// https://medium.com/@kandros/go-function-type-reusable-function-signatures-2389f6bdd4f6
 type op = func(...int) int // the interesting point
 
 func add(nums ...int) (total int) {
