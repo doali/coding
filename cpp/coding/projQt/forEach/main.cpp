@@ -88,9 +88,10 @@ public:
         this->m_type = "Triangle";
     }
 
-    Trianqle(const std::string& idName, const float length, const float height):
+    Triangle(const std::string& idName, const float length, const float height):
         Form(idName),
-        m_len
+        m_length(length),
+	m_height(height)
     {
 
     }
