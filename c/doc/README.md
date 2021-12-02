@@ -13,6 +13,10 @@
 
 - [linux](https://github.com/perusio/linux-programming-by-example)
 
+## Linux
+
+- [libc, glibc, glib, gdk, gtk](https://titanwolf.org/Network/Articles/Article?AID=ba29f817-52dc-4b9d-a79c-d23c4855ba80)
+
 ## Biblio
 
 - [univ-lille1 compilation](https://www.fil.univ-lille1.fr/~sedoglav/PDC2/main006.html)
