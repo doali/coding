@@ -11,3 +11,4 @@
 - [REST](https://the3dwebcoder.typepad.com/blog/2015/07/put-post-delete-and-curl-testing-the-firerating-rest-api.html)
 - [lambdas](https://www.technologies-ebusiness.com/langages/les-lambdas-en-java-script)
 - [ECMAScript](https://262.ecma-international.org/12.0/)
+- [map_reduce_filter](https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d)
