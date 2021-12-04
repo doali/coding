@@ -7,3 +7,4 @@
 - [raw socket](https://gist.github.com/k-sone/8036832)
 - [bundler (npm for ruby)](https://bundler.io/)
 - [honeybadger_websocket](https://www.honeybadger.io/blog/building-a-simple-websockets-server-from-scratch-in-ruby/)
+- [rubyguides_map](https://www.rubyguides.com/2018/10/ruby-map-method/)
