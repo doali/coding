@@ -42,6 +42,10 @@ int main(void) {
   for (int element = 0; element < 10; ++element) {
     printf("(%d|%p)=>%d\n", element, &closure, closure(element));
   }
+
+  // Another way to execute
+  printf("f(10)(6)=%d // since ++<variable_somewhere>\n", f(10)(6));
+
   return 0;
 }
 
