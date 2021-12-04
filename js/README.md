@@ -9,3 +9,4 @@
 - [hackernoon_prototype](https://hackernoon.com/understanding-javascript-prototype-and-inheritance-d55a9a23bde2)
 - [freecodecamp_reduce](https://www.freecodecamp.org/news/reduce-f47a7da511a9/)
 - [REST](https://the3dwebcoder.typepad.com/blog/2015/07/put-post-delete-and-curl-testing-the-firerating-rest-api.html)
+- [lambdas](https://www.technologies-ebusiness.com/langages/les-lambdas-en-java-script)
