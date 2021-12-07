@@ -1,5 +1,6 @@
 #include "fenetre.h"
 #include <QApplication>
+#include <QMessageBox>
 
 Fenetre::Fenetre(unsigned int const largeur /* = 300 */, unsigned int const hauteur /* = 200 */) :
     _bouton(new QPushButton("OK", this)),
@@ -7,6 +8,7 @@ Fenetre::Fenetre(unsigned int const largeur /* = 300 */, unsigned int const haut
     _bar(new QProgressBar(this)),
     _layout(new QHBoxLayout(this))
 {
+    setDejaVu(false);
     setLayout(_layout);
     _layout->addWidget(_slider);
     _layout->addWidget(_bar);
@@ -34,11 +36,24 @@ void Fenetre::resetSlider()
 
 void Fenetre::checkSeuil(int seuil)
 {
-    if (seuil >= static_cast<int>(Fenetre::SEUIL)) emit avertissementSeuil(seuil);
-    else _bouton->setText("OK");
+    if (seuil >= static_cast<int>(Fenetre::SEUIL))
+    {
+        emit avertissementSeuil(seuil);
+    }
+    else
+    {
+        _bouton->setText("OK");
+        if (dejaVu())
+            setDejaVu(false);
+    }
 }
 
 void Fenetre::handleAvertissement(unsigned int value)
 {
     _bouton->setText(QString::number(value));
+    if (!dejaVu())
+    {
+        QMessageBox::warning(this, "Avertissement", "Valeur seuil dépasée");
+        setDejaVu(true);
+    }
 }
