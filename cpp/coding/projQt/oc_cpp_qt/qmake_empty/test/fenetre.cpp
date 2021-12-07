@@ -16,6 +16,8 @@ Fenetre::Fenetre(unsigned int const largeur /* = 300 */, unsigned int const haut
     QObject::connect(_bouton, SIGNAL(clicked()), this, SLOT(resetSlider()));
     QObject::connect(_bouton, SIGNAL(clicked()), _bar, SLOT(reset()));
     QObject::connect(_slider, SIGNAL(valueChanged(int)), _bar, SLOT(setValue(int)));
+    QObject::connect(_slider, SIGNAL(valueChanged(int)), this, SLOT(checkSeuil(int)));
+    QObject::connect(this, SIGNAL(avertissementSeuil(unsigned int)), this, SLOT(handleAvertissement(unsigned int)));
 }
 
 Fenetre::~Fenetre()
@@ -28,4 +30,15 @@ Fenetre::~Fenetre()
 void Fenetre::resetSlider()
 {
     _slider->setValue(0);
+}
+
+void Fenetre::checkSeuil(int seuil)
+{
+    if (seuil >= static_cast<int>(Fenetre::SEUIL)) emit avertissementSeuil(seuil);
+    else _bouton->setText("OK");
+}
+
+void Fenetre::handleAvertissement(unsigned int value)
+{
+    _bouton->setText(QString::number(value));
 }

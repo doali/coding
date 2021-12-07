@@ -13,8 +13,14 @@ class Fenetre : public QWidget
 public:    
     Fenetre(unsigned int const largeur = 300, unsigned int const hauteur = 200);
     virtual ~Fenetre();
+
+    static const unsigned int SEUIL{75};
 public slots:
-    void resetSlider();
+    void resetSlider(); // implique la déclaration de la macro Q_OBJECT
+    void checkSeuil(int);
+    void handleAvertissement(unsigned int);
+signals:
+    void avertissementSeuil(unsigned int); // toujours void en type de retour !!
 private:
     QPushButton* _bouton;
     QSlider* _slider;
