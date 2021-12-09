@@ -145,3 +145,5 @@ _Packager en fichier executable l'ensemble des fichiers et répertoires d'un pro
 - [PyYAML doc](https://pyyaml.org/wiki/PyYAMLDocumentation)# Packager
 - [virtualenv](https://stackoverflow.com/questions/14684968/how-to-export-virtualenv)
 - [gRPC](https://grpc.io/docs/what-is-grpc/introduction)
+- [mobile dev beeware](https://beeware.org/)
+- [mobie dev kivy](https://kivy.org)
