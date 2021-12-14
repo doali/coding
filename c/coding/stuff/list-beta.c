@@ -1,3 +1,9 @@
+// --------------------------------------------------------------------------------
+// https://perso.esiee.fr/~landschm/IN3T01/Listes%20chainees%20dynamiques.pdf
+// https://fr.wikibooks.org/wiki/Structures_de_donn%C3%A9es_en_C/Les_listes_simples
+// https://cours.etsmtl.ca/SEG/FHenri/inf145/Suppl%C3%A9ments/Listes%20cha%C3%AEn%C3%A9es.htm
+// --------------------------------------------------------------------------------
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
