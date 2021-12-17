@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm> // std::for_each
 
 // Code récupéré et étendu
 
@@ -16,6 +17,9 @@ int main()
   // Good way
   for (auto const &e : tableau)
     std::cout << e << std::endl;
+
+  // for_each
+  std::for_each(tableau.begin(), tableau.end(), [](auto &e){ std::cout << e << std::endl; });
 
   // Old school...
   std::vector<int>::const_iterator it;
