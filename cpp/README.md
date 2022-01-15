@@ -14,3 +14,18 @@
 - [cplusplus.com](https://www.cplusplus.com/doc/tutorial/classes/)
 - [cppreference.com](https://fr.cppreference.com/w/)
 - [xcppreference](https://www.enseignement.polytechnique.fr/informatique/INF478/docs/Cpp/en/cpp.html)
+
+## Backup to do
+- [reference_member](https://stackoverflow.com/questions/12387239/reference-member-variables-as-class-members)
+- [pointer_vs_reference](https://stackoverflow.com/questions/892133/should-i-prefer-pointers-or-references-in-member-data)
+- [refrence_class_member](https://stackoverflow.com/questions/1974682/using-reference-as-class-members-for-dependencies)
+- [dependency_injection](https://en.wikipedia.org/wiki/Dependency_injection)
+- [constructor_rvalue](https://stackoverflow.com/questions/33244951/forbid-rvalue-binding-via-constructor-to-member-const-reference)
+- [RAII](https://www.enseignement.polytechnique.fr/informatique/INF478/docs/Cpp/en/cpp/language/raii.html)
+- [lock_guard](https://en.cppreference.com/w/cpp/thread/lock_guard)
+- [flux_pdf](http://www.iro.umontreal.ca/~dift1169/cours/ift1169/communs/Cours/2P/1_03/C06_1169_2P.pdf)
+- [flux_developpez](https://cpp.developpez.com/faq/cpp/?page=Entrees-sorties-avec-les-flux)
+- [learntutorials](https://learntutorials.net/fr/cplusplus/topic/7660/flux-c-plusplus)
+- [wikibooks_flux](https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Les_entr%C3%A9es-sorties)
+- [most_common_errors](https://www.toptal.com/c-plus-plus/top-10-common-c-plus-plus-developer-mistakes)
+- [vishal_cpp](http://www.vishalchovatiya.com/category/cpp/)
