@@ -213,7 +213,7 @@ compare
 
 ##### Filter _Running_
 
-./main_test --gtest_filter=Compare.MaxInFirst
+- `./main_test --gtest_filter=Compare.MaxInFirst`
 
 ```bash
 Note: Google Test filter = Compare.MaxInFirst
