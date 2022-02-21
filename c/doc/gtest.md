@@ -211,6 +211,25 @@ compare
 [  PASSED  ] 4 tests.
 ```
 
+##### Filter _Running_
+
+./main_test --gtest_filter=Compare.MaxInFirst
+
+```bash
+Note: Google Test filter = Compare.MaxInFirst
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from Compare
+[ RUN      ] Compare.MaxInFirst
+compare
+[       OK ] Compare.MaxInFirst (1 ms)
+[----------] 1 test from Compare (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (1 ms total)
+[  PASSED  ] 1 test.
+```
+
 ## CODE
 
 - [doali coding-c](https://github.com/doali/coding/tree/master/c/coding/ut/gtest/using_plain_gcc)
