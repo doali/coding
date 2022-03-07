@@ -38,6 +38,19 @@ public:
   }
 };
 
+class M : private A {
+public:
+  // A::public_methA; // !! deprecated even if it works...
+  void public_methM() {
+    public_methA();
+    protected_methA();
+    // private_methA(); // KO
+  }
+
+  using A::public_methA; // !! this is the correct syntax ! // now it is public
+                         // !!
+};
+
 int main() {
   std::cout << "--- Basics" << std::endl;
   A a;
@@ -71,6 +84,10 @@ int main() {
   D o;
   // o.public_methA(); // KO since => D : private A
   // A *p_a = &o; // KO since => D : private A
+
+  M m;
+  m.public_methA(); // OK despite => M : private A => since using keyword
+  // A *p_a = &m; // KO since => D : private A
 
   return 0;
 }
