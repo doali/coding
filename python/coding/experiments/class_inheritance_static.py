@@ -25,7 +25,7 @@ class Titi(Coucou):
             print("==================")
 
         return g
-       
+
     @decorate_me
     def coucou(self, msg):
         print(f"Ceci est le {msg}")
@@ -48,12 +48,14 @@ class Titi(Coucou):
     def titou(obj):
         print(f"titou {obj}")
 
+
 class GenreDeFoncteur:
     def __init__(self, msg):
         self.msg = "comme un genre de foncteur"
 
     def __call__(self, *args, **kwargs):
         print("__call__ appelée")
+
 
 if __name__ == "__main__":
     c = Coucou("first", "last")
