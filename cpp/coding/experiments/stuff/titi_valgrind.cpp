@@ -26,16 +26,13 @@ int main(int argc, char **argv) {
   B().doSomething();
   C().doSomething();
 
-  /*
   std::vector<std::shared_ptr<A>> v{std::make_shared<B>(),
                                     std::make_shared<C>()};
 
   for (auto const &e : v) {
     e->doSomething();
   }
-  */
 
-  /*
   A *t[] = {new B(), new C()};
 
   for (int i = 0; i < 2; ++i) {
@@ -44,7 +41,6 @@ int main(int argc, char **argv) {
 
   delete t[0];
   delete t[1];
-  */
 
   B b;
   C c;
