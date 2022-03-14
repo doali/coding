@@ -3,6 +3,13 @@
 #include <array>
 #include <vector>
 
+/*
+ * Liens
+ * Initialization
+ * - https://stackoverflow.com/questions/18222926/why-is-list-initialization-using-curly-braces-better-than-the-alternatives
+ * - https://www.developpez.net/forums/d1312051/c-cpp/cpp/liste-d-initialisation-cpp/
+ */
+
 // Quelques tests (c'est le bazar...)
 
 struct A
