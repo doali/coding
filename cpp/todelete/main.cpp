@@ -1,10 +1,11 @@
 #include <iostream>
 #include <array>
+#include <memory>
 
 class A
 {
 public:
-  void test_display();
+  static void test_display();
 
 protected:
   virtual void display() const noexcept
@@ -37,6 +38,10 @@ void A::test_display()
   // B().display();
   // C().display();
 
+  C tb;
+  ((A*)&tb)->display();
+  static_cast<A*>(&tb)->display();
+
   A *l_pA{nullptr};
 
   A a;
@@ -61,5 +66,5 @@ void A::test_display()
 
 int main(int argc, char **argv)
 {
-  A().test_display();
+  A::test_display();
 }
