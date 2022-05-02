@@ -67,4 +67,6 @@ void A::test_display()
 int main(int argc, char **argv)
 {
   A::test_display();
+
+  return EXIT_SUCCESS;
 }
