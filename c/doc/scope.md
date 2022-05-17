@@ -85,6 +85,17 @@ auto: This is the default storage class for all the variables declared inside a 
 
 > from [geeksforgeeks](https://www.geeksforgeeks.org/storage-classes-in-c/)
 
+### `volatile`
+
+> Indique au compilateur de ne pas réaliser d'optimisations pour une variable déclarée volatile
+- car sa valeur peut être modifiée à tout moment
+- par une partie (programme externe par exemple) non compilée par le compilateur et dont il n'a pas connaissance
+- on souhaite pouvoir la réévaluer à chaque fois
+
+> Par exemple, dans le cadre de périphériques qui à tout moment pourraient écrire une nouvelle valeur...
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/understanding-volatile-qualifier-c-set-1-introduction/)
+
 ### `extern`
 
 - [geeksforgeeks](https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/)
