@@ -44,7 +44,7 @@ echo ${DIR_SCRIPT}
 
 *Astuce*
 > (!) les fonctions bash ne peuvent que renvoyer un ***status*** \
-> Donc, pour exploiter une "valeur de retour" \
+> Donc, pour exploiter une "valeur de retour"
 > - on l'écrit sur la sortie standard :-)
 
 # Biblio

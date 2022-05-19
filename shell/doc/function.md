@@ -4,7 +4,7 @@
 
 - en bash, les fonctions retournent uniquement un status
 > que l'on peut observer via `${?}`
-- pour simuler un retour, on revoie sur la sortie standard
+- pour simuler un retour, on renvoie sur la sortie standard
 - que l'on capte ensuite lors de l'appel de la fonction
 
 ```bash
