@@ -1,5 +1,6 @@
 // --------------------------------------------------------------------------------
 // https://www.ltm.fr/les-smarts-pointers-avec-c11/
+// https://www.invivoo.com/introduction-a-la-gestion-automatique-de-la-memoire-en-c11/
 // --------------------------------------------------------------------------------
 
 #include <iostream>
