@@ -1,36 +1,16 @@
 #include <iostream>
 
-struct ElementA;
-struct ElementB;
-struct Element;
+struct Context;
 
-struct Context 
-{
-    ElementA *_elementA;
-    ElementB *_elementB;
-    Element *_element;
-    unsigned int _nb_ite;
-
-    Context(unsigned int);
-    ~Context();
-
-    void setElement(Element*);
-
-    void shiftToA();
-    void shiftToB();
-
-    void infoState();
-};
-
-struct Element 
+struct State 
 {    
     Context *_ctx;
     
-    Element(Context *ctx) : _ctx{ctx}
+    State(Context *ctx) : _ctx{ctx}
     {        
         // std::cout << __func__ << std::endl;
     }
-    virtual ~Element() = 0;
+    virtual ~State() = 0;
 
     virtual void transToA() = 0;
     virtual void transToB() = 0;
@@ -39,16 +19,16 @@ struct Element
     virtual void info() = 0;
 };
 
-Element::~Element() = default;
+State::~State() = default;
 
-struct ElementA : Element
+struct StateA : State
 {
-    ElementA(Context *ctx) : Element(ctx) 
+    StateA(Context *ctx) : State(ctx) 
     {
         // std::cout << __func__ << std::endl;
     }
 
-    ~ElementA() override = default;
+    ~StateA() override = default;
 
     void transToA() override
     {
@@ -68,22 +48,15 @@ struct ElementA : Element
     }
 };
 
-struct ElementB : Element
+struct StateB : State
 {
-    ElementB(Context *ctx) : Element(ctx) 
+    StateB(Context *ctx) : State(ctx) 
     {
         // std::cout << __func__ << std::endl;
     }
-    ~ElementB() override = default;
+    ~StateB() override = default;
 
-    void transToA() override
-    {
-        if (_ctx != nullptr)
-        {
-            _ctx->setElement(_ctx->_elementA);
-            // std::cout << "B -> A" << std::endl;
-        }        
-    }
+    void transToA() override;
 
     void transToB() override
     {
@@ -101,48 +74,65 @@ struct ElementB : Element
     }
 };
 
-void ElementA::transToB()
+struct Context 
+{
+    StateA *_stateA;
+    StateB *_stateB;
+    State *_state; // current state
+    unsigned int _nb_ite;
+    
+    Context(unsigned int nb_ite) :
+        _nb_ite{nb_ite}
+    {
+        _stateA = new StateA(this);
+        _stateB = new StateB(this);
+        _state = _stateA; // initial state
+    }
+
+    ~Context()
+    {
+        delete _stateA;
+        delete _stateB;
+    }
+
+    void setState(State *state)
+    {
+        _state = state;
+    }
+
+    void shiftToA() 
+    {
+        _state->transToA();
+    }
+
+    void shiftToB()
+    {
+        _state->transToB();
+    }
+
+    void infoState()
+    {
+        // _state->info();
+        _state->say();
+    }
+};
+
+void StateA::transToB()
 {
     if (_ctx != nullptr)
     {
-        _ctx->setElement(_ctx->_elementB);
+        _ctx->setState(_ctx->_stateB);
         // std::cout << "A -> B" << std::endl;
     }
 }    
 
-Context::Context(unsigned int nb_ite) :
-    _nb_ite{nb_ite}
+void StateB::transToA()
 {
-    _elementA = new ElementA(this);
-    _elementB = new ElementB(this);
-    _element = _elementA; // initial state
-}
-
-Context::~Context()
-{
-    delete _elementA;
-    delete _elementB;
-}
-
-void Context::setElement(Element *element)
-{
-    _element = element;
-}
-
-void Context::shiftToA() 
-{
-    _element->transToA();
-}
-
-void Context::shiftToB()
-{
-    _element->transToB();
-}
-
-void Context::infoState()
-{
-    // _element->info();
-    _element->say();
+    if (_ctx != nullptr)
+    {
+        _ctx->setState(_ctx->_stateA);
+        // std::cout << "B -> A" << std::endl;
+    }        
 }
 
 int main(int argc, char **argv)
