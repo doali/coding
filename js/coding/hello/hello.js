@@ -9,6 +9,6 @@ var fac =
         }
     }
 
-console.log("fac(10)")
+console.log("fac(6)")
 console.log(fac(6))
 console.log("\n")
