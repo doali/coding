@@ -5,7 +5,7 @@
 
 struct A
 {
-    static std::string info()
+    std::string info()
     {
         return __func__;
     }
