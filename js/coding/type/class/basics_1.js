@@ -1,7 +1,7 @@
 #!/usr/bin/env nodejs
 
 /*
- * https: // medium.com/better-programming/prototypes-in-javascript-5bba2990e04b
+ * https://medium.com/better-programming/prototypes-in-javascript-5bba2990e04b
  */
 
 class Person {
