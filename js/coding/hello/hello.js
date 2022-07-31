@@ -1,8 +1,8 @@
 #!/usr/bin/env nodejs
 
-# --------------------------------------------------------------------------------
-# https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals
-# --------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals
+// --------------------------------------------------------------------------------
 
 var fac =
     function(n) {
