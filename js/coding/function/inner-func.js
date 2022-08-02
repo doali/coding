@@ -20,5 +20,5 @@ let l = [...Array(10).keys()]; // spread operator
 let f_10 = f(10) //
 
 l.forEach(element => {
-    console.log(element + ":f_10(" + element + ")=" + f_10(element))
+    console.log(`${element}:f_10(${element})=${f_10(element)}`)
 })
