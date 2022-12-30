@@ -63,27 +63,27 @@ u_int16_t A::_total{0};
 
 int main(int argc, char **argv)
 {
-    // A a_0;
+    A a_0;
 
-    // A a_1();
-    // a_1();
+    A a_1();
+    a_1();
 
-    // A a_2{};
+    A a_2{};
 
-    // A();
-    // A{};
+    A();
+    A{};
 
-    // A a_3 = A();
-    // A a_4;
+    A a_3 = A();
+    A a_4;
 
-    // a_4 = a_3;
+    a_4 = a_3;
 
-    // A const &a_5 = A();
+    A const &a_5 = A();
 
-    // A a_6, a_7, a_8;        
-    // A a_9 = a_7;
+    A a_6, a_7, a_8;        
+    A a_9 = a_7;
 
-    // INFO;
+    INFO;
 
     byebye();
 
@@ -99,6 +99,9 @@ A a_1()
 
 static void byebye() // todelete
 {
+    const std::string msg {"Type : \"titi1\", \"titi2\""};
+    std::cout << msg << std::endl;
+
     std::string str {""};
     while (std::cin >> str)
     {
@@ -117,4 +120,6 @@ static void byebye() // todelete
 
         if (strcmp(buf, "titi2") == 0) break;
     }    
+
+    std::cout << "Bye" << std::endl;
 }
