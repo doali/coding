@@ -16,6 +16,11 @@ Exemple d'utilisation de D-Bus : Qt4, KDE4, GNOME, Enlightenment, Android
 
 **daemon**
 - Présence d'un processus serveur qui traite des demande clientes
+- vérifie les autorisations avant de transmettre les messages
+- lance le processus si un message lui est destiné ou associé
+- retourne tous les services disponibles sur le bus (introspection des services)
+- retourne la signature des méthodes (introspection des méthodes)
+- un service peut porter un descripteur de fichier (ouvert) à un autre service
 
 **bus**
 - une unique instance du bus système ou encore `system channel`
@@ -31,8 +36,13 @@ Les messages sont sérialisés sous forme de flux d'octets (pas de format JSON, 
 
 ## Préparation de l'environnement
 
-## Tuto avec implémentations
+## Code
 
+**freedesktop**
+
+- [repository](https://cgit.freedesktop.org/dbus)
+
+**Tuto**
 > [matthew](https://www.matthew.ath.cx/misc/dbus)
 
 ## Biblio
@@ -65,3 +75,4 @@ Les messages sont sérialisés sous forme de flux d'octets (pas de format JSON, 
 
 **Docker**
 - [Dockerfile ARG](https://docs.docker.com/engine/reference/builder/)
+- [D-Bus dbus-monitor](https://unix.stackexchange.com/questions/646934/d-bus-on-ubuntu-inside-a-docker-container)
