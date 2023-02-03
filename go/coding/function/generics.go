@@ -19,7 +19,6 @@ func filter[T any](l []T, f func(e T) bool) []T {
 
 func heaven(num int) bool {
 	return num%2 == 0
-
 }
 
 func main() {
