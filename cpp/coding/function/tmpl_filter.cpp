@@ -4,7 +4,7 @@
 #include <functional>
 
 template <typename T>
-static std::vector<T> filter(std::vector<T> &p_rVector, const std::function<bool(const T &p_rElement)> &p_rFunction)
+static std::vector<T> filter(const std::vector<T> &p_rVector, const std::function<bool(const T &p_rElement)> &p_rFunction)
 {
     std::vector<T> l_Ret{};
 
