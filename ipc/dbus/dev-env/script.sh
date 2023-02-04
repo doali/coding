@@ -10,13 +10,9 @@ cd -
 
 # D-Bus # https://unix.stackexchange.com/questions/646934/d-bus-on-ubuntu-inside-a-docker-container
 ## TODO find a way to export the variable in bash session...
-# cat >>/home/ubuntu/.bashrc <<EOF
-# export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --fork --config-file=/usr/share/dbus-1/session.conf --print-address`
-# EOF
-
-
-echo "export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --fork --config-file=/usr/share/dbus-1/session.conf --print-address`" >>~/.bashrc
-echo "export TITI=titi" >>~/.bashrc
+cat >>/home/ubuntu/.bashrc <<EOF
+export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --fork --config-file=/usr/share/dbus-1/session.conf --print-address`
+EOF
 
 exec "$@"
 
@@ -26,6 +22,9 @@ exec "$@"
 ##docker build --no-cache -t doali/dev-cpp:0.0.1 --build-arg UID=$(id -u) .
 #docker run -it -v $(pwd)/data:/volume/data:z doali/dev-cpp:0.0.1
 #docker run -d -i -v $(pwd)/data:/volume/data:z -p 22000:22 doali/dev-cpp:0.0.1
+#ssh -p 22000 ubuntu@localhost
+#source ~/.bashrc
+#dbus-monitor
 
 # PASSWD generation for the user named ubuntu <== NOT USED !!
 # ====

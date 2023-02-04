@@ -35,22 +35,12 @@ RUN mkdir -p /home/ubuntu/.ssh \
   && mv /tmp/id_rsa.pub /home/ubuntu/.ssh/authorized_keys
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers # TODO find a better solution to run sshd...
 
-COPY --chown=${UID} source_dbus.rc .
-RUN cat source_dbus.rc >/etc/environment
-
 USER ubuntu
 
-RUN mkdir -p /home/ubuntu/.local/bin \
-    && ls /home/ubuntu/.local/bin
+RUN mkdir -p /home/ubuntu/.local/bin
 ENV PATH=${PATH}:/home/ubuntu/.local/bin
 COPY --chown=${UID} script.sh /home/ubuntu/.local/bin
 RUN chmod u+x /home/ubuntu/.local/bin/script.sh
-
-# COPY --chown=${UID} source_dbus.rc /home/ubuntu/.local/bin
-# RUN chmod u+x /home/ubuntu/.local/bin/source_dbus.rc
-
-COPY --chown=${UID} prepare_dbus.sh /home/ubuntu/.local/bin
-RUN chmod u+x /home/ubuntu/.local/bin/prepare_dbus.sh
 
 WORKDIR /home/ubuntu
 
