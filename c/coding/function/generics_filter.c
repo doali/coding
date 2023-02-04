@@ -44,12 +44,12 @@ static size_t filter(void **p_pDest, void *p_pSrc, size_t const p_NbElement, siz
             {
                 memcpy(data + (l_SizeDest * p_SzElement), p_pSrc + (l_Index * p_SzElement), sizeof(void *));
 
-		//DEBUG
-                // printf("%d == ", ((int*)data)[l_SizeDest]);
-                // print_number((void*)(data + l_SizeDest * // p_SzElement));
-                // printf(" == ");
-                // print_number((void*)(// p_// pSrc + l_Index * // p_SzElement));
-                // printf("\n");
+                // DEBUG
+                //  printf("%d == ", ((int*)data)[l_SizeDest]);
+                //  print_number((void*)(data + l_SizeDest * // p_SzElement));
+                //  printf(" == ");
+                //  print_number((void*)(// p_// pSrc + l_Index * // p_SzElement));
+                //  printf("\n");
 
                 l_SizeDest++;
             }
@@ -61,7 +61,7 @@ static size_t filter(void **p_pDest, void *p_pSrc, size_t const p_NbElement, siz
     return l_SizeDest;
 }
 
-static bool heaven(int * const p_Element)
+static bool heaven(int *const p_Element)
 {
     return *p_Element % 2 == 0;
 }
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
     size_t l_SizeDest = 0;
 
     print_list(l_Arr, NB_ELMENT, SZ_ELEMENT, (void (*)(void *))print_number);
-    l_SizeDest = filter((void**)(&p_pDest), l_Arr, NB_ELMENT, SZ_ELEMENT, (bool (*)(void *))heaven);
+    l_SizeDest = filter((void **)(&p_pDest), l_Arr, NB_ELMENT, SZ_ELEMENT, (bool (*)(void *))heaven);
     print_list(p_pDest, l_SizeDest, SZ_ELEMENT, (void (*)(void *))print_number);
 
     if (l_SizeDest > 0)
