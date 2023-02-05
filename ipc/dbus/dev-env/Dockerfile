@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------
+# https://bugzilla.redhat.com/show_bug.cgi?id=172231
+# - dbus-launch command belongs to package dbus-x11
+# ------------------------------------------------------------------------------
+
 FROM ubuntu:latest
 
 ARG UID
@@ -17,10 +22,10 @@ RUN apt-get update && apt-get install -y \
   openssh-server \
   vim \
   git \
-  d-feet \
   python3-pip \
   libdbus-1-dev \
-  libdbus-glib-1-dev
+  libdbus-glib-1-dev \
+  dbus-x11 # IMPORTANT !!
 
 RUN pip install dbus-python
 
