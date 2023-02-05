@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * http://www.matthew.ath.cx/projects.git/dbus-example.c
