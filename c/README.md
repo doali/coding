@@ -1,4 +1,13 @@
-Coding in C
+# Coding in C
+
+## GNU C Language Intro and Reference
+
+```bash
+git clone https://git.savannah.gnu.org/git/c-intro-and-ref.git
+```
+> After `make` we got [c.pdf](doc/pdf/rms.pdf)
+
+> https://savannah.gnu.org/git/?group=c-intro-and-ref
 
 ## Linux
 
