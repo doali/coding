@@ -52,6 +52,7 @@ Les messages sont sérialisés sous forme de flux d'octets (pas de format JSON, 
 
 - [wikipedia](https://fr.wikipedia.org/wiki/D-Bus)
 - [linuxembedded](https://www.linuxembedded.fr/2015/07/comprendre-dbus)
+- [josserand](https://bootlin.com/pub/conferences/2016/meetup/dbus/josserand-dbus-meetup.pdf)
 
 > freedesktop
 - [freedesktop](https://www.freedesktop.org/wiki/Software/dbus/)
