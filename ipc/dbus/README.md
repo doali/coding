@@ -15,7 +15,7 @@ Exemple d'utilisation de D-Bus : Qt4, KDE4, GNOME, Enlightenment, Android
 ## Principe
 
 **daemon**
-- Présence d'un processus serveur qui traite des demande clientes
+- Présence d'un processus serveur qui traite des demandes clientes
 - vérifie les autorisations avant de transmettre les messages
 - lance le processus si un message lui est destiné ou associé
 - retourne tous les services disponibles sur le bus (introspection des services)
@@ -25,6 +25,7 @@ Exemple d'utilisation de D-Bus : Qt4, KDE4, GNOME, Enlightenment, Android
 **bus**
 - une unique instance du bus système ou encore `system channel`
 - plusieurs instances possibles de bus session ou encore `session channel`
+  - la session est celle de l'utilisateur d'un point de vue linux
 
 **client**
 - un processus (application, programme, ...) communique avec le démon
