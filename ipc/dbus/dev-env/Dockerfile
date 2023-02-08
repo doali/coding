@@ -14,17 +14,20 @@ ENV PASSWORD=${PASSWORD:-ubuntu}
 LABEL maintener="doali"
 
 RUN apt-get update && apt-get install -y \
+  build-essential \
+  libdbus-1-dev \
+  libdbus-glib-1-dev \
   iproute2 \
   iputils-ping \
+  socat \
+  netcat \
   curl \
-  build-essential \
-  sudo \
   openssh-server \
+  sudo \
   vim \
   git \
   python3-pip \
-  libdbus-1-dev \
-  libdbus-glib-1-dev \
+  tree \
   dbus-x11 # IMPORTANT !!
 
 RUN pip install dbus-python
