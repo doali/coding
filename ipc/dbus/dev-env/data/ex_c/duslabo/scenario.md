@@ -1,15 +1,19 @@
-#!/usr/bin/env bash
+# Scenario
 
-# ------------------------------------------------------------------------------
-# Source code taken from
-# https://github.com/duslabo/dbus-1/blob/master/dbus-2/server.cpp
-# ------------------------------------------------------------------------------
+## Using command line `dbus-send`
 
-scenario_1() {
-    ./server &
-    ./client
-}
+Ensure 
+- that process `server` exists (or compile it with `make`)
+- is not already running (otherwise `killall server`)
 
+In a terminal run the server `./server` \
+And in another terminal
+
+`dbus-send --session --dest=test.foo.bar --print-reply / test.foo.Roll.Method`
+
+> This scenario is rendered in the following script
+
+```bash
 scenario_2() {
     ./server &
     local -r pid_server=$!
@@ -26,6 +30,6 @@ compilation() {
     for exe in server client; do [ -f ${exe} ] && rm ${exe}; done
     make
 }
+```
 
-compilation
-scenario_2
+> WARNING !!! process server uses 98% of CPU !!!
