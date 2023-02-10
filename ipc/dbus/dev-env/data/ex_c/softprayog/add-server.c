@@ -6,6 +6,11 @@
  *
  */
 
+// ------------------------------------------------------------------------------
+// Code from
+// https://www.softprayog.in/programming/d-bus-tutorial
+// ------------------------------------------------------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
