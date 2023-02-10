@@ -56,6 +56,7 @@ Les messages sont sérialisés sous forme de flux d'octets (pas de format JSON, 
 
 > freedesktop
 - [freedesktop](https://www.freedesktop.org/wiki/Software/dbus/)
+- [freedesktop introduction to D-Bus](https://www.freedesktop.org/wiki/IntroductionToDBus/)
 - [freedesktop archive](https://www.freedesktop.org/wiki/IntroductionToDBus/)
 - [freedesktop pseudo-code example](https://dbus.freedesktop.org/doc/dbus-tutorial.html)
 
