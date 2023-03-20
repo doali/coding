@@ -50,6 +50,11 @@ static void testCoordinates()
   coordAss = coordRef;
 
   CPPUNIT_ASSERT(coordAss == coordRef);
+
+  {
+    Coordinates coordRef{40, 2};
+    CPPUNIT_ASSERT(Coordinates(40, 2) == coordRef.getCoordinates());
+  }
 }
 
 static void testElement()
@@ -73,10 +78,21 @@ static void testElement()
 static void testBrick()
 {
   clean();
-  
+
   Brick brickRED{Coordinates(40, 2)};
   CPPUNIT_ASSERT(brickRED.getId() == 1);
   CPPUNIT_ASSERT(brickRED.color() == BrickColor::BLUE);
+
+  Coordinates coordRef{10, 20};
+  Coordinates coordCmp;
+  brickRED.readPosition(coordCmp);
+  CPPUNIT_ASSERT(coordCmp != coordRef);
+
+  brickRED.writePosition(coordRef);
+  brickRED.readPosition(coordCmp);
+  CPPUNIT_ASSERT(coordCmp == coordRef);
+  CPPUNIT_ASSERT(coordRef == brickRED.getPosition());
+  CPPUNIT_ASSERT(Coordinates(10, 20) == brickRED.getPosition());
 }
 
 int main(int argc, char **argv)

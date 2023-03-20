@@ -58,6 +58,11 @@ namespace breakout
             position = _position;
         }
 
+        const Coordinates& getPosition() const 
+        {
+            return _position;
+        }
+
         unsigned int getId() const
         {
             return _id;

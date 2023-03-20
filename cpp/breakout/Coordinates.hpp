@@ -59,6 +59,11 @@ namespace breakout
             y = this->_y;
         }
 
+        const Coordinates& getCoordinates() const
+        {
+            return *this;
+        }
+
         friend std::ostream &operator<<(std::ostream &os, const Coordinates &coordinates);
 
     private:
