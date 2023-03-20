@@ -5,6 +5,7 @@
 
 #include "Coordinates.hpp"
 #include "Element.hpp"
+#include "Brick.hpp"
 #include "Tools.hpp"
 
 #include <iostream>
@@ -12,6 +13,11 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 using namespace breakout;
+
+static void clean()
+{
+  Element::reinitTotal();
+}
 
 static void testCompare()
 {
@@ -26,6 +32,8 @@ static void testCompare()
 
 static void testCoordinates()
 {
+  clean();
+
   Coordinates coordRef{0, 1};
   Coordinates coordCpy{coordRef};
 
@@ -46,6 +54,8 @@ static void testCoordinates()
 
 static void testElement()
 {
+  clean();
+
   Coordinates coordRef{10, 20};
   Element elmntRef{coordRef};
   Element elmntCpy(elmntRef);
@@ -60,11 +70,21 @@ static void testElement()
   CPPUNIT_ASSERT(elmntAss == elmntCpy);
 }
 
+static void testBrick()
+{
+  clean();
+  
+  Brick brickRED{Coordinates(40, 2)};
+  CPPUNIT_ASSERT(brickRED.getId() == 1);
+  CPPUNIT_ASSERT(brickRED.color() == BrickColor::BLUE);
+}
+
 int main(int argc, char **argv)
 {
   testCompare();
   testCoordinates();
   testElement();
+  testBrick();
 
   return EXIT_SUCCESS;
 }

@@ -68,9 +68,14 @@ namespace breakout
             return ELEMENT_TOTAL;
         }
 
+        static void reinitTotal()
+        {
+            ELEMENT_TOTAL = 0;
+        }
+
         friend std::ostream &operator<<(std::ostream &os, const Element &element);
 
-    private:
+    protected:
         static unsigned int ELEMENT_TOTAL;
 
         Coordinates _position{};
