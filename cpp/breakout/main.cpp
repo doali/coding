@@ -33,35 +33,56 @@ static void testCompare()
 
 static void testCoordinates()
 {
-  clean();
+  {
+    clean();
+    Coordinates coordRef{0, 1};
+    Coordinates coordCpy{coordRef};
 
-  Coordinates coordRef{0, 1};
-  Coordinates coordCpy{coordRef};
+    CPPUNIT_ASSERT(coordCpy == coordRef);
 
-  CPPUNIT_ASSERT(coordCpy == coordRef);
+    double x{0}, y{0};
+    coordRef.writeCoordinates(10, 20);
+    coordRef.readCoordinates(x, y);
 
-  double x{0}, y{0};
-  coordRef.writeCoordinates(10, 20);
-  coordRef.readCoordinates(x, y);
+    CPPUNIT_ASSERT(x == 10);
+    CPPUNIT_ASSERT(y == 20);
 
-  CPPUNIT_ASSERT(x == 10);
-  CPPUNIT_ASSERT(y == 20);
+    Coordinates coordAss{};
+    coordAss = coordRef;
 
-  Coordinates coordAss{};
-  coordAss = coordRef;
-
-  CPPUNIT_ASSERT(coordAss == coordRef);
+    CPPUNIT_ASSERT(coordAss == coordRef);
+  }
 
   {
+    clean();
     Coordinates coordRef{40, 2};
     CPPUNIT_ASSERT(Coordinates(40, 2) == coordRef.getCoordinates());
+  }
+
+  // operator+
+  {
+    clean();
+    Coordinates coordExpected{40, 2};
+    CPPUNIT_ASSERT(Coordinates(40, 2) == coordExpected.getCoordinates());
+    Coordinates coordBase{30, 1};
+    Coordinates coordRes{0, 0};
+    coordRes = coordBase + Coordinates{10, 1};
+    CPPUNIT_ASSERT(coordRes == coordExpected);
+  }
+
+  // operator+=
+  {
+    clean();
+    Coordinates coordExpected{40, 2};
+    Coordinates coordBase{30, 1};
+    coordBase += Coordinates{10, 1};
+    CPPUNIT_ASSERT(coordBase == coordExpected);
   }
 }
 
 static void testElement()
 {
   clean();
-
   Coordinates coordRef{10, 20};
   Element elmntRef{coordRef};
   Element elmntCpy(elmntRef);
@@ -78,22 +99,23 @@ static void testElement()
 
 static void testBrick()
 {
-  clean();
+  {
+    clean();
+    Brick brickRED{Coordinates(40, 2)};
+    CPPUNIT_ASSERT(brickRED.getId() == 1);
+    CPPUNIT_ASSERT(brickRED.color() == BrickColor::BLUE);
 
-  Brick brickRED{Coordinates(40, 2)};
-  CPPUNIT_ASSERT(brickRED.getId() == 1);
-  CPPUNIT_ASSERT(brickRED.color() == BrickColor::BLUE);
+    Coordinates coordRef{10, 20};
+    Coordinates coordCmp;
+    brickRED.readPosition(coordCmp);
+    CPPUNIT_ASSERT(coordCmp != coordRef);
 
-  Coordinates coordRef{10, 20};
-  Coordinates coordCmp;
-  brickRED.readPosition(coordCmp);
-  CPPUNIT_ASSERT(coordCmp != coordRef);
-
-  brickRED.writePosition(coordRef);
-  brickRED.readPosition(coordCmp);
-  CPPUNIT_ASSERT(coordCmp == coordRef);
-  CPPUNIT_ASSERT(coordRef == brickRED.getPosition());
-  CPPUNIT_ASSERT(Coordinates(10, 20) == brickRED.getPosition());
+    brickRED.writePosition(coordRef);
+    brickRED.readPosition(coordCmp);
+    CPPUNIT_ASSERT(coordCmp == coordRef);
+    CPPUNIT_ASSERT(coordRef == brickRED.getPosition());
+    CPPUNIT_ASSERT(Coordinates(10, 20) == brickRED.getPosition());
+  }
 
   // Collision
   {
@@ -106,23 +128,24 @@ static void testBrick()
 
 static void testBrickUnbreakable()
 {
-  clean();
+  {
+    clean();
+    BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
+    CPPUNIT_ASSERT(brickUnbreakable.getId() == 1);
+    CPPUNIT_ASSERT(brickUnbreakable.color() != BrickColor::BLUE);
+    CPPUNIT_ASSERT(brickUnbreakable.color() == BrickColor::RED);
 
-  BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
-  CPPUNIT_ASSERT(brickUnbreakable.getId() == 1);
-  CPPUNIT_ASSERT(brickUnbreakable.color() != BrickColor::BLUE);
-  CPPUNIT_ASSERT(brickUnbreakable.color() == BrickColor::RED);
+    Coordinates coordRef{10, 20};
+    Coordinates coordCmp;
+    brickUnbreakable.readPosition(coordCmp);
+    CPPUNIT_ASSERT(coordCmp != coordRef);
 
-  Coordinates coordRef{10, 20};
-  Coordinates coordCmp;
-  brickUnbreakable.readPosition(coordCmp);
-  CPPUNIT_ASSERT(coordCmp != coordRef);
-
-  brickUnbreakable.writePosition(coordRef);
-  brickUnbreakable.readPosition(coordCmp);
-  CPPUNIT_ASSERT(coordCmp == coordRef);
-  CPPUNIT_ASSERT(coordRef == brickUnbreakable.getPosition());
-  CPPUNIT_ASSERT(Coordinates(10, 20) == brickUnbreakable.getPosition());
+    brickUnbreakable.writePosition(coordRef);
+    brickUnbreakable.readPosition(coordCmp);
+    CPPUNIT_ASSERT(coordCmp == coordRef);
+    CPPUNIT_ASSERT(coordRef == brickUnbreakable.getPosition());
+    CPPUNIT_ASSERT(Coordinates(10, 20) == brickUnbreakable.getPosition());
+  }
 
   // Collision
   {

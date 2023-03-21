@@ -28,7 +28,7 @@ namespace breakout
             return *this;
         }
 
-        bool operator==(const Coordinates &coordinates)
+        bool operator==(const Coordinates &coordinates) const
         {
             if (this == &coordinates)
             {
@@ -38,9 +38,22 @@ namespace breakout
             return (_x == coordinates._x) && (_y == coordinates._y);
         }
 
-        bool operator!=(const Coordinates &coordinates)
+        bool operator!=(const Coordinates &coordinates) const
         {
             return !(*this == coordinates);
+        }
+
+        Coordinates operator+(const Coordinates &coordinates) const
+        {
+            return Coordinates(_x + coordinates._x, _y + coordinates._y);
+        }
+
+        Coordinates &operator+=(const Coordinates &coordinates)
+        {
+            _x += coordinates._x;
+            _y += coordinates._y;
+
+            return *this;
         }
 
         ~Coordinates()
