@@ -6,6 +6,7 @@
 #include "Coordinates.hpp"
 #include "Element.hpp"
 #include "Brick.hpp"
+#include "BrickUnbreakable.hpp"
 #include "Tools.hpp"
 
 #include <iostream>
@@ -93,6 +94,43 @@ static void testBrick()
   CPPUNIT_ASSERT(coordCmp == coordRef);
   CPPUNIT_ASSERT(coordRef == brickRED.getPosition());
   CPPUNIT_ASSERT(Coordinates(10, 20) == brickRED.getPosition());
+
+  // Collision
+  {
+    clean();
+    Brick brick{Coordinates(40, 2)};
+    CPPUNIT_ASSERT(brick.collision() != BrickDamage::NONE);
+    CPPUNIT_ASSERT(brick.collision() == BrickDamage::FULL);
+  }
+}
+
+static void testBrickUnbreakable()
+{
+  clean();
+
+  BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
+  CPPUNIT_ASSERT(brickUnbreakable.getId() == 1);
+  CPPUNIT_ASSERT(brickUnbreakable.color() != BrickColor::BLUE);
+  CPPUNIT_ASSERT(brickUnbreakable.color() == BrickColor::RED);
+
+  Coordinates coordRef{10, 20};
+  Coordinates coordCmp;
+  brickUnbreakable.readPosition(coordCmp);
+  CPPUNIT_ASSERT(coordCmp != coordRef);
+
+  brickUnbreakable.writePosition(coordRef);
+  brickUnbreakable.readPosition(coordCmp);
+  CPPUNIT_ASSERT(coordCmp == coordRef);
+  CPPUNIT_ASSERT(coordRef == brickUnbreakable.getPosition());
+  CPPUNIT_ASSERT(Coordinates(10, 20) == brickUnbreakable.getPosition());
+
+  // Collision
+  {
+    clean();
+    BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
+    CPPUNIT_ASSERT(brickUnbreakable.collision() == BrickDamage::NONE);
+    CPPUNIT_ASSERT(brickUnbreakable.collision() != BrickDamage::FULL);
+  }
 }
 
 int main(int argc, char **argv)
@@ -101,6 +139,7 @@ int main(int argc, char **argv)
   testCoordinates();
   testElement();
   testBrick();
+  testBrickUnbreakable();
 
   return EXIT_SUCCESS;
 }

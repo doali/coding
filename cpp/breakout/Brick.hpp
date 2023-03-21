@@ -13,15 +13,22 @@ namespace breakout
         BLUE
     };
 
+    enum class BrickDamage
+    {
+        NONE,
+        PARTIAL,
+        FULL
+    };
+
     class Brick : public Element
     {
     public:
-        Brick(Coordinates coordinates) : Element(coordinates)
+        Brick(const Coordinates &coordinates) : Element(coordinates)
         {
             std::cout << *this << std::endl;
         }
 
-        Brick(Coordinates coordinates, BrickColor color) : Brick(coordinates)
+        Brick(const Coordinates &coordinates, const BrickColor &color) : Brick(coordinates)
         {
             _color = color;
         }
@@ -31,9 +38,11 @@ namespace breakout
             return _color;
         }
 
+        virtual BrickDamage collision();
+
         friend std::ostream &operator<<(std::ostream &os, const Brick &brick);
 
-    private:
+    protected:
         BrickColor _color{BrickColor::BLUE};
     };
 }

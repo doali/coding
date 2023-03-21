@@ -15,7 +15,7 @@ namespace breakout
         {
         }
 
-        Coordinates& operator=(const Coordinates &coordinates)
+        Coordinates &operator=(const Coordinates &coordinates)
         {
             if (this == &coordinates)
             {
@@ -59,7 +59,7 @@ namespace breakout
             y = this->_y;
         }
 
-        const Coordinates& getCoordinates() const
+        const Coordinates &getCoordinates() const
         {
             return *this;
         }

@@ -9,7 +9,12 @@ namespace breakout
     class Element
     {
     public:
-        Element(const Coordinates position = Coordinates{}) : _position{position}, _id{++ELEMENT_TOTAL}
+        Element() : _id{++ELEMENT_TOTAL}
+        {
+            // std::cout << *this << std::endl;
+        }
+
+        Element(const Coordinates &position) : _position{position}, _id{++ELEMENT_TOTAL}
         {
             // std::cout << *this << std::endl;
         }
@@ -58,7 +63,7 @@ namespace breakout
             position = _position;
         }
 
-        const Coordinates& getPosition() const 
+        const Coordinates &getPosition() const
         {
             return _position;
         }
