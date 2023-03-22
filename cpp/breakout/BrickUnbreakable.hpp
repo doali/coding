@@ -11,6 +11,8 @@ namespace breakout
         {
         }
 
+        virtual ~BrickUnbreakable() = default;
+
         BrickDamage collision() override;
 
         friend std::ostream &operator<<(std::ostream &os, const BrickUnbreakable &brickUnbreakable);

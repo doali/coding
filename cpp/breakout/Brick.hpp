@@ -33,6 +33,8 @@ namespace breakout
             _color = color;
         }
 
+        virtual ~Brick() = default;
+
         BrickColor color() const
         {
             return _color;

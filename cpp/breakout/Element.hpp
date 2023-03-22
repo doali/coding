@@ -24,6 +24,8 @@ namespace breakout
             // std::cout << "copy" << *this << std::endl;
         }
 
+        virtual ~Element() = default;
+
         Element &operator=(const Element &element)
         {
             if (this == &element)
