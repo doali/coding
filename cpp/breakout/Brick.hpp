@@ -23,12 +23,12 @@ namespace breakout
     class Brick : public Element
     {
     public:
-        Brick(const Coordinates &coordinates) : Element(coordinates)
+        Brick(const Coordinates<double> &coordinates) : Element(coordinates)
         {
             std::cout << *this << std::endl;
         }
 
-        Brick(const Coordinates &coordinates, const BrickColor &color) : Brick(coordinates)
+        Brick(const Coordinates<double> &coordinates, const BrickColor &color) : Brick(coordinates)
         {
             _color = color;
         }

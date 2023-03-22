@@ -24,19 +24,19 @@ static void testCompare()
 {
   using namespace tools::compare_real;
 
-  CPPUNIT_ASSERT(CompareReal(42.00001, 42.00002, EPSILON) == true);
+  CPPUNIT_ASSERT(CompareReal<double>(42.00001, 42.00002, EPSILON) == true);
 
-  CPPUNIT_ASSERT(CompareCoordinates(42.00001, 42.00002) == true);
-  CPPUNIT_ASSERT(CompareCoordinates(42.000001, 42.000002) == true);
-  CPPUNIT_ASSERT(CompareCoordinates(42.0001, 42.0002) == false);
+  CPPUNIT_ASSERT(CompareCoordinates<double>(42.00001, 42.00002) == true);
+  CPPUNIT_ASSERT(CompareCoordinates<double>(42.000001, 42.000002) == true);
+  CPPUNIT_ASSERT(CompareCoordinates<double>(42.0001, 42.0002) == false);
 }
 
 static void testCoordinates()
 {
   {
     clean();
-    Coordinates coordRef{0, 1};
-    Coordinates coordCpy{coordRef};
+    Coordinates<double> coordRef{0, 1};
+    Coordinates<double> coordCpy{coordRef};
 
     CPPUNIT_ASSERT(coordCpy == coordRef);
 
@@ -47,7 +47,7 @@ static void testCoordinates()
     CPPUNIT_ASSERT(x == 10);
     CPPUNIT_ASSERT(y == 20);
 
-    Coordinates coordAss{};
+    Coordinates<double> coordAss{};
     coordAss = coordRef;
 
     CPPUNIT_ASSERT(coordAss == coordRef);
@@ -55,27 +55,27 @@ static void testCoordinates()
 
   {
     clean();
-    Coordinates coordRef{40, 2};
-    CPPUNIT_ASSERT(Coordinates(40, 2) == coordRef.getCoordinates());
+    Coordinates<double> coordRef{40, 2};
+    CPPUNIT_ASSERT(Coordinates<double>(40, 2) == coordRef.getCoordinates());
   }
 
   // operator+
   {
     clean();
-    Coordinates coordExpected{40, 2};
-    CPPUNIT_ASSERT(Coordinates(40, 2) == coordExpected.getCoordinates());
-    Coordinates coordBase{30, 1};
-    Coordinates coordRes{0, 0};
-    coordRes = coordBase + Coordinates{10, 1};
+    Coordinates<double> coordExpected{40, 2};
+    CPPUNIT_ASSERT(Coordinates<double>(40, 2) == coordExpected.getCoordinates());
+    Coordinates<double> coordBase{30, 1};
+    Coordinates<double> coordRes{0, 0};
+    coordRes = coordBase + Coordinates<double>{10, 1};
     CPPUNIT_ASSERT(coordRes == coordExpected);
   }
 
   // operator+=
   {
     clean();
-    Coordinates coordExpected{40, 2};
-    Coordinates coordBase{30, 1};
-    coordBase += Coordinates{10, 1};
+    Coordinates<double> coordExpected{40, 2};
+    Coordinates<double> coordBase{30, 1};
+    coordBase += Coordinates<double>{10, 1};
     CPPUNIT_ASSERT(coordBase == coordExpected);
   }
 }
@@ -83,7 +83,7 @@ static void testCoordinates()
 static void testElement()
 {
   clean();
-  Coordinates coordRef{10, 20};
+  Coordinates<double> coordRef{10, 20};
   Element elmntRef{coordRef};
   Element elmntCpy(elmntRef);
 
@@ -101,12 +101,12 @@ static void testBrick()
 {
   {
     clean();
-    Brick brickRED{Coordinates(40, 2)};
+    Brick brickRED{Coordinates<double>(40, 2)};
     CPPUNIT_ASSERT(brickRED.getId() == 1);
     CPPUNIT_ASSERT(brickRED.color() == BrickColor::BLUE);
 
-    Coordinates coordRef{10, 20};
-    Coordinates coordCmp;
+    Coordinates<double> coordRef{10, 20};
+    Coordinates<double> coordCmp;
     brickRED.readPosition(coordCmp);
     CPPUNIT_ASSERT(coordCmp != coordRef);
 
@@ -114,13 +114,13 @@ static void testBrick()
     brickRED.readPosition(coordCmp);
     CPPUNIT_ASSERT(coordCmp == coordRef);
     CPPUNIT_ASSERT(coordRef == brickRED.getPosition());
-    CPPUNIT_ASSERT(Coordinates(10, 20) == brickRED.getPosition());
+    CPPUNIT_ASSERT(Coordinates<double>(10, 20) == brickRED.getPosition());
   }
 
   // Collision
   {
     clean();
-    Brick brick{Coordinates(40, 2)};
+    Brick brick{Coordinates<double>(40, 2)};
     CPPUNIT_ASSERT(brick.collision() != BrickDamage::NONE);
     CPPUNIT_ASSERT(brick.collision() == BrickDamage::FULL);
   }
@@ -130,13 +130,13 @@ static void testBrickUnbreakable()
 {
   {
     clean();
-    BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
+    BrickUnbreakable brickUnbreakable{Coordinates<double>(40, 2)};
     CPPUNIT_ASSERT(brickUnbreakable.getId() == 1);
     CPPUNIT_ASSERT(brickUnbreakable.color() != BrickColor::BLUE);
     CPPUNIT_ASSERT(brickUnbreakable.color() == BrickColor::RED);
 
-    Coordinates coordRef{10, 20};
-    Coordinates coordCmp;
+    Coordinates<double> coordRef{10, 20};
+    Coordinates<double> coordCmp;
     brickUnbreakable.readPosition(coordCmp);
     CPPUNIT_ASSERT(coordCmp != coordRef);
 
@@ -144,13 +144,13 @@ static void testBrickUnbreakable()
     brickUnbreakable.readPosition(coordCmp);
     CPPUNIT_ASSERT(coordCmp == coordRef);
     CPPUNIT_ASSERT(coordRef == brickUnbreakable.getPosition());
-    CPPUNIT_ASSERT(Coordinates(10, 20) == brickUnbreakable.getPosition());
+    CPPUNIT_ASSERT(Coordinates<double>(10, 20) == brickUnbreakable.getPosition());
   }
 
   // Collision
   {
     clean();
-    BrickUnbreakable brickUnbreakable{Coordinates(40, 2)};
+    BrickUnbreakable brickUnbreakable{Coordinates<double>(40, 2)};
     CPPUNIT_ASSERT(brickUnbreakable.collision() == BrickDamage::NONE);
     CPPUNIT_ASSERT(brickUnbreakable.collision() != BrickDamage::FULL);
   }

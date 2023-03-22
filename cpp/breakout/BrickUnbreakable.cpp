@@ -4,7 +4,8 @@ namespace breakout
 {
     BrickDamage BrickUnbreakable::collision()
     {
-        std::cout << *this << " => collision " << "BrickDamage::NONE\n";
+        std::cout << *this << " => collision "
+                  << "BrickDamage::NONE\n";
 
         return BrickDamage::NONE;
     }

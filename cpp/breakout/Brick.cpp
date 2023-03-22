@@ -4,7 +4,7 @@
 
 namespace breakout
 {
-    BrickDamage Brick::collision() 
+    BrickDamage Brick::collision()
     {
         // std::cout << *this << " => collision " << "BrickDamage::FULL\n";
 

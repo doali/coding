@@ -7,7 +7,7 @@ namespace breakout
     class BrickUnbreakable : public Brick
     {
     public:
-        BrickUnbreakable(const Coordinates &coordinates) : Brick(coordinates, BrickColor::RED)
+        BrickUnbreakable(const Coordinates<double> &coordinates) : Brick(coordinates, BrickColor::RED)
         {
         }
 

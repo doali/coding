@@ -14,7 +14,7 @@ namespace breakout
             // std::cout << *this << std::endl;
         }
 
-        Element(const Coordinates &position) : _position{position}, _id{++ELEMENT_TOTAL}
+        Element(const Coordinates<double> &position) : _position{position}, _id{++ELEMENT_TOTAL}
         {
             // std::cout << *this << std::endl;
         }
@@ -33,7 +33,7 @@ namespace breakout
                 return *this;
             }
 
-            Coordinates position;
+            Coordinates<double> position;
             element.readPosition(position);
             writePosition(position);
 
@@ -55,17 +55,17 @@ namespace breakout
             return !(*this == element);
         }
 
-        void writePosition(const Coordinates &position)
+        void writePosition(const Coordinates<double> &position)
         {
             _position = position;
         }
 
-        void readPosition(Coordinates &position) const
+        void readPosition(Coordinates<double> &position) const
         {
             position = _position;
         }
 
-        const Coordinates &getPosition() const
+        const Coordinates<double> &getPosition() const
         {
             return _position;
         }
@@ -90,7 +90,7 @@ namespace breakout
     protected:
         static unsigned int ELEMENT_TOTAL;
 
-        Coordinates _position{};
+        Coordinates<double> _position{};
         unsigned int _id{0};
     };
 }

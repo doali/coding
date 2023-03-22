@@ -4,10 +4,11 @@
 
 namespace breakout
 {
+    template <class T>
     class Coordinates
     {
     public:
-        Coordinates(double x = 0, double y = 0) : _x{x}, _y{y}
+        Coordinates(T x = 0, T y = 0) : _x{x}, _y{y}
         {
         }
 
@@ -34,7 +35,7 @@ namespace breakout
             {
                 return true;
             }
-            // return CompareCoordinates(coordinates._x, this->_x) && CompareCoordinates(coordinates._y, this->_y);
+            // return CompareCoordinates<T>(coordinates._x, this->_x) && CompareCoordinates<T>(coordinates._y, this->_y);
             return (_x == coordinates._x) && (_y == coordinates._y);
         }
 
@@ -77,10 +78,10 @@ namespace breakout
             return *this;
         }
 
-        friend std::ostream &operator<<(std::ostream &os, const Coordinates &coordinates);
+        friend std::ostream &operator<<(std::ostream &os, const Coordinates<double> &coordinates);
 
     private:
-        double _x;
-        double _y;
+        T _x;
+        T _y;
     };
 }

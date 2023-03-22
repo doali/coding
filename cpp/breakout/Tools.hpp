@@ -2,20 +2,25 @@
 
 #include <cmath>
 
-namespace tools
+namespace breakout
 {
-    namespace compare_real
+    namespace tools
     {
-        static constexpr double EPSILON{0.0001f};
-
-        static bool CompareReal(double x, double y, double epsilon)
+        namespace compare_real
         {
-            return (std::fabs(x - y) < epsilon);
-        }
+            static constexpr double EPSILON{0.0001f};
 
-        static bool CompareCoordinates(double x, double y)
-        {
-            return CompareReal(x, y, EPSILON);
+            template <typename T>
+            static bool CompareReal(T x, T y, double epsilon)
+            {
+                return (std::fabs(x - y) < epsilon);
+            }
+
+            template <typename T>
+            static bool CompareCoordinates(T x, T y)
+            {
+                return CompareReal<T>(x, y, EPSILON);
+            }
         }
     }
 }
