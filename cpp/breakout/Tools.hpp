@@ -6,6 +6,8 @@ namespace breakout
 {
     namespace tools
     {
+        constexpr double PI{acos(-1)};
+
         namespace compare_real
         {
             static constexpr double EPSILON{0.0001f};

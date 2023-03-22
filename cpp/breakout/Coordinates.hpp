@@ -4,19 +4,21 @@
 
 namespace breakout
 {
-    template <class T>
+    template <typename T=int>
     class Coordinates
     {
     public:
-        Coordinates(T x = 0, T y = 0) : _x{x}, _y{y}
+        Coordinates() = default;
+
+        Coordinates(T x, T y) : _x{x}, _y{y}
         {
         }
 
-        Coordinates(const Coordinates &coordinates) : _x{coordinates._x}, _y{coordinates._y}
+        Coordinates(const Coordinates<T> &coordinates) : _x{coordinates._x}, _y{coordinates._y}
         {
         }
 
-        Coordinates &operator=(const Coordinates &coordinates)
+        Coordinates<T> &operator=(const Coordinates<T> &coordinates)
         {
             if (this == &coordinates)
             {
@@ -29,7 +31,7 @@ namespace breakout
             return *this;
         }
 
-        bool operator==(const Coordinates &coordinates) const
+        bool operator==(const Coordinates<T> &coordinates) const
         {
             if (this == &coordinates)
             {
@@ -39,17 +41,22 @@ namespace breakout
             return (_x == coordinates._x) && (_y == coordinates._y);
         }
 
-        bool operator!=(const Coordinates &coordinates) const
+        bool operator!=(const Coordinates<T> &coordinates) const
         {
             return !(*this == coordinates);
         }
 
-        Coordinates operator+(const Coordinates &coordinates) const
+        Coordinates<T> operator+(const Coordinates<T> &coordinates) const
         {
-            return Coordinates(_x + coordinates._x, _y + coordinates._y);
+            return Coordinates<T>(_x + coordinates._x, _y + coordinates._y);
         }
 
-        Coordinates &operator+=(const Coordinates &coordinates)
+        Coordinates<T> operator-(const Coordinates<T> &coordinates) const
+        {
+            return Coordinates<T>(_x - coordinates._x, _y - coordinates._y);
+        }
+
+        Coordinates<T> &operator+=(const Coordinates<T> &coordinates)
         {
             _x += coordinates._x;
             _y += coordinates._y;
@@ -57,31 +64,44 @@ namespace breakout
             return *this;
         }
 
-        ~Coordinates()
+        Coordinates<T> &operator-=(const Coordinates<T> &coordinates)
         {
+            _x -= coordinates._x;
+            _y -= coordinates._y;
+
+            return *this;
         }
 
-        void writeCoordinates(double x, double y)
+        ~Coordinates() = default;
+
+        void writeCoordinates(T x, T y)
         {
             this->_x = x;
             this->_y = y;
         }
 
-        void readCoordinates(double &x, double &y) const
+        void readCoordinates(T &x, T &y) const
         {
             x = this->_x;
             y = this->_y;
         }
 
-        const Coordinates &getCoordinates() const
+        const Coordinates<T> &getCoordinates() const
         {
             return *this;
         }
 
-        friend std::ostream &operator<<(std::ostream &os, const Coordinates<double> &coordinates);
+        template <typename U>
+        friend std::ostream &operator<<(std::ostream &os, const Coordinates<U> &coordinates);
 
     private:
-        T _x;
-        T _y;
+        T _x{0};
+        T _y{0};
     };
+
+    template <typename U>
+    std::ostream &operator<<(std::ostream &os, const Coordinates<U> &coordinates)
+    {
+        return os << "[" << coordinates._x << ", " << coordinates._y << "]";
+    }
 }
