@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <vector>
 #include <functional>
 #include <cassert>
 
@@ -41,12 +42,61 @@ namespace test
         l_action[DIRECTION::RIGHT]();
         l_action[DIRECTION::DOWN]();
         l_action[DIRECTION::LEFT]();
+
+        auto test_iterator = [&]() -> void
+        {
+            std::cout << "test_iterator" << std::endl;
+            auto it = l_action.begin();
+            while (it != l_action.end())
+            {
+                l_action[(it++)->first]();
+            }
+        };
+
+        auto test_range = [&]() -> void
+        {
+            std::cout << "test_range" << std::endl;
+            for (auto &element : l_action)
+            {
+                l_action[element.first](); // OK : element.first corresponds to the key
+                // (element.second)();        // OK :element.second corresponds to the value
+            }
+        };
+
+        test_range();
+        test_iterator();
+    }
+
+    static void test_vector()
+    {
+        std::cout << "test_vector" << std::endl;
+        std::vector<int> v{1, 2, 3, 6, 7};
+        std::vector<int>::iterator it = v.begin(); // auto it = v.begin();
+
+        // A new iterator is returned... !!
+        it = v.insert(it, 0);
+        std::cout << *it << std::endl;
+        std::cout << *++it << std::endl;
+
+        // Insertion of an old array (or raw array like in C)
+        int o_arr[] = {4, 5};
+        auto it_start = v.begin();
+        v.insert(it_start + 4, o_arr, o_arr + 2);
+
+        auto print_v = [](const auto v) -> void
+        {
+            for (auto &e : v)
+                std::cout << e << " ";
+            std::cout << std::endl;
+        };
+        print_v(v);
     }
 }
 
 int main(void)
 {
     test::test_map();
+    test::test_vector();
 
     return EXIT_SUCCESS;
 }
