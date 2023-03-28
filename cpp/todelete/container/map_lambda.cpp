@@ -63,8 +63,19 @@ namespace test
             }
         };
 
+        auto test_find = [&]() -> void
+        {
+            if (auto itf = l_action.find(DIRECTION::UP); itf != l_action.end()) // if syntax... (looks like golang :-)
+            {
+                std::cout << "key UP found !!" << std::endl;
+                (itf->second)();
+            }
+            assert(l_action.find(DIRECTION::UP) != l_action.end());
+        };
+
         test_range();
         test_iterator();
+        test_find();
     }
 
     static void test_vector()
