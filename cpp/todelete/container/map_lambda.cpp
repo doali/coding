@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <functional>
+#include <cassert>
 
 enum class DIRECTION // better than old plain enum
 {
