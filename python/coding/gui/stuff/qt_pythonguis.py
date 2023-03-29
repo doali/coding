@@ -30,8 +30,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def draw_cirlce(self):
         painter = QtGui.QPainter(self.label.pixmap())
-        val = [x / (2 * pi) for x in range(1000)]
-        for angle in val:
+        step = 1000
+        l_val = [x * (2 * pi / step) for x in range(step)]
+
+        for angle in l_val:
             painter.drawPoint(
                 floor(150 + 50 * cos(angle)), floor(150 + 50 * sin(angle))
             )
