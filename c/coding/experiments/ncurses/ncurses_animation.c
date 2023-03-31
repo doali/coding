@@ -20,7 +20,7 @@ static void clear_from_line_1()
 	clrtobot(); // clear until the last line
 }
 
-void draw_circle(unsigned int x, unsigned int y, unsigned int r, void (*draw)(unsigned int, unsigned int))
+static void draw_circle(unsigned int x, unsigned int y, unsigned int r, void (*draw)(unsigned int, unsigned int))
 {
 	const float PI = acos(-1);
 	unsigned int precision = pow(2, 8);

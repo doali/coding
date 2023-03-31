@@ -8,8 +8,6 @@
 #include <assert.h>
 #include <unistd.h>
 
-#include <time.h>
-
 typedef struct element s_element;
 
 struct element
