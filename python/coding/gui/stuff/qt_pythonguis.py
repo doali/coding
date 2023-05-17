@@ -13,8 +13,8 @@ class MainWindow(QtWidgets.QMainWindow):
         canvas.fill(Qt.white)
         self.label.setPixmap(canvas)
         self.setCentralWidget(self.label)
-        # self.draw_line()
-        # self.draw_point()
+        self.draw_line()
+        self.draw_point()
         self.draw_cirlce()
 
     def draw_line(self):
@@ -30,7 +30,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def draw_cirlce(self):
         painter = QtGui.QPainter(self.label.pixmap())
-        step = 1000
+        step = 100
         l_val = [x * (2 * pi / step) for x in range(step)]
 
         for angle in l_val:
