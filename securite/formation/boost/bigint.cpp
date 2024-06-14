@@ -3,6 +3,16 @@
 
 using namespace boost::multiprecision;
 
+cpp_int cpp_int_fac(cpp_int n) {
+    if (n == 0) return 1;
+    return n * cpp_int_fac(n - 1);
+}
+
+int fac(int n) {
+    if (n == 0) return 1;
+    return n * fac(n - 1);
+}
+
 int main() {
     // Déclaration de variables cpp_int
     cpp_int a("23456789012345678901234567890");
@@ -26,6 +36,12 @@ int main() {
     if (a < b) {
         std::cout << a << " is less than " << b << std::endl;
     }
+    
+    int res = fac(123);
+    std::cout << res << std::endl;
+
+    cpp_int c_res = cpp_int_fac(123);
+    std::cout << c_res << std::endl;
 
     return 0;
 }

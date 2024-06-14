@@ -63,6 +63,8 @@ int32_t main(int32_t argc, char** argv) {
     printf("adresse de _got_root : %p\n", _got_root);
     m = init_m_buf(argv[1]);
 
+    printf("size=%ld\n", sizeof(*m));
+
     process_m_buf(m);
 
     free_m_buf(m);
