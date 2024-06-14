@@ -1,5 +1,7 @@
 # Ateliers secure coding C C++
 
+> `https://github.com/antislashn/antislashn-secure-coding-c-cpp.git`
+
 ## Quelques environnement en ligne
 * [gitpod.io](https://www.gitpod.io/)
 * [compiler explorer](https://godbolt.org/)
