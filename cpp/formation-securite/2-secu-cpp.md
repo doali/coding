@@ -120,6 +120,6 @@ car le c++
 - permet de manipuler des objets du fait d'une mauvaise utilisation des cast
 - permet un dépassement d'entier si le type est mal choisi
 - permet de gérer manuellement la mémoire et implique la libération de la mémoire allouée
-- entraine un comportement indéfine dans cas de la double libération
+- entraine un comportement indéfini dans cas de la double libération
 
 == PAUSE DEJ ==
