@@ -99,7 +99,7 @@ Concurrence
 
 [slide 76]
 - dynamic_cast<>, dynamic_pointer_cast<> : au runtime
-- static_cast<>, static_pointer_cast<> : à la compilation
+- static_cast<>, static_pointer_cast<> : à la compilation (simple copie => on peut pointer sur un mauvaise attribut)
 - const_cast<> : retirer un const
 - reinterpret_cast<> : compilation
 
