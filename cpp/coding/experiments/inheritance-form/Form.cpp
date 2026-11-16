@@ -36,7 +36,7 @@ Form::Form(int id, std::string name) : _id(id), _name(name) {
 }
 
 std::ostream &operator<<(const std::ostream &os, const Form &form) {
-  std::cout << "ID:" << form.getId() << "|" << form.getName() << std::endl;
+  return std::cout << "ID:" << form.getId() << "|" << form.getName() << std::endl;
 }
 
 #endif
