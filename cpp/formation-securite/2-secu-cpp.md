@@ -94,6 +94,7 @@ Concurrence
 - `std::async` : Utilise en interne directement std::promise et std::future et les threads ont tous les même priorités.
 
 [slide 73]
+`inline`
 - mot clef est à utiliser dans le header 
 - dépassé en c++ moderne (car les compilateurs sont suffisamment intelligents)
 
