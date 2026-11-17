@@ -9,5 +9,5 @@
 5. Utiliser les outils de diagnotics (SAST, ...)
 6. Challenger la conception (lors des tests)
 7. Tester la robustesse aux cyber attaques
-9. Ne pas intégrer de logiciels malveillants lors de la livraison
+8. Ne pas intégrer de logiciels malveillants lors de la livraison
 
